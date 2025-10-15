@@ -1,0 +1,686 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis CSS para cores */
+:root {
+    /* Cores primárias */
+    --primary-gray: #BFBFBF;
+    --primary-blue: #00395D;
+    
+    /* Cores secundárias */
+    --secondary-red: #6C2624;
+    --secondary-dark: #292929;
+    --secondary-light: #E5E7E6;
+    
+    /* Cores auxiliares */
+    --white: #FFFFFF;
+    --black: #000000;
+    
+    /* Tipografia */
+    --font-title: 'Gotham', 'Arial Black', sans-serif;
+    --font-text: 'Cambria', Georgia, serif;
+    
+    /* Espaçamentos */
+    --section-padding: 80px 0;
+    --container-padding: 0 20px;
+    --max-width: 1200px;
+}
+
+/* Tipografia base */
+body {
+    font-family: var(--font-text);
+    line-height: 1.6;
+    color: var(--secondary-dark);
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-red);
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Container e layout */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--container-padding);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Header e navegação */
+.header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--secondary-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-blue);
+}
+
+.cta-nav {
+    background-color: var(--secondary-red);
+    color: var(--white) !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-nav:hover {
+    background-color: var(--primary-blue);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--secondary-dark);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-gray) 100%);
+    padding: 120px 0 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--container-padding);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-dark);
+}
+
+.hero-cta {
+    text-align: left;
+}
+
+.hero-cta-subtitle {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--secondary-red);
+    font-weight: bold;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--secondary-red);
+    color: var(--white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(108, 38, 36, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 57, 93, 0.4);
+}
+
+.btn-large {
+    padding: 20px 40px;
+    font-size: 1.3rem;
+}
+
+/* Seções gerais */
+section {
+    padding: var(--section-padding);
+}
+
+.aulas {
+    background-color: var(--secondary-light);
+}
+
+.metodo {
+    background-color: var(--white);
+}
+
+.formacao {
+    background-color: var(--secondary-light);
+}
+
+.avaliacao {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.avaliacao h2 {
+    color: var(--white);
+}
+
+.bonus {
+    background-color: var(--white);
+}
+
+.depoimentos {
+    background-color: var(--secondary-light);
+}
+
+/* Layout de conteúdo das seções */
+.diagnostico-content,
+.aulas-content,
+.metodo-content,
+.formacao-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.section-img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlights */
+.highlight {
+    background-color: var(--primary-gray);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 5px solid var(--secondary-red);
+}
+
+.highlight p {
+    margin: 0;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+/* Lista de formação */
+.formacao-list {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.formacao-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--primary-gray);
+    position: relative;
+    padding-left: 30px;
+}
+
+.formacao-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-red);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Produtos Section */
+.comprar {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-red) 100%);
+    color: white;
+    padding: 5rem 0;
+}
+
+.comprar .section-header h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.comprar .section-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.produto-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    color: var(--secondary-dark);
+}
+
+.produto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.produto-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.produto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.produto-card:hover .produto-img {
+    transform: scale(1.05);
+}
+
+.produto-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--secondary-red);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.produto-content {
+    padding: 2rem;
+}
+
+.produto-content h3 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.produto-subtitle {
+    font-style: italic;
+    color: var(--secondary-red);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.produto-description {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-dark);
+}
+
+.produto-quote {
+    background: var(--secondary-light);
+    border-left: 4px solid var(--secondary-red);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+}
+
+.produto-features {
+    margin: 1.5rem 0;
+}
+
+.produto-features h4 {
+    font-family: var(--font-title);
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.produto-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.produto-features li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.produto-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-red);
+    font-weight: bold;
+}
+
+.btn-produto {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-red));
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-produto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, var(--secondary-red), var(--primary-blue));
+}
+
+/* Responsividade para produtos */
+@media (max-width: 768px) {
+    .produtos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .produto-card {
+        margin: 0 1rem;
+    }
+    
+    .produto-content {
+        padding: 1.5rem;
+    }
+    
+    .produto-image {
+        height: 200px;
+    }
+}
+
+/* Grid de bônus */
+.bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.bonus-item {
+    background-color: var(--secondary-light);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.bonus-item:hover {
+    transform: translateY(-5px);
+}
+
+.bonus-item h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+/* Depoimentos */
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.depoimento {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.depoimento:before {
+    content: """;
+    font-size: 4rem;
+    color: var(--secondary-red);
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: Georgia, serif;
+}
+
+.depoimento p {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.depoimento cite {
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+/* CTA Final */
+.cta-final {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-red) 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-final h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-final p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-subtitle {
+    margin-top: 1rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-dark);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.footer-text p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .hero-container,
+    .diagnostico-content,
+    .aulas-content,
+    .metodo-content,
+    .formacao-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .bonus-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .depoimentos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-final h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .btn-primary {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .btn-large {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Animações suaves */
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+}
+
+/* Efeitos hover para imagens */
+.section-img,
+.hero-img {
+    transition: transform 0.3s ease;
+}
+
+.section-img:hover,
+.hero-img:hover {
+    transform: scale(1.02);
+}
