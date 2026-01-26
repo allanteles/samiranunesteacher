@@ -125,6 +125,87 @@ document.addEventListener('DOMContentLoaded', function() {
         observerProdutos.observe(card);
     });
 
+    // Interações da Seção de Dor removidas conforme solicitação
+    /*
+    const painCheckboxes = document.querySelectorAll('.pain-checkbox');
+    
+    painCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            updatePainChecklist();
+        });
+    });
+
+    function updatePainChecklist() {
+        const checkedBoxes = document.querySelectorAll('.pain-checkbox:checked');
+        const painExplanation = document.querySelector('.pain-explanation');
+        
+        if (checkedBoxes.length > 0) {
+            painExplanation.style.opacity = '1';
+            painExplanation.style.transform = 'translateY(0)';
+            
+            // Adicionar efeito visual baseado no número de checkboxes marcados
+            if (checkedBoxes.length >= 3) {
+                painExplanation.style.backgroundColor = 'rgba(210, 180, 140, 0.1)';
+                painExplanation.style.borderLeftColor = '#D2B48C';
+            }
+        } else {
+            painExplanation.style.opacity = '0.7';
+            painExplanation.style.transform = 'translateY(10px)';
+            painExplanation.style.backgroundColor = 'var(--primary-gray)';
+            painExplanation.style.borderLeftColor = 'var(--secondary-red)';
+        }
+    }
+    */
+
+    // Animação do plano em destaque
+    const planCards = document.querySelectorAll('.plan-card');
+    
+    planCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('featured')) {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('featured')) {
+                this.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+    });
+
+    // Efeito de contador para a seção de autoridade
+    const authorityElement = document.querySelector('.hero-conversion .authority');
+    if (authorityElement) {
+        const observerAuthority = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out';
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observerAuthority.observe(authorityElement);
+    }
+
+    // Adicionar animação CSS para fadeInUp
+    const fadeInUpStyles = `
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    `;
+    
+    const fadeInStyleSheet = document.createElement('style');
+    fadeInStyleSheet.textContent = fadeInUpStyles;
+    document.head.appendChild(fadeInStyleSheet);
+
     // Contador animado (se necessário no futuro)
     function animateCounter(element, target, duration = 2000) {
         let start = 0;

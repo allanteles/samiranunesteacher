@@ -313,18 +313,18 @@ section {
 }
 
 /* Produtos Section */
-.comprar {
+.produtos {
     background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
     color: white;
     padding: 5rem 0;
 }
 
-.comprar .section-header h2 {
+.produtos .section-header h2 {
     color: white;
     margin-bottom: 1rem;
 }
 
-.comprar .section-header p {
+.produtos .section-header p {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.2rem;
     margin-bottom: 3rem;
@@ -792,6 +792,42 @@ section {
         font-size: 1.5rem;
     }
     
+    /* Responsividade para novas seções */
+    .hero-conversion h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-conversion .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-conversion .authority {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    
+    .pain-checklist {
+        padding: 0 20px;
+    }
+    
+    .pain-item {
+        font-size: 1.1rem;
+        margin: 10px 0;
+    }
+    
+    .plans-table {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .plan-card.featured {
+        transform: scale(1);
+    }
+    
+    .plan-card {
+        padding: 20px;
+    }
+    
     .bonus-grid {
         grid-template-columns: 1fr;
     }
@@ -849,4 +885,240 @@ section {
 .section-img:hover,
 .hero-img:hover {
     transform: scale(1.02);
+}
+
+/* NOVAS SEÇÕES DE CONVERSÃO */
+
+/* Hero Section com foco em conversão */
+.hero-conversion {
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-gray) 100%);
+    padding: 120px 0 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-conversion-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--container-padding);
+}
+
+.hero-conversion h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    line-height: 1.1;
+}
+
+.hero-conversion .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.hero-conversion .authority {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--secondary-red);
+    margin-bottom: 3rem;
+    padding: 20px;
+    border-left: 4px solid var(--secondary-red);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+/* Seção de Dor */
+.pain-section {
+    background-color: #2d2d2d;
+    padding: 80px 0;
+}
+
+.pain-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pain-question {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+}
+
+.pain-checklist {
+    text-align: left;
+    margin: 2rem 0;
+}
+
+.pain-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.pain-icon {
+    margin-right: 15px;
+    font-size: 1.2rem;
+    min-width: 25px;
+    text-align: center;
+}
+
+/* 
+.pain-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+    accent-color: var(--secondary-red);
+} 
+*/
+
+.pain-explanation {
+    background-color: var(--primary-gray);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 5px solid var(--secondary-red);
+}
+
+.pain-explanation h3 {
+    color: var(--secondary-red);
+    margin-bottom: 1rem;
+}
+
+/* Seção de Posicionamento */
+.positioning-section {
+    background-color: #333333;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.positioning-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.positioning-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+}
+
+.positioning-content .highlight-text {
+    color: var(--secondary-red);
+    font-weight: bold;
+}
+
+.positioning-content p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* Seção de Planos */
+.plans-section {
+    background-color: #1a1a1a;
+    padding: 80px 0;
+}
+
+.plans-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 3rem 0;
+}
+
+.plan-card {
+    background-color: #2d2d2d;
+    border: 2px solid #404040;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--secondary-red);
+}
+
+.plan-card.featured {
+    border-color: var(--secondary-red);
+    transform: scale(1.05);
+}
+
+.plan-card.featured::before {
+    content: "⭐ Mais Escolhido";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-red);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.plan-frequency {
+    font-size: 1.1rem;
+    color: var(--secondary-red);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.plan-profile {
+    font-size: 1rem;
+    color: var(--white);
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+/* Página de Inscrição */
+.inscricao-section {
+    background-color: #2d2d2d;
+    padding: 120px 0 80px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.inscricao-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inscricao-placeholder {
+    background-color: var(--primary-gray);
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 2rem;
+    border: 2px dashed var(--secondary-red);
+}
+
+.placeholder-message h3 {
+    color: var(--secondary-red);
+    margin-bottom: 1rem;
+}
+
+.placeholder-message p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
 }
