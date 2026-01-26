@@ -751,10 +751,11 @@ section {
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 20px 0;
+        padding: 10px 0;
         height: calc(100vh - 80px); /* Ocupa o resto da tela */
         overflow-y: auto;
         z-index: 999;
+        gap: 0; /* Removendo gap que pode estar causando espaçamento extra */
     }
 
     .nav-menu.active {
@@ -764,7 +765,7 @@ section {
     }
 
     .nav-menu li {
-        margin: 20px 0;
+        margin: 1px 0;
     }
 
     .nav-menu a {
