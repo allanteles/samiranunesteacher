@@ -123,15 +123,17 @@ p {
 }
 
 .cta-nav {
-    background-color: var(--secondary-red);
+    background: linear-gradient(135deg, #0000FE 0%, #000099 100%);
     color: var(--white) !important;
     padding: 10px 20px;
     border-radius: 25px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .cta-nav:hover {
-    background-color: var(--primary-blue);
+    background: linear-gradient(135deg, #000099 0%, #0000FE 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 254, 0.3);
 }
 
 .hamburger {
@@ -200,7 +202,7 @@ p {
 /* Botões */
 .btn-primary {
     display: inline-block;
-    background-color: var(--secondary-red);
+    background: linear-gradient(135deg, #0000FE 0%, #000099 100%);
     color: var(--white);
     padding: 15px 30px;
     text-decoration: none;
@@ -208,13 +210,13 @@ p {
     font-weight: bold;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(108, 38, 36, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 254, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-blue);
+    background: linear-gradient(135deg, #000099 0%, #0000FE 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 57, 93, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 254, 0.4);
 }
 
 .btn-large {
@@ -236,7 +238,17 @@ section {
 }
 
 .formacao {
-    background-color: #333333;
+    background-color: #E5E7E6;
+    color: #333333;
+}
+
+.formacao h2,
+.formacao h3 {
+    color: #1a1a1a;
+}
+
+.formacao .formacao-list li:before {
+    color: #1a1a1a;
 }
 
 .avaliacao {
