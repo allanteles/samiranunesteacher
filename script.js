@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Menu mobile toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const hasSubmenu = document.querySelector('.has-submenu');
     
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
@@ -11,30 +12,51 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
         });
     }
+
+    // Toggle submenu on mobile
+    if (hasSubmenu) {
+        const submenuLink = hasSubmenu.querySelector('a');
+        submenuLink.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                hasSubmenu.classList.toggle('active');
+            }
+        });
+    }
     
     // Smooth scrolling para links internos
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+    const navLinks = document.querySelectorAll('a[href^="#"], a[href*="#"]');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
             
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
+            // Se for um link para outra página com hash (ex: aulas-vip.html#dor)
+            if (href.includes('.html#')) {
+                return; // Deixa o navegador lidar com a navegação entre páginas
+            }
+
+            if (href.startsWith('#')) {
+                e.preventDefault();
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                const targetId = href;
+                const targetSection = document.querySelector(targetId);
                 
-                // Fechar menu mobile após clique
-                if (navMenu.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
+                if (targetSection) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fechar menu mobile após clique
+                    if (navMenu.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (hasSubmenu) hasSubmenu.classList.remove('active');
+                    }
                 }
             }
         });
@@ -87,7 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Efeito parallax suave no hero
+    // Efeito parallax suave no hero - removido para evitar sobreposição
+    /*
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero');
@@ -96,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         }
     });
+    */
     
     // Animação dos cards de bônus
     const bonusItems = document.querySelectorAll('.bonus-item');
@@ -296,51 +320,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// Adicionar estilos CSS para menu mobile via JavaScript
-const mobileStyles = `
-    @media (max-width: 768px) {
-        .nav-menu {
-            position: fixed;
-            left: -100%;
-            top: 80px;
-            flex-direction: column;
-            background-color: white;
-            width: 100%;
-            text-align: center;
-            transition: 0.3s;
-            box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-            padding: 2rem 0;
-        }
-        
-        .nav-menu.active {
-            left: 0;
-        }
-        
-        .nav-menu li {
-            margin: 1rem 0;
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-        
-        .nav-menu a.active {
-            color: var(--secondary-red);
-            font-weight: bold;
-        }
-    }
-`;
-
-// Adicionar os estilos ao documento
-const styleSheet = document.createElement('style');
-styleSheet.textContent = mobileStyles;
-document.head.appendChild(styleSheet);

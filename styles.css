@@ -756,6 +756,53 @@ section {
     font-size: 0.9rem;
 }
 
+/* Submenu */
+.has-submenu {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--secondary-dark);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 200px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-radius: 0 0 8px 8px;
+    z-index: 1000;
+}
+
+.submenu li {
+    padding: 0;
+    width: 100%;
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    display: block;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.submenu li a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.has-submenu i {
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .hamburger {
@@ -804,10 +851,46 @@ section {
 
     .nav-menu li {
         margin: 1px 0;
+        width: 100%;
     }
 
     .nav-menu a {
         font-size: 1.5rem;
+        padding: 15px;
+        display: block;
+    }
+
+    .nav-menu .cta-nav {
+        margin: 10px 20px;
+        display: inline-block;
+        width: auto;
+    }
+
+    .has-submenu .submenu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0.2);
+        box-shadow: none;
+        padding: 0;
+        display: none; /* Escondido por padrão no mobile */
+    }
+
+    .has-submenu.active .submenu {
+        display: block;
+    }
+
+    .has-submenu i {
+        transition: transform 0.3s ease;
+    }
+
+    .has-submenu.active i {
+        transform: rotate(180deg);
+    }
+    
+    .submenu li a {
+        font-size: 1.1rem;
+        padding: 10px 30px;
     }
     
     .hero-container,
