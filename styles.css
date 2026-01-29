@@ -94,9 +94,10 @@ p {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 80px;
+    gap: 3rem;
 }
 
 .logo-img {
@@ -197,6 +198,50 @@ p {
     height: auto;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Conversion */
+.hero-conversion {
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-gray) 100%);
+    padding: 120px 0 60px;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-conversion-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-conversion h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.hero-conversion .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.hero-conversion .authority {
+    margin-bottom: 2rem;
+    color: var(--secondary-red);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.pain-section {
+    padding-top: 40px;
 }
 
 /* Botões */
