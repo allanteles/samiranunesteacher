@@ -325,9 +325,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const iframeLoader = document.querySelector('.iframe-loader');
 
     if (googleFormIframe && iframeLoader) {
-        googleFormIframe.addEventListener('load', function() {
+        const showIframe = () => {
             iframeLoader.style.display = 'none';
             googleFormIframe.style.opacity = '1';
-        });
+        };
+
+        googleFormIframe.addEventListener('load', showIframe);
+        
+        // Fallback: mostrar o iframe após 3 segundos se não carregar
+        setTimeout(showIframe, 3000);
     }
 });

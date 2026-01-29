@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição - Teacher Samira Nunes</title>
     <meta name="description" content="Inscreva-se para aulas de inglês personalizadas com Teacher Samira Nunes.">
+    <meta name="keywords" content="aulas de inglês online, inscrição inglês, professora particular inglês, inglês online personalizado">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samiranunes.com/inscricao.html">
+    <meta property="og:title" content="Inscrição | Teacher Samira Nunes">
+    <meta property="og:description" content="Inscreva-se para aulas de inglês personalizadas com Teacher Samira Nunes.">
+    <meta property="og:image" content="https://samiranunes.com/assets/logos/og-icon.png">
+
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cambria:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -23,12 +33,18 @@
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Início</a></li>
-                    <li><a href="index.html#aulas">Como Funcionam</a></li>
-                    <li><a href="index.html#metodo">Método</a></li>
-                    <li><a href="index.html#formacao">Formação</a></li>
-                    <li><a href="index.html#comprar">Comprar</a></li>
-                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
-                    <li><a href="whatsapp://send/?phone=5533998009249&text=Quero+agendar+uma+aula+!" class="cta-nav">Agendar Diagnóstico</a></li>
+                    <li class="has-submenu">
+                        <a href="aulas-vip.html">Aulas VIP <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="aulas-vip.html#dor">Dificuldades</a></li>
+                            <li><a href="aulas-vip.html#formacao">Quem é Samira</a></li>
+                            <li><a href="aulas-vip.html#aulas">Como Funcionam</a></li>
+                            <li><a href="aulas-vip.html#planos">Planos</a></li>
+                            <li><a href="aulas-vip.html#depoimentos">Depoimentos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="materiais.html">Materiais</a></li>
+                    <li><a href="inscricao.html" class="cta-nav">Quero me inscrever</a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -41,9 +57,9 @@
 
     <!-- Formulário de Inscrição -->
     <section class="inscricao-section">
-        <div class="container" style="display: flex; justify-content: center; position: relative;">
+        <div class="container" style="display: flex; justify-content: center; position: relative; width: 100%;">
             <div class="iframe-loader"></div>
-            <iframe id="google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform?embedded=true" width="640" height="6455" frameborder="0" marginheight="0" marginwidth="0" style="opacity: 0; transition: opacity 0.5s ease;">Carregando…</iframe>
+            <iframe id="google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform?embedded=true" width="100%" height="6455" frameborder="0" marginheight="0" marginwidth="0" style="opacity: 0; transition: opacity 0.5s ease; max-width: 640px;">Carregando…</iframe>
         </div>
     </section>
 
@@ -54,6 +70,14 @@
                 <div class="footer-logo">
                     <img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes" class="footer-logo-img">
                 </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/samiranunes_teacher/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/TeacherSamiraNunes" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/teachersamiranunes" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://vm.tiktok.com/ZMeak2FRv/" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+
                 <div class="footer-text">
                     <p>&copy; 2024 Teacher Samira Nunes. Todos os direitos reservados.</p>
                     <p>Aulas de inglês online personalizadas com foco em conversação e neurociência da aprendizagem.</p>
