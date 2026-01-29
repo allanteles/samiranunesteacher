@@ -41,8 +41,9 @@
 
     <!-- Formulário de Inscrição -->
     <section class="inscricao-section">
-        <div class="container" style="display: flex; justify-content: center;">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform?embedded=true" width="640" height="6455" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+        <div class="container" style="display: flex; justify-content: center; position: relative;">
+            <div class="iframe-loader"></div>
+            <iframe id="google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform?embedded=true" width="640" height="6455" frameborder="0" marginheight="0" marginwidth="0" style="opacity: 0; transition: opacity 0.5s ease;">Carregando…</iframe>
         </div>
     </section>
 

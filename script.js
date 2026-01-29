@@ -319,4 +319,15 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+
+    // Loader do Google Forms
+    const googleFormIframe = document.getElementById('google-form');
+    const iframeLoader = document.querySelector('.iframe-loader');
+
+    if (googleFormIframe && iframeLoader) {
+        googleFormIframe.addEventListener('load', function() {
+            iframeLoader.style.display = 'none';
+            googleFormIframe.style.opacity = '1';
+        });
+    }
 });
