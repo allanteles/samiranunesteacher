@@ -278,6 +278,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     images.forEach(img => imageObserver.observe(img));
+
+    // Detecção de mobile e ajuste de links de inscrição
+    function checkMobileAndAdjustLinks() {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        
+        if (isMobile) {
+            const inscricaoLinks = document.querySelectorAll('a[href="inscricao.html"]');
+            inscricaoLinks.forEach(link => {
+                link.href = 'inscricao-mobile.html';
+                console.log('Link de inscrição ajustado para mobile');
+            });
+        }
+    }
+
+    checkMobileAndAdjustLinks();
     
     // Botão de voltar ao topo
     const backToTopButton = document.createElement('button');
@@ -328,11 +343,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const showIframe = () => {
             iframeLoader.style.display = 'none';
             googleFormIframe.style.opacity = '1';
+            console.log('Iframe carregado e loader removido');
         };
+
+        // Se o iframe já estiver carregado (cache), mostrar imediatamente
+        try {
+            if (googleFormIframe.contentDocument && googleFormIframe.contentDocument.readyState === 'complete') {
+                showIframe();
+            }
+        } catch (e) {
+            // Cross-origin pode impedir acesso ao contentDocument, ignoramos
+        }
 
         googleFormIframe.addEventListener('load', showIframe);
         
-        // Fallback: mostrar o iframe após 3 segundos se não carregar
-        setTimeout(showIframe, 3000);
+        // Fallback mais agressivo: mostrar o iframe após 2.5 segundos de qualquer forma
+        // para não travar a experiência do usuário
+        setTimeout(showIframe, 2500);
     }
 });
