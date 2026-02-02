@@ -848,6 +848,96 @@ section {
     margin-left: 5px;
 }
 
+/* Seção de Planos */
+.plans-section {
+    padding: var(--section-padding);
+    background-color: var(--primary-blue);
+}
+
+.plans-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plan-card {
+    background-color: var(--secondary-light);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card.featured {
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--primary-gray) 100%);
+    border: 2px solid var(--secondary-red);
+    position: relative;
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.plan-card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.popular-tag {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-red);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.plan-name {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--secondary-red);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.plan-frequency {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--white);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.plan-profile {
+    font-size: 1rem;
+    color: #cccccc;
+    font-style: italic;
+    line-height: 1.4;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .hamburger {
