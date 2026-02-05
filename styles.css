@@ -137,6 +137,17 @@ p {
     box-shadow: 0 5px 15px rgba(0, 0, 254, 0.3);
 }
 
+.cta-nav.gold {
+    background: linear-gradient(135deg, #D2B48C 0%, #A08050 100%);
+    color: var(--primary-blue) !important;
+    font-weight: bold;
+}
+
+.cta-nav.gold:hover {
+    background: linear-gradient(135deg, #A08050 0%, #D2B48C 100%);
+    box-shadow: 0 5px 15px rgba(210, 180, 140, 0.4);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
