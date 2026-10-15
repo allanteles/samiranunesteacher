@@ -627,6 +627,15 @@ section {
     margin: 0;
 }
 
+.neon-highlight {
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.95),
+        0 0 8px rgba(255, 255, 255, 0.75),
+        0 0 14px rgba(255, 255, 255, 0.55);
+}
+
 /* Responsividade para cards de navegação */
 @media (max-width: 768px) {
     .cards-grid {
