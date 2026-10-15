@@ -1,0 +1,308 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<div id="qb" style="font-family:'Inter',sans-serif;padding:24px 0;max-width:680px;">
+
+  <p style="font-size:13px;color:#6b7280;margin:0 0 20px 0;">Question word is optional. Start from any column to build your question.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:12px;">
+
+    <div style="border-radius:12px;overflow:hidden;border:1.5px dashed #d8b4fe;">
+      <div style="background:#ede9fe;padding:9px 10px;font-size:10px;font-weight:600;color:#5b21b6;text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;">Question word <span style="font-weight:400;color:#7c3aed;">(optional)</span></div>
+      <div style="padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;">
+        <div class="chip" data-col="qw" data-val="What">What</div>
+        <div class="chip" data-col="qw" data-val="Where">Where</div>
+        <div class="chip" data-col="qw" data-val="When">When</div>
+        <div class="chip" data-col="qw" data-val="Who">Who</div>
+        <div class="chip" data-col="qw" data-val="Why">Why</div>
+        <div class="chip" data-col="qw" data-val="How">How</div>
+        <div class="chip" data-col="qw" data-val="How often">How often</div>
+        <div class="chip" data-col="qw" data-val="How many">How many</div>
+      </div>
+    </div>
+
+    <div style="border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;">
+      <div style="background:#dbeafe;padding:9px 10px;font-size:10px;font-weight:600;color:#1e40af;text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;">Auxiliary / Modal</div>
+      <div style="padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;">
+        <div class="chip" data-col="aux" data-val="do">do</div>
+        <div class="chip" data-col="aux" data-val="does">does</div>
+        <div class="chip" data-col="aux" data-val="did">did</div>
+        <div class="chip" data-col="aux" data-val="is">is</div>
+        <div class="chip" data-col="aux" data-val="are">are</div>
+        <div class="chip" data-col="aux" data-val="can">can</div>
+        <div class="chip" data-col="aux" data-val="could">could</div>
+        <div class="chip" data-col="aux" data-val="will">will</div>
+        <div class="chip" data-col="aux" data-val="would">would</div>
+        <div class="chip" data-col="aux" data-val="should">should</div>
+        <div class="chip" data-col="aux" data-val="have">have</div>
+      </div>
+    </div>
+
+    <div style="border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;">
+      <div style="background:#d1fae5;padding:9px 10px;font-size:10px;font-weight:600;color:#065f46;text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;">Subject</div>
+      <div style="padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;">
+        <div class="chip" data-col="sub" data-val="you">you</div>
+        <div class="chip" data-col="sub" data-val="he">he</div>
+        <div class="chip" data-col="sub" data-val="she">she</div>
+        <div class="chip" data-col="sub" data-val="they">they</div>
+        <div class="chip" data-col="sub" data-val="we">we</div>
+        <div class="chip" data-col="sub" data-val="I">I</div>
+        <div class="chip" data-col="sub" data-val="it">it</div>
+        <div class="chip" data-col="sub" data-val="your friend">your friend</div>
+        <div class="chip" data-col="sub" data-val="your family">your family</div>
+        <div class="chip" data-col="sub" data-val="the teacher">the teacher</div>
+        <div class="chip" data-col="sub" data-val="the students">the students</div>
+        <div class="chip" data-col="sub" data-val="your parents">your parents</div>
+        <div class="chip" data-col="sub" data-val="your best friend">your best friend</div>
+        <div class="chip" data-col="sub" data-val="your favorite">your favorite</div>
+      </div>
+    </div>
+
+    <div style="border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;">
+      <div style="background:#fef3c7;padding:9px 10px;font-size:10px;font-weight:600;color:#92400e;text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;">Verb</div>
+      <div style="padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;">
+        <div class="chip" data-col="vb" data-val="live">live</div>
+        <div class="chip" data-col="vb" data-val="like">like</div>
+        <div class="chip" data-col="vb" data-val="study">study</div>
+        <div class="chip" data-col="vb" data-val="eat">eat</div>
+        <div class="chip" data-col="vb" data-val="go">go</div>
+        <div class="chip" data-col="vb" data-val="speak">speak</div>
+        <div class="chip" data-col="vb" data-val="watch">watch</div>
+        <div class="chip" data-col="vb" data-val="play">play</div>
+        <div class="chip" data-col="vb" data-val="come from">come from</div>
+        <div class="chip" data-col="vb" data-val="do on weekends">do on weekends</div>
+        <div class="chip" data-col="vb" data-val="do for fun">do for fun</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="border-radius:12px;border:1px solid #fce7f3;background:#fff;padding:10px 12px;margin-bottom:20px;">
+    <div style="font-size:10px;font-weight:600;color:#9d174d;text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;margin-bottom:8px;">Complement <span style="font-weight:400;color:#be185d;text-transform:none;letter-spacing:0;">(optional — type freely)</span></div>
+    <input id="cp-input" type="text" placeholder="e.g. at home, every day, with your friends, in English..." oninput="render()" style="font-family:'Inter',sans-serif;font-size:13px;color:#9d174d;width:100%;border:1px solid #f9a8d4;border-radius:8px;padding:8px 12px;outline:none;background:#fdf2f8;box-sizing:border-box;" onfocus="this.style.borderColor='#ec4899'" onblur="this.style.borderColor='#f9a8d4'">
+  </div>
+
+  <div style="border:1.5px solid #e5e7eb;border-radius:14px;padding:16px 20px;background:#f9fafb;min-height:70px;margin-bottom:28px;">
+    <div id="sentence" style="font-family:'Inter',sans-serif;font-size:20px;font-weight:600;color:#9ca3af;line-height:1.4;">Select words above to build your question...</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;flex-wrap:wrap;gap:8px;">
+      <span id="hint" style="font-size:12px;color:#9ca3af;font-family:'Inter',sans-serif;"></span>
+      <div style="display:flex;gap:8px;">
+        <button onclick="clearAll()" style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid #d1d5db;background:#fff;color:#374151;cursor:pointer;">Clear</button>
+        <button onclick="sendQuestion()" style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid #a78bfa;background:#ede9fe;color:#5b21b6;cursor:pointer;">Practice this</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-top:1px solid #e5e7eb;padding-top:24px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#111827;margin-bottom:2px;">Topic spinner</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#6b7280;">Spin to discover a random conversation topic.</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <select id="topic-filter" style="font-family:'Inter',sans-serif;font-size:12px;padding:7px 10px;border-radius:8px;border:1px solid #d1d5db;background:#fff;color:#374151;cursor:pointer;">
+          <option value="all">All topics</option>
+          <option value="daily">Daily life</option>
+          <option value="personal">Personal</option>
+          <option value="world">World & ideas</option>
+        </select>
+        <button onclick="spinTopic()" style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 22px;border-radius:10px;border:none;background:#111827;color:#fff;cursor:pointer;">Spin</button>
+      </div>
+    </div>
+
+    <div id="topic-display" style="border-radius:12px;border:1.5px solid #e5e7eb;background:#fff;padding:16px 20px;display:flex;align-items:center;gap:16px;min-height:70px;margin-bottom:10px;transition:border-color .4s;">
+      <div id="topic-icon" style="font-size:28px;width:44px;text-align:center;flex-shrink:0;">?</div>
+      <div style="flex:1;">
+        <div id="topic-name" style="font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:#111827;">Press spin!</div>
+        <div id="topic-tip" style="font-family:'Inter',sans-serif;font-size:13px;color:#6b7280;margin-top:2px;">A topic will appear here.</div>
+      </div>
+      <button id="toggle-btn" onclick="toggleExamples()" style="display:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #e5e7eb;background:#f9fafb;color:#374151;cursor:pointer;white-space:nowrap;flex-shrink:0;">Hide examples</button>
+    </div>
+
+    <div id="topic-chips" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;"></div>
+
+    <div id="discovered-section" style="display:none;margin-top:20px;">
+      <div style="font-family:'Inter',sans-serif;font-size:11px;color:#9ca3af;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Discovered so far</div>
+      <div id="discovered-pills" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+    </div>
+
+    <div id="progress-bar-wrap" style="margin-top:14px;display:none;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+        <span style="font-family:'Inter',sans-serif;font-size:11px;color:#9ca3af;" id="progress-label">0 / 18 topics discovered</span>
+        <span id="all-done-badge" style="display:none;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:#059669;"></span>
+      </div>
+      <div style="height:4px;background:#f3f4f6;border-radius:99px;overflow:hidden;">
+        <div id="progress-bar" style="height:100%;background:#111827;border-radius:99px;width:0%;transition:width .4s;"></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+.chip{font-family:'Inter',sans-serif;font-size:12px;font-weight:400;color:#374151;background:#f3f4f6;border:1px solid transparent;border-radius:7px;padding:5px 8px;cursor:pointer;text-align:center;transition:background .12s,border-color .12s;line-height:1.3;}
+.chip:hover{background:#e5e7eb;}
+.chip.sel-qw{background:#ede9fe;border-color:#a78bfa;color:#5b21b6;font-weight:500;}
+.chip.sel-aux{background:#dbeafe;border-color:#93c5fd;color:#1e40af;font-weight:500;}
+.chip.sel-sub{background:#d1fae5;border-color:#6ee7b7;color:#065f46;font-weight:500;}
+.chip.sel-vb{background:#fef3c7;border-color:#fcd34d;color:#92400e;font-weight:500;}
+.topic-q{font-family:'Inter',sans-serif;font-size:12px;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:20px;padding:5px 12px;color:#374151;cursor:pointer;transition:background .12s;}
+.topic-q:hover{background:#e5e7eb;}
+.disc-pill{font-family:'Inter',sans-serif;font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid #e5e7eb;background:#f9fafb;color:#374151;cursor:pointer;transition:background .12s;}
+.disc-pill:hover{background:#f3f4f6;}
+.disc-pill.active{background:#111827;color:#fff;border-color:#111827;}
+</style>
+
+<script>
+const sel={qw:null,aux:null,sub:null,vb:null};
+const clsMap={qw:'sel-qw',aux:'sel-aux',sub:'sel-sub',vb:'sel-vb'};
+const colorMap={qw:'#5b21b6',aux:'#1e40af',sub:'#065f46',vb:'#92400e'};
+
+document.querySelectorAll('.chip').forEach(c=>{
+  c.addEventListener('click',()=>{
+    const col=c.dataset.col,val=c.dataset.val;
+    document.querySelectorAll('.chip[data-col="'+col+'"]').forEach(x=>x.classList.remove(clsMap[col]));
+    sel[col]=(sel[col]===val)?null:val;
+    if(sel[col])c.classList.add(clsMap[col]);
+    render();
+  });
+});
+
+function render(){
+  const s=document.getElementById('sentence');
+  const h=document.getElementById('hint');
+  const cp=document.getElementById('cp-input').value.trim();
+  const{qw,aux,sub,vb}=sel;
+  const nReq=[aux,sub,vb].filter(Boolean).length;
+  const nTotal=[qw,aux,sub,vb].filter(Boolean).length;
+  if(nTotal===0){s.style.color='#9ca3af';s.textContent='Select words above to build your question...';h.textContent='';return;}
+  const parts=[];
+  if(qw)parts.push('<span style="color:'+colorMap.qw+';font-weight:600">'+qw+'</span>');
+  parts.push(aux?'<span style="color:'+colorMap.aux+';font-weight:600">'+aux+'</span>':'<span style="color:#d1d5db">___</span>');
+  parts.push(sub?'<span style="color:'+colorMap.sub+';font-weight:600">'+sub+'</span>':'<span style="color:#d1d5db">___</span>');
+  parts.push(vb?'<span style="color:'+colorMap.vb+';font-weight:600">'+vb+'</span>':'<span style="color:#d1d5db">___</span>');
+  if(cp)parts.push('<span style="color:#9d174d;font-weight:600">'+cp+'</span>');
+  s.style.color='#111827';
+  s.innerHTML=parts.join(' ')+(nReq===3?'?':'');
+  h.textContent=nReq===3?'Question ready! Hit "Practice this" to try it.':(3-nReq)+' required column(s) left. Question word and complement are optional.';
+}
+
+function clearAll(){
+  Object.keys(sel).forEach(k=>sel[k]=null);
+  document.querySelectorAll('.chip').forEach(c=>Object.values(clsMap).forEach(cl=>c.classList.remove(cl)));
+  document.getElementById('cp-input').value='';
+  render();
+}
+
+function sendQuestion(){
+  const{qw,aux,sub,vb}=sel;
+  const cp=document.getElementById('cp-input').value.trim();
+  if(!aux||!sub||!vb){document.getElementById('hint').textContent='Please select Auxiliary, Subject and Verb at minimum.';return;}
+  const q=(qw?qw+' ':'')+aux+' '+sub+' '+vb+(cp?' '+cp:'')+'?';
+  sendPrompt('My students built this question: "'+q+'" — Give a short natural answer in English and explain when a student would use this question.');
+}
+
+const topics=[
+  {icon:'🍕',name:'Food & meals',tip:'Talk about what you eat and drink',cat:'daily',qs:['What do you eat for breakfast?','How often do you eat pizza?','Where does your family eat on weekends?']},
+  {icon:'🎵',name:'Music',tip:'Talk about songs, artists and genres',cat:'personal',qs:['What kind of music do you like?','Who is your favorite singer?','How often do you listen to music?']},
+  {icon:'⚽',name:'Sports',tip:'Talk about playing and watching sports',cat:'daily',qs:['What sport do you play?','How often do you exercise?','Who is your favorite athlete?']},
+  {icon:'🐶',name:'Animals & pets',tip:'Talk about animals you love or have',cat:'personal',qs:['What is your favorite animal?','Do you have a pet?','Where do animals live?']},
+  {icon:'🎮',name:'Games & hobbies',tip:'Talk about what you do for fun',cat:'daily',qs:['What games do you play?','How often do you play video games?','What do you do on weekends?']},
+  {icon:'📚',name:'School',tip:'Talk about subjects and teachers',cat:'daily',qs:['What subject do you study?','How many students are in your class?','Who is your favorite teacher?']},
+  {icon:'🎬',name:'Movies & series',tip:'Talk about films and shows you watch',cat:'personal',qs:['What movies do you like?','How often do you watch series?','Who is your favorite actor?']},
+  {icon:'👨‍👩‍👧',name:'Family',tip:'Talk about the people you live with',cat:'personal',qs:['How many people are in your family?','Where does your family live?','What does your family do together?']},
+  {icon:'🌦️',name:'Weather',tip:'Talk about the weather and seasons',cat:'daily',qs:['How is the weather today?','What is your favorite season?','When does it rain a lot here?']},
+  {icon:'✈️',name:'Travel',tip:'Talk about trips, places and destinations',cat:'world',qs:['Where would you like to travel?','Have you ever been abroad?','What country do you want to visit?']},
+  {icon:'😂',name:'Fun & humor',tip:'Talk about what makes you laugh and have fun',cat:'personal',qs:['What do you do just for fun?','What makes you laugh?','How do you have fun on weekends?']},
+  {icon:'💪',name:'Health',tip:'Talk about habits, exercise and well-being',cat:'daily',qs:['How often do you exercise?','What do you do to stay healthy?','How many hours do you sleep?']},
+  {icon:'📖',name:'Books',tip:'Talk about reading habits and favorite books',cat:'personal',qs:['Do you like reading books?','What kind of books do you read?','Who is your favorite author?']},
+  {icon:'🎨',name:'Hobbies',tip:'Talk about activities you enjoy in your free time',cat:'personal',qs:['What hobbies do you have?','When did you start your hobby?','Would you teach someone your hobby?']},
+  {icon:'😤',name:'Dislikes',tip:'Talk about things you do not enjoy',cat:'personal',qs:['What food do you dislike?','Is there a subject you find boring?','What kind of weather do you hate?']},
+  {icon:'❤️',name:'Likes',tip:'Talk about things you enjoy and love',cat:'personal',qs:['What is your favorite thing to do?','What kind of music do you love?','What subject do you enjoy the most?']},
+  {icon:'⏰',name:'Routine',tip:'Talk about your daily habits and schedule',cat:'daily',qs:['What time do you wake up?','What do you do after school?','How do you start your morning?']},
+  {icon:'🗳️',name:'Politics',tip:'Talk about society, rules and citizenship',cat:'world',qs:['Why is it important to vote?','What should the government do for students?','How can young people help their community?']},
+];
+
+const discovered=new Set();
+let currentTopic=null;
+let examplesVisible=true;
+
+function getFiltered(){
+  const f=document.getElementById('topic-filter').value;
+  return f==='all'?topics:topics.filter(t=>t.cat===f);
+}
+
+function spinTopic(){
+  const pool=getFiltered();
+  if(!pool.length)return;
+  let next;
+  let tries=0;
+  do{next=pool[Math.floor(Math.random()*pool.length)];tries++;}while(next===currentTopic&&pool.length>1&&tries<20);
+  setTopic(next);
+}
+
+function setTopic(t){
+  currentTopic=t;
+  examplesVisible=true;
+  discovered.add(t.name);
+  const display=document.getElementById('topic-display');
+  display.style.borderColor='#a78bfa';
+  setTimeout(()=>display.style.borderColor='#e5e7eb',600);
+  document.getElementById('topic-icon').textContent=t.icon;
+  document.getElementById('topic-name').textContent=t.name;
+  document.getElementById('topic-tip').textContent=t.tip;
+  const btn=document.getElementById('toggle-btn');
+  btn.style.display='block';
+  btn.textContent='Hide examples';
+  renderChips(t.qs);
+  updateDiscovered();
+}
+
+function renderChips(qs){
+  const chips=document.getElementById('topic-chips');
+  chips.style.display='flex';
+  chips.innerHTML='';
+  qs.forEach(q=>{
+    const b=document.createElement('button');
+    b.className='topic-q';
+    b.textContent=q;
+    b.onclick=()=>sendPrompt('Give a short, beginner-friendly English answer to this question and explain key vocabulary: "'+q+'"');
+    chips.appendChild(b);
+  });
+}
+
+function updateDiscovered(){
+  const section=document.getElementById('discovered-section');
+  const pillsWrap=document.getElementById('discovered-pills');
+  const barWrap=document.getElementById('progress-bar-wrap');
+  const bar=document.getElementById('progress-bar');
+  const label=document.getElementById('progress-label');
+  const badge=document.getElementById('all-done-badge');
+
+  if(discovered.size===0){section.style.display='none';barWrap.style.display='none';return;}
+
+  section.style.display='block';
+  barWrap.style.display='block';
+
+  pillsWrap.innerHTML='';
+  topics.filter(t=>discovered.has(t.name)).forEach(t=>{
+    const b=document.createElement('button');
+    b.className='disc-pill'+(t===currentTopic?' active':'');
+    b.textContent=t.icon+' '+t.name;
+    b.onclick=()=>setTopic(t);
+    pillsWrap.appendChild(b);
+  });
+
+  const pct=Math.round((discovered.size/topics.length)*100);
+  bar.style.width=pct+'%';
+  label.textContent=discovered.size+' / '+topics.length+' topics discovered';
+
+  if(discovered.size===topics.length){
+    badge.style.display='inline';
+    badge.textContent='All topics discovered!';
+  } else {
+    badge.style.display='none';
+  }
+}
+</script>

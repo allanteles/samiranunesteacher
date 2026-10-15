@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Met Gala Quiz ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A84C;--gold-light:#E8CC7A;--gold-pale:#F5E6B8;--deep:#111118;--card:#1A1A26;--cream:#FAF3E0;--silver:#B8B8C8;--correct:#2ECC71;--wrong:#E74C3C}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--deep);color:var(--cream);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden;font-size:16px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 15% 10%,rgba(201,168,76,.07) 0%,transparent 55%),radial-gradient(ellipse 50% 60% at 85% 80%,rgba(139,26,26,.1) 0%,transparent 55%)}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;border-radius:50%;background:var(--gold);opacity:0;animation:fp linear infinite}
+@keyframes fp{0%{transform:translateY(100vh) rotate(0);opacity:0}10%{opacity:.45}90%{opacity:.15}100%{transform:translateY(-10vh) rotate(720deg);opacity:0}}
+/* LAYOUT */
+.page{position:relative;z-index:1;display:grid;grid-template-columns:280px 1fr;min-height:100vh}
+/* SIDEBAR */
+.sidebar{background:rgba(10,10,18,.88);border-right:1px solid rgba(201,168,76,.12);padding:36px 24px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar-header{text-align:center;margin-bottom:28px}
+.crown{font-size:36px;display:block;margin-bottom:8px;animation:cglow 3s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(201,168,76,.6))}
+@keyframes cglow{0%,100%{filter:drop-shadow(0 0 18px rgba(201,168,76,.4));transform:scale(1)}50%{filter:drop-shadow(0 0 32px rgba(201,168,76,.9));transform:scale(1.05)}}
+.sidebar h1{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;font-style:italic;line-height:1.1;margin-bottom:5px;background:linear-gradient(135deg,var(--gold-pale),var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sidebar .tagline{color:var(--silver);font-size:10px;letter-spacing:2.5px;text-transform:uppercase}
+.divider{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto}
+.edition-list-label{font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);margin-bottom:9px;padding-left:2px}
+.edition-list{display:flex;flex-direction:column;gap:5px;margin-bottom:24px}
+.edition-btn{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border:1.5px solid rgba(201,168,76,.12);border-radius:11px;padding:10px 13px;cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1);text-align:left;width:100%;font-family:'DM Sans',sans-serif}
+.edition-btn:hover{border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.06);transform:translateX(3px)}
+.edition-btn.active{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,.16),rgba(201,168,76,.04))}
+.edition-btn.special{border-color:rgba(201,168,76,.25)}
+.edition-btn.special.active{background:linear-gradient(135deg,rgba(201,168,76,.18),rgba(139,26,26,.08))}
+.ed-icon{font-size:17px;flex-shrink:0}
+.ed-info{flex:1;min-width:0}
+.ed-year-sm{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--gold);display:block;line-height:1.2}
+.ed-theme-sm{font-size:10px;color:var(--silver);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Sidebar live score */
+.sidebar-score{margin-top:auto;padding-top:20px;border-top:1px solid rgba(201,168,76,.1)}
+.sidebar-score-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ss-box{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.12);border-radius:9px;padding:10px;text-align:center}
+.ss-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold)}
+.ss-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver)}
+.prog-wrap{margin-top:9px}
+.prog-row{display:flex;justify-content:space-between;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--silver);margin-bottom:5px}
+.prog-bar{height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;transition:width .6s cubic-bezier(.4,0,.2,1);box-shadow:0 0 8px rgba(201,168,76,.5)}
+/* Share */
+.share-wrap{margin-top:16px}
+.btn-share{width:100%;padding:11px;border-radius:10px;border:1.5px solid rgba(201,168,76,.3);background:transparent;color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:7px}
+.btn-share:hover{background:rgba(201,168,76,.08);border-color:var(--gold);transform:translateY(-1px)}
+.share-toast{display:none;text-align:center;font-size:11px;color:var(--correct);margin-top:6px;animation:fadeIn .3s ease}
+.share-toast.show{display:block}
+/* MAIN */
+.main{padding:48px 60px;display:flex;flex-direction:column}
+/* START VIEW */
+.start-view{max-width:740px}
+.welcome-text{color:var(--silver);font-size:16px;line-height:1.8;margin-bottom:28px;max-width:620px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.pill{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:40px;padding:6px 16px;font-size:12.5px;color:var(--gold)}
+.edition-grid-main{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:32px}
+.edition-card-main{background:rgba(255,255,255,.03);border:1.5px solid rgba(201,168,76,.15);border-radius:16px;padding:22px 18px;cursor:pointer;text-align:center;transition:all .25s cubic-bezier(.4,0,.2,1)}
+.edition-card-main:hover{border-color:rgba(201,168,76,.5);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
+.edition-card-main.active{background:linear-gradient(135deg,rgba(201,168,76,.18),rgba(201,168,76,.06));border-color:var(--gold);box-shadow:0 0 24px rgba(201,168,76,.15)}
+.edition-card-main.special{border-color:rgba(201,168,76,.3);background:linear-gradient(135deg,rgba(201,168,76,.05),rgba(139,26,26,.05));grid-column:1/-1}
+.edition-card-main.special.active{background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(139,26,26,.1))}
+.ed-emoji-lg{font-size:28px;display:block;margin-bottom:9px}
+.ed-year-lg{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold);display:block;margin-bottom:4px}
+.ed-theme-lg{font-size:11.5px;color:var(--silver);line-height:1.4}
+.btn-start{padding:18px 52px;border-radius:14px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0A0A0A;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:all .3s;box-shadow:0 8px 40px rgba(201,168,76,.3)}
+.btn-start:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 14px 50px rgba(201,168,76,.45)}
+.btn-start:disabled{opacity:.4;cursor:not-allowed}
+/* QUIZ VIEW */
+.quiz-view{max-width:760px}
+.streak-banner{display:none;text-align:center;padding:12px;margin-bottom:18px;border-radius:12px;font-size:15px;font-weight:700;letter-spacing:1px;animation:pop .4s cubic-bezier(.34,1.56,.64,1) both}
+.streak-banner.show{display:block}
+.streak-banner.fire{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.3);color:var(--gold)}
+.q-card{background:linear-gradient(145deg,rgba(26,26,38,.96),rgba(14,14,24,.96));border:1px solid rgba(201,168,76,.2);border-radius:22px;padding:36px 42px 32px;margin-bottom:18px;position:relative;overflow:hidden;animation:slideUp .5s cubic-bezier(.4,0,.2,1) both}
+.q-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.q-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.q-num{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:8px}
+.q-num::before{content:'';display:block;width:18px;height:1px;background:var(--gold)}
+.q-badge{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--silver);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:4px 12px}
+.q-emoji{font-size:38px;display:block;margin-bottom:13px;filter:drop-shadow(0 0 14px rgba(201,168,76,.3))}
+.q-text{font-family:'Playfair Display',serif;font-size:clamp(18px,2vw,24px);font-weight:700;line-height:1.4;color:var(--cream)}
+.kb-hint{display:flex;gap:6px;margin-bottom:14px;align-items:center}
+.kb-hint span{font-size:11px;color:rgba(255,255,255,.22)}
+.kb-key{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);font-size:11px;color:rgba(255,255,255,.38);font-weight:600}
+.options{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.option{background:rgba(255,255,255,.03);border:1.5px solid rgba(201,168,76,.15);border-radius:14px;padding:16px 22px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .22s cubic-bezier(.4,0,.2,1);animation:slideIn .35s cubic-bezier(.4,0,.2,1) both}
+.option:nth-child(1){animation-delay:.04s}.option:nth-child(2){animation-delay:.09s}.option:nth-child(3){animation-delay:.14s}.option:nth-child(4){animation-delay:.19s}
+.option:hover:not(.disabled){border-color:rgba(201,168,76,.55);transform:translateX(5px);box-shadow:0 4px 22px rgba(0,0,0,.3)}
+.option:focus{outline:none;border-color:rgba(201,168,76,.7);box-shadow:0 0 0 3px rgba(201,168,76,.15)}
+.opt-letter{width:36px;height:36px;border-radius:9px;flex-shrink:0;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gold);transition:all .22s}
+.opt-text{font-size:15px;color:var(--cream);line-height:1.45;flex:1}
+.option.correct{border-color:var(--correct);background:rgba(46,204,113,.08);transform:translateX(5px)}
+.option.correct .opt-letter{background:var(--correct);border-color:var(--correct);color:white}
+.option.wrong{border-color:var(--wrong);background:rgba(231,76,60,.08)}
+.option.wrong .opt-letter{background:var(--wrong);border-color:var(--wrong);color:white}
+.option.disabled{cursor:not-allowed;pointer-events:none}
+.option.disabled:not(.correct):not(.wrong){opacity:.38}
+.feedback{background:rgba(0,0,0,.3);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:18px 22px;margin-bottom:18px;display:none;animation:slideUp .3s ease both}
+.feedback.show{display:block}
+.feedback strong{display:block;margin-bottom:7px;font-size:15px;color:var(--gold)}
+.feedback p{font-size:14px;line-height:1.7;color:var(--cream)}
+.feedback.correct-fb{border-color:var(--correct)}.feedback.wrong-fb{border-color:var(--wrong)}
+.feedback.correct-fb strong{color:var(--correct)}.feedback.wrong-fb strong{color:var(--wrong)}
+.btn-next{width:100%;padding:20px;border-radius:14px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0A0A0A;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;display:none;box-shadow:0 6px 30px rgba(201,168,76,.25)}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(201,168,76,.4)}
+.btn-next:focus{outline:none;box-shadow:0 0 0 3px rgba(201,168,76,.3)}
+.btn-next.show{display:block}
+/* RESULT VIEW */
+.result-view{max-width:740px;text-align:center;padding:20px 0}
+.result-trophy{font-size:80px;display:block;margin-bottom:16px;animation:trophyin 1s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes trophyin{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.result-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;font-style:italic;background:linear-gradient(135deg,var(--gold-pale),var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+.result-sub{color:var(--silver);font-size:15px;margin-bottom:32px;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto}
+.result-score-big{font-family:'Playfair Display',serif;font-size:80px;font-weight:900;color:var(--gold);line-height:1;text-shadow:0 0 40px rgba(201,168,76,.4)}
+.result-score-lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--silver);margin-bottom:24px;margin-top:4px}
+.result-rank{display:inline-block;background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.4);border-radius:40px;padding:13px 32px;margin-bottom:32px}
+.rank-text{font-size:14px;font-weight:700;color:var(--gold);letter-spacing:1.5px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+.stat-box{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.15);border-radius:16px;padding:20px 12px}
+.stat-val{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--gold)}
+.stat-lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-top:5px}
+.result-btns{display:flex;gap:12px;justify-content:center;margin-bottom:24px}
+.btn-restart{padding:16px 36px;border-radius:14px;border:1.5px solid var(--gold);background:transparent;color:var(--gold);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.btn-restart:hover{background:var(--gold);color:#0A0A0A;transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.3)}
+.btn-change{padding:16px 36px;border-radius:14px;border:1.5px solid rgba(255,255,255,.15);background:transparent;color:var(--silver);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.btn-change:hover{border-color:rgba(255,255,255,.4);color:var(--cream);transform:translateY(-2px)}
+.share-result p{font-size:11px;color:var(--silver);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.share-result-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.btn-share-sm{padding:10px 20px;border-radius:10px;border:1.5px solid rgba(201,168,76,.25);background:rgba(201,168,76,.06);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .25s}
+.btn-share-sm:hover{border-color:var(--gold);background:rgba(201,168,76,.12);transform:translateY(-1px)}
+/* CONFETTI */
+.confetti-piece{position:fixed;width:9px;height:9px;top:-12px;pointer-events:none;z-index:999;border-radius:2px;animation:cfall linear both}
+@keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:0}}
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake .4s ease}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.02)}
+::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25);border-radius:3px}
+/* RESPONSIVE */
+@media(max-width:920px){
+  .page{grid-template-columns:1fr}
+  .sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid rgba(201,168,76,.12);padding:24px}
+  .edition-list{flex-direction:row;flex-wrap:wrap}
+  .edition-btn{width:auto;flex:0 0 auto;padding:8px 12px}
+  .ed-theme-sm{display:none}
+  .sidebar-score,.share-wrap{display:none}
+  .main{padding:28px 24px}
+  .edition-grid-main{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .result-btns{flex-direction:column;align-items:center}
+  .q-card{padding:24px 20px 20px}
+}
+@media(max-width:480px){
+  .edition-grid-main{grid-template-columns:1fr 1fr}
+  .main{padding:18px 16px}
+}
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<div class="page">
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <span class="crown">👑</span>
+    <h1>Met Gala Quiz</h1>
+    <p class="tagline">Fashion's biggest night</p>
+    <div class="divider"></div>
+  </div>
+  <p class="edition-list-label">Editions</p>
+  <div class="edition-list">
+    <button class="edition-btn" id="sb-2026" onclick="selectEdition('2026')"><span class="ed-icon">🎨</span><div class="ed-info"><span class="ed-year-sm">2026</span><span class="ed-theme-sm">Costume Art</span></div></button>
+    <button class="edition-btn" id="sb-2025" onclick="selectEdition('2025')"><span class="ed-icon">🎩</span><div class="ed-info"><span class="ed-year-sm">2025</span><span class="ed-theme-sm">Superfine</span></div></button>
+    <button class="edition-btn" id="sb-2024" onclick="selectEdition('2024')"><span class="ed-icon">🌸</span><div class="ed-info"><span class="ed-year-sm">2024</span><span class="ed-theme-sm">Sleeping Beauties</span></div></button>
+    <button class="edition-btn" id="sb-2023" onclick="selectEdition('2023')"><span class="ed-icon">🖤</span><div class="ed-info"><span class="ed-year-sm">2023</span><span class="ed-theme-sm">Karl Lagerfeld</span></div></button>
+    <button class="edition-btn" id="sb-2022" onclick="selectEdition('2022')"><span class="ed-icon">✨</span><div class="ed-info"><span class="ed-year-sm">2022</span><span class="ed-theme-sm">Gilded Glamour</span></div></button>
+    <button class="edition-btn" id="sb-2021" onclick="selectEdition('2021')"><span class="ed-icon">🇺🇸</span><div class="ed-info"><span class="ed-year-sm">2021</span><span class="ed-theme-sm">In America: A Lexicon</span></div></button>
+    <button class="edition-btn special" id="sb-2020" onclick="selectEdition('2020')"><span class="ed-icon">🦠</span><div class="ed-info"><span class="ed-year-sm">2020</span><span class="ed-theme-sm">Cancelled — About Time</span></div></button>
+    <button class="edition-btn" id="sb-2019" onclick="selectEdition('2019')"><span class="ed-icon">🎪</span><div class="ed-info"><span class="ed-year-sm">2019</span><span class="ed-theme-sm">Camp: Notes on Fashion</span></div></button>
+    <button class="edition-btn" id="sb-2018" onclick="selectEdition('2018')"><span class="ed-icon">✝️</span><div class="ed-info"><span class="ed-year-sm">2018</span><span class="ed-theme-sm">Heavenly Bodies</span></div></button>
+    <button class="edition-btn" id="sb-2017" onclick="selectEdition('2017')"><span class="ed-icon">🥋</span><div class="ed-info"><span class="ed-year-sm">2017</span><span class="ed-theme-sm">Rei Kawakubo</span></div></button>
+    <button class="edition-btn" id="sb-2016" onclick="selectEdition('2016')"><span class="ed-icon">🤖</span><div class="ed-info"><span class="ed-year-sm">2016</span><span class="ed-theme-sm">Manus x Machina</span></div></button>
+    <button class="edition-btn special" id="sb-wintour" onclick="selectEdition('wintour')"><span class="ed-icon">👓</span><div class="ed-info"><span class="ed-year-sm">Anna Wintour</span><span class="ed-theme-sm">Special Edition ✦</span></div></button>
+  </div>
+  <div class="sidebar-score" id="sideScore" style="display:none">
+    <div class="sidebar-score-grid">
+      <div class="ss-box"><div class="ss-val" id="sScore">0</div><div class="ss-lbl">Score</div></div>
+      <div class="ss-box"><div class="ss-val" id="sStreak">0</div><div class="ss-lbl">Streak 🔥</div></div>
+    </div>
+    <div class="prog-wrap">
+      <div class="prog-row"><span>Progress</span><span id="sProgLabel">0/8</span></div>
+      <div class="prog-bar"><div class="prog-fill" id="sProgFill" style="width:0%"></div></div>
+    </div>
+  </div>
+  <div class="share-wrap">
+    <button class="btn-share" onclick="copyLink()"><span>🔗</span> Copy Link to Share</button>
+    <div class="share-toast" id="shareToast">✅ Link copied! Share with your students.</div>
+  </div>
+</aside>
+<!-- MAIN -->
+<main class="main" id="mainArea">
+  <!-- START VIEW -->
+  <div class="start-view" id="startView">
+    <p class="welcome-text">Choose your edition and test your Met Gala knowledge! 8 questions per edition covering iconic looks, unforgettable moments, and fascinating fashion facts.</p>
+    <div class="pills">
+      <span class="pill">✨ 8 Questions per Edition</span>
+      <span class="pill">🏆 Score + Streak Bonuses</span>
+      <span class="pill">⌨️ Keyboard Shortcuts: A B C D + Enter</span>
+      <span class="pill">📅 2016 → 2026 + 2020 Cancelled</span>
+      <span class="pill">👓 Anna Wintour Special</span>
+    </div>
+    <div class="edition-grid-main">
+      <div class="edition-card-main" id="mc-2026" onclick="selectEdition('2026')"><span class="ed-emoji-lg">🎨</span><span class="ed-year-lg">2026</span><span class="ed-theme-lg">Costume Art / Fashion is Art</span></div>
+      <div class="edition-card-main" id="mc-2025" onclick="selectEdition('2025')"><span class="ed-emoji-lg">🎩</span><span class="ed-year-lg">2025</span><span class="ed-theme-lg">Superfine: Tailoring Black Style</span></div>
+      <div class="edition-card-main" id="mc-2024" onclick="selectEdition('2024')"><span class="ed-emoji-lg">🌸</span><span class="ed-year-lg">2024</span><span class="ed-theme-lg">Sleeping Beauties: Reawakening Fashion</span></div>
+      <div class="edition-card-main" id="mc-2023" onclick="selectEdition('2023')"><span class="ed-emoji-lg">🖤</span><span class="ed-year-lg">2023</span><span class="ed-theme-lg">Karl Lagerfeld: A Line of Beauty</span></div>
+      <div class="edition-card-main" id="mc-2022" onclick="selectEdition('2022')"><span class="ed-emoji-lg">✨</span><span class="ed-year-lg">2022</span><span class="ed-theme-lg">Gilded Glamour</span></div>
+      <div class="edition-card-main" id="mc-2021" onclick="selectEdition('2021')"><span class="ed-emoji-lg">🇺🇸</span><span class="ed-year-lg">2021</span><span class="ed-theme-lg">In America: A Lexicon of Fashion</span></div>
+      <div class="edition-card-main special" id="mc-2020" onclick="selectEdition('2020')"><span class="ed-emoji-lg">🦠</span><span class="ed-year-lg">2020 — Cancelled</span><span class="ed-theme-lg">✦ About Time: Fashion and Duration — The Year the Gala Didn't Happen ✦</span></div>
+      <div class="edition-card-main" id="mc-2019" onclick="selectEdition('2019')"><span class="ed-emoji-lg">🎪</span><span class="ed-year-lg">2019</span><span class="ed-theme-lg">Camp: Notes on Fashion</span></div>
+      <div class="edition-card-main" id="mc-2018" onclick="selectEdition('2018')"><span class="ed-emoji-lg">✝️</span><span class="ed-year-lg">2018</span><span class="ed-theme-lg">Heavenly Bodies: Fashion & The Catholic Imagination</span></div>
+      <div class="edition-card-main" id="mc-2017" onclick="selectEdition('2017')"><span class="ed-emoji-lg">🥋</span><span class="ed-year-lg">2017</span><span class="ed-theme-lg">Rei Kawakubo / Comme des Garçons: Art of the In-Between</span></div>
+      <div class="edition-card-main" id="mc-2016" onclick="selectEdition('2016')"><span class="ed-emoji-lg">🤖</span><span class="ed-year-lg">2016</span><span class="ed-theme-lg">Manus x Machina: Fashion in an Age of Technology</span></div>
+      <div class="edition-card-main special" id="mc-wintour" onclick="selectEdition('wintour')"><span class="ed-emoji-lg">👓</span><span class="ed-year-lg">Anna Wintour</span><span class="ed-theme-lg">✦ Special Edition — The Queen Behind the Gala ✦</span></div>
+    </div>
+    <button class="btn-start" id="startBtn" onclick="startQuiz()" disabled>Select an Edition to Begin →</button>
+  </div>
+  <!-- QUIZ VIEW -->
+  <div class="quiz-view" id="quizView" style="display:none">
+    <div class="streak-banner" id="streakBanner"></div>
+    <div class="q-card" id="qCard">
+      <div class="q-meta">
+        <div class="q-num" id="qNum">Question 1 of 8</div>
+        <div class="q-badge" id="qBadge">2025</div>
+      </div>
+      <span class="q-emoji" id="qEmoji">👗</span>
+      <p class="q-text" id="qText"></p>
+    </div>
+    <div class="kb-hint"><span class="kb-key">A</span><span class="kb-key">B</span><span class="kb-key">C</span><span class="kb-key">D</span><span style="margin-left:6px;font-size:11px;color:rgba(255,255,255,.22)">to answer &nbsp;·&nbsp; </span><span style="font-size:11px;color:rgba(255,255,255,.22)">↵ Enter to continue</span></div>
+    <div class="options" id="optionsContainer"></div>
+    <div class="feedback" id="feedbackBox"></div>
+    <button class="btn-next" id="nextBtn" onclick="nextQuestion()">Next Question →</button>
+  </div>
+  <!-- RESULT VIEW -->
+  <div class="result-view" id="resultView" style="display:none">
+    <span class="result-trophy" id="resTrophy">🏆</span>
+    <h2 class="result-title" id="resTitle">Fashion Icon!</h2>
+    <p class="result-sub" id="resSub"></p>
+    <div class="result-score-big" id="resScore">0</div>
+    <div class="result-score-lbl">FINAL SCORE</div>
+    <div class="result-rank"><span class="rank-text" id="rankText"></span></div>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-val" id="stCorrect">0</div><div class="stat-lbl">Correct</div></div>
+      <div class="stat-box"><div class="stat-val" id="stWrong">0</div><div class="stat-lbl">Incorrect</div></div>
+      <div class="stat-box"><div class="stat-val" id="stStreak">0</div><div class="stat-lbl">Best Streak</div></div>
+      <div class="stat-box"><div class="stat-val" id="stAccuracy">0%</div><div class="stat-lbl">Accuracy</div></div>
+    </div>
+    <div class="result-btns">
+      <button class="btn-restart" onclick="restartSame()">↺ Try Again</button>
+      <button class="btn-change" onclick="backToMenu()">← Change Edition</button>
+    </div>
+    <div class="share-result">
+      <p>Share with your class</p>
+      <div class="share-result-btns">
+        <button class="btn-share-sm" onclick="copyLink()">🔗 Copy Link</button>
+        <button class="btn-share-sm" onclick="shareScore()">📤 Share My Score</button>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+<script>
+const EDITIONS={
+'2021':{badge:'Met Gala 2021',questions:[
+{emoji:'🇺🇸',q:'What was the full title of the 2021 Met Gala theme, celebrating American designers?',opts:['In America: A Lexicon of Fashion','American Dreams: Fashion Forward','Stars & Stripes: A Fashion Story','New York, New Style'],correct:0,info:'The 2021 Met Gala, "In America: A Lexicon of Fashion," celebrated American designers and fashion identity. It was held in September rather than May due to COVID-19 pandemic delays.'},
+{emoji:'📅',q:'The 2021 Met Gala returned after the pandemic — but in which unusual month was it held?',opts:['May','July','September','October'],correct:2,info:'The 2020 Met Gala was cancelled due to COVID-19. The 2021 edition was held in September — the only time in recent history the event was pushed that late in the year.'},
+{emoji:'✊',q:'Which U.S. Congresswoman caused massive controversy by wearing a "Tax the Rich" dress to the 2021 Met Gala?',opts:['Ilhan Omar','Nancy Pelosi','Alexandria Ocasio-Cortez','Rashida Tlaib'],correct:2,info:'AOC wore a white Brother Vellies gown by designer Aurora James with "Tax the Rich" in bold red on the back. Critics called it hypocritical at a $35,000-ticket event — AOC argued it was exactly the right audience to see the message.'},
+{emoji:'🎤',q:'Rosé of BLACKPINK made history at the 2021 Met Gala as the first member of the group to attend. What did she wear?',opts:['A custom Balenciaga gown','A custom Little Black Dress','A Chanel bridal look','A vintage Dior suit'],correct:1,info:'Rosé became the first BLACKPINK member to attend, wearing a custom little black dress. Since then, multiple members have attended — reflecting K-pop\'s growing influence on global fashion culture.'},
+{emoji:'🏛️',q:'The Costume Center inside the Metropolitan Museum of Art is officially named after which fashion figure?',opts:['Vogue Fashion Center','Anna Wintour Costume Center','Calvin Klein Hall','Ralph Lauren Gallery'],correct:1,info:'The Costume Institute is housed in the Anna Wintour Costume Center, named in recognition of her decades of philanthropic leadership. The renaming was announced in 2014.'},
+{emoji:'🌟',q:'Co-chair Billie Eilish wore a peach Oscar de la Renta ballgown with one important condition. What was it?',opts:['The dress had to be recyclable','The brand had to stop using fur','No press photos of the back','The look had to be auctioned for charity'],correct:1,info:'Billie Eilish agreed to wear Oscar de la Renta on the condition the brand would go fur-free. They agreed — and later announced a permanent fur-free policy. Fashion activism at its finest.'},
+{emoji:'💰',q:'How much did a single ticket to the 2021 Met Gala cost?',opts:['$25,000','$35,000','$50,000','$75,000'],correct:1,info:'A ticket was $35,000 in 2021. Prices have climbed steadily: $50,000 in 2023, $75,000 in 2024, and a record $100,000 in 2026.'},
+{emoji:'🧵',q:'The 2021 Met Gala theme "In America" was inspired by a specific wing inside the Metropolitan Museum. Which?',opts:['The American Wing','The European Galleries','The Rooftop Garden','The Temple of Dendur'],correct:0,info:'The exhibition was inspired by The American Wing — celebrating American creativity and national identity as expressed through fashion design and clothing across generations.'}
+]},
+'2022':{badge:'Met Gala 2022',questions:[
+{emoji:'🏛️',q:'What was the dress code for the 2022 Met Gala, referencing Gilded Age American opulence?',opts:['Old Money Elegance','Gilded Glamour','American Heritage','Gatsby Chic'],correct:1,info:'"Gilded Glamour" referenced the Gilded Age (c.1870–1900) — an era of extreme American wealth and extravagant display. The full exhibition title was "In America: An Anthology of Fashion."'},
+{emoji:'💃',q:'Which celebrity wore Marilyn Monroe\'s original 1962 "Happy Birthday Mr. President" gown to the 2022 Met Gala?',opts:['Beyoncé','Kim Kardashian','Jennifer Lopez','Doja Cat'],correct:1,info:'Kim Kardashian wore the priceless gown borrowed from Ripley\'s Believe It or Not. She reportedly lost 16 lbs in 3 weeks to fit into it — sparking a global debate about fashion preservation ethics.'},
+{emoji:'🦋',q:'Blake Lively\'s 2022 look went viral for a dramatic live transformation on the carpet. Which house designed it?',opts:['Valentino','Chanel','Versace','Atelier Versace'],correct:2,info:'Blake Lively\'s Versace gown dramatically transformed from copper to teal on the red carpet — a theatrical reveal that became one of the most-replayed Met Gala moments ever.'},
+{emoji:'🏆',q:'How much did the 2022 Met Gala raise for the Costume Institute — a record at the time?',opts:['$10.2 million','$14.5 million','$17.4 million','$22 million'],correct:2,info:'The 2022 Met Gala raised a record $17.4 million. Total contributions to the Costume Institute have now surpassed $200 million since Wintour became chair.'},
+{emoji:'👗',q:'The 2022 theme was Part 2 of a two-year series on American fashion. What was the 2021 Part 1 called?',opts:['America the Beautiful','In America: A Lexicon of Fashion','Stars & Stripes: Fashion Defined','New York: A Fashion Story'],correct:1,info:'"In America: An Anthology of Fashion" (2022) continued from "In America: A Lexicon of Fashion" (2021) — together a two-part exploration of American fashion identity.'},
+{emoji:'💎',q:'After the 2022 Met Gala, controversy erupted over potential damage to Marilyn Monroe\'s dress. Who owns it?',opts:['The Smithsonian Museum','MoMA New York','Ripley\'s Believe It or Not!','The Met Costume Institute'],correct:2,info:'Ripley\'s Believe It or Not! owns the dress and publicly denied damage claims. The incident sparked a wider debate about the ethics of wearing priceless historical artifacts as fashion statements.'},
+{emoji:'🌟',q:'Who accompanied Kim Kardashian to the 2022 Met Gala in a deliberately understated look?',opts:['Travis Scott','Kanye West','Pete Davidson','Jack Harlow'],correct:2,info:'Pete Davidson wore a comparatively simple black tuxedo alongside Kim Kardashian — creating a stark visual contrast with her iconic Marilyn Monroe gown that became widely discussed.'},
+{emoji:'🪡',q:'The 2022 exhibition explored which overarching theme?',opts:['Streetwear and hip-hop culture','Two centuries of American fashion history and innovation','The rise of American sportswear','Celebrity fashion in Hollywood\'s golden age'],correct:1,info:'The exhibition traced over 200 years of American fashion history — examining how design has both reflected and actively shaped American cultural identity across different eras.'}
+]},
+'2023':{badge:'Met Gala 2023',questions:[
+{emoji:'🖤',q:'The 2023 Met Gala honored which legendary designer, who passed away in February 2019?',opts:['Gianni Versace','Yves Saint Laurent','Karl Lagerfeld','Alexander McQueen'],correct:2,info:'"Karl Lagerfeld: A Line of Beauty" honored the iconic German designer who helmed Chanel for 36 years, plus Fendi and his own label. Known globally for his white ponytail, dark glasses, and fingerless gloves.'},
+{emoji:'🐈',q:'Karl Lagerfeld was famously devoted to his cat. What was her name?',opts:['Coco','Choupette','Bianca','Duchess'],correct:1,info:'Choupette was Karl\'s pampered white Birman cat — served by two personal maids, reportedly worth millions, and featured in fashion campaigns. She became an icon in her own right.'},
+{emoji:'💄',q:'Doja Cat\'s 2023 Met Gala look went viral globally. Which house created her fully body-painted appearance?',opts:['Valentino','Schiaparelli','Vivienne Westwood','Maison Margiela'],correct:1,info:'Doja Cat appeared in a custom Schiaparelli look with dramatic painted skin. The look perfectly captured Lagerfeld\'s theatrical spirit — and was the most-discussed outfit of the night.'},
+{emoji:'🎟️',q:'How much did a single ticket to the 2023 Met Gala cost?',opts:['$30,000','$50,000','$70,000','$100,000'],correct:1,info:'By 2023, a single ticket cost $50,000 — up from $35,000 in 2021. The Met Gala has become one of the most expensive fundraising events in the world.'},
+{emoji:'🕊️',q:'Which co-chair paid tribute to Karl Lagerfeld in a white feathered Chanel look?',opts:['Dua Lipa','Penélope Cruz','Michaela Coel','Mindy Kaling'],correct:0,info:'Dua Lipa wore a vintage-inspired white Chanel look with feathers as a direct tribute to Lagerfeld\'s legacy. Co-chairs also included Penélope Cruz, Michaela Coel, and Roger Federer.'},
+{emoji:'👔',q:'Karl Lagerfeld served as creative director of Chanel for how many remarkable years?',opts:['15 years','22 years','36 years','41 years'],correct:2,info:'Lagerfeld directed Chanel for 36 years — from 1983 until his death in 2019 — simultaneously leading Fendi and his own label, making him one of fashion history\'s most prolific creative directors.'},
+{emoji:'💅',q:'Rihanna arrived late to the 2023 Met Gala and confirmed what personal news?',opts:['She announced a new fashion line','She confirmed a new album','She confirmed she was pregnant with her second child','She announced a world tour'],correct:2,info:'Rihanna arrived in a pearl-adorned ivory Valentino gown and confirmed she was pregnant with her second child. The appearance became one of the most-discussed celebrity moments of the year.'},
+{emoji:'🧠',q:'The title "Karl Lagerfeld: A Line of Beauty" referenced an aesthetic concept by which 18th-century artist?',opts:['William Hogarth','Francisco Goya','Jacques-Louis David','Jean-Honoré Fragonard'],correct:0,info:'William Hogarth\'s 1753 serpentine "line of beauty" — an S-curve considered the aesthetic ideal — inspired the title. The exhibition explored how Lagerfeld applied this principle throughout his entire career.'}
+]},
+'2024':{badge:'Met Gala 2024',questions:[
+{emoji:'🌿',q:'What was the full title of the 2024 Met Gala theme, focused on fragile historical garments?',opts:['The Garden of Dreams','Sleeping Beauties: Reawakening Fashion','Nature\'s Couture','Flora & Fauna: A Fashion Story'],correct:1,info:'"Sleeping Beauties: Reawakening Fashion" explored garments too fragile to display on mannequins. The exhibition used cutting-edge AI and digital technology to virtually "reawaken" these pieces for modern audiences.'},
+{emoji:'📖',q:'The 2024 dress code "The Garden of Time" was inspired by a 1962 short story by which writer?',opts:['F. Scott Fitzgerald','J.G. Ballard','Virginia Woolf','Oscar Wilde'],correct:1,info:'J.G. Ballard\'s 1962 surreal story about fleeting beauty and the passage of time inspired the dress code. Themes of impermanence, nature, and transience ran through the entire evening.'},
+{emoji:'🏖️',q:'Tyla\'s 2024 Met Gala gown was designed to resemble which material — a symbolic hourglass reference?',opts:['Liquid gold','Sand','Water droplets','Crushed flowers'],correct:1,info:'Tyla\'s custom Balmain gown was crafted to resemble sand — a stunning literal interpretation of "The Garden of Time." She famously couldn\'t sit or walk easily in it, making her arrival even more iconic.'},
+{emoji:'👗',q:'Serving as co-chair, Zendaya made headlines at the 2024 Met Gala by doing what?',opts:['Arriving extremely late','Appearing twice in two entirely different looks','Designing her own gown','Wearing the same designer three times'],correct:1,info:'Zendaya walked the carpet twice in two entirely different looks — one by John Galliano for Maison Margiela, one by Givenchy. The feat cemented her as the ultimate Met Gala style icon.'},
+{emoji:'🌸',q:'What does the Met Costume Institute call garments too fragile to be placed on a mannequin?',opts:['Ghost garments','Sleeping beauties','Phantom pieces','Archive relics'],correct:1,info:'"Sleeping beauties" are garments — many over 100 years old — whose delicate construction means they can no longer be safely displayed on mannequins. The 2024 exhibition used digital technology to bring them back to life.'},
+{emoji:'💰',q:'How much did a ticket to the 2024 Met Gala cost — a significant jump from 2023?',opts:['$50,000','$60,000','$75,000','$90,000'],correct:2,info:'Tickets rose to $75,000 in 2024 — a $25,000 increase from 2023\'s $50,000. By 2026, the price climbed again to $100,000, making it one of the most exclusive social events in the world.'},
+{emoji:'✂️',q:'John Galliano designed one of Zendaya\'s 2024 Met Gala looks. For which house is he currently creative director?',opts:['Givenchy','Valentino','Maison Margiela','Balenciaga'],correct:2,info:'John Galliano serves as creative director of Maison Margiela, where his signature deconstructed, narrative-driven approach is on full display. His work for Zendaya at the 2024 Met was widely acclaimed.'},
+{emoji:'🌀',q:'In 2024, the Met Gala generated how much in media impact value — far exceeding the Super Bowl?',opts:['$500 million','$995 million','$1.4 billion','$2.1 billion'],correct:2,info:'The 2024 Met Gala\'s media impact value reached $1.4 billion — dwarfing even the Super Bowl. In 2023, the figure was $995 million. The gala is now the single most valuable fashion media event globally.'}
+]},
+'2025':{badge:'Met Gala 2025',questions:[
+{emoji:'🎩',q:'What was the full title of the 2025 Met Gala theme, focused on Black sartorial identity?',opts:['Black Excellence: Fashion as Power','Superfine: Tailoring Black Style','Dandyism: The New Elegance','Style & Soul: The Black Fashion Canon'],correct:1,info:'"Superfine: Tailoring Black Style" was inspired by Monica Miller\'s 2009 book on Black dandyism. It was the first Met Gala exhibition exclusively dedicated to Black designers, and the first menswear focus in over 20 years.'},
+{emoji:'👔',q:'The 2025 Met Gala was the first in over 20 years to focus on which fashion category?',opts:['Womenswear','Couture gowns','Menswear','Accessories'],correct:2,info:'The 2025 exhibition was the first Met Gala focused on menswear in over two decades — specifically Black menswear and dandyism as a powerful form of political self-expression and cultural identity.'},
+{emoji:'🎤',q:'Which four celebrities served as co-chairs of the 2025 Met Gala?',opts:['Beyoncé, Jay-Z, Rihanna, Pharrell','Colman Domingo, Lewis Hamilton, A$AP Rocky, Pharrell Williams','LeBron James, Kendrick Lamar, Tyler the Creator, Frank Ocean','Denzel Washington, Idris Elba, Lakeith Stanfield, John Boyega'],correct:1,info:'Colman Domingo, Lewis Hamilton, A$AP Rocky, and Pharrell Williams co-chaired the 2025 gala. LeBron James was honorary chair but couldn\'t attend due to a playoff knee injury — his wife Savannah attended in his place.'},
+{emoji:'👗',q:'Which designer did Rihanna wear head-to-toe at the 2025 Met Gala?',opts:['Valentino','Marc Jacobs','Balenciaga','Saint Laurent'],correct:1,info:'Rihanna stepped out in a complete Marc Jacobs look — a powerful statement for the "Superfine: Tailoring Black Style" theme and one of the most celebrated looks of the entire evening.'},
+{emoji:'📚',q:'The 2025 theme was inspired by a 2009 book. What key concept did it explore?',opts:['The history of Black fashion houses in Paris','Black dandyism and the styling of Black diasporic identity','African textile influence on Western fashion','Hip-hop culture\'s impact on mainstream fashion'],correct:1,info:'Monica Miller\'s "Slaves to Fashion: Black Dandyism and the Styling of Black Diasporic Identity" (2009) argued that dandyism was a radical creative act of political self-expression — the intellectual foundation of the 2025 exhibition.'},
+{emoji:'💎',q:'Pharrell Williams described his 2025 pearl blazer as a tribute to whom?',opts:['Jazz musicians of the Harlem Renaissance','The Black men of the working class','Martin Luther King Jr. and the Civil Rights movement','The Harlem Dandy photographers'],correct:1,info:'Pharrell described his look as a tribute to "the Black men of the working class" — honoring the everyday dignity and elegance of Black sartorial tradition at the heart of the exhibition\'s message.'},
+{emoji:'🎨',q:'Zendaya\'s 2025 monochromatic suit was created by which designer — also a co-chair that night?',opts:['Chanel','Prada','Louis Vuitton by Pharrell Williams','Bottega Veneta'],correct:2,info:'Zendaya wore a precisely tailored Louis Vuitton suit designed by Pharrell Williams — co-chair of the evening — creating a cohesive fashion statement aligned with the theme of tailored Black elegance.'},
+{emoji:'💰',q:'How much did a 2025 Met Gala ticket cost — up from $50,000 in 2023?',opts:['$55,000','$65,000','$75,000','$90,000'],correct:2,info:'Tickets to the 2025 gala were $75,000 each. In 2026, the price rose to a record $100,000 — reflecting the event\'s extraordinary cultural and commercial prestige.'}
+]},
+'2026':{badge:'Met Gala 2026',questions:[
+{emoji:'🎨',q:'What is the official theme and dress code for the 2026 Met Gala?',opts:['Fashion Fantasia / Dress to Impress','Costume Art / Fashion is Art','Body & Soul / Wear Your Story','The Artful Body / Crafted Couture'],correct:1,info:'"Costume Art" with the dress code "Fashion is Art" — the 2026 exhibition explores the interplay between artistic depictions of the dressed body and fashion as an art form, pairing garments with art objects from across the museum\'s departments.'},
+{emoji:'👑',q:'Who are the four co-chairs of the 2026 Met Gala?',opts:['Rihanna, Zendaya, Harry Styles, Tyler the Creator','Beyoncé, Venus Williams, Nicole Kidman, and Lauren Sánchez Bezos','Taylor Swift, Dua Lipa, Bad Bunny, Pharrell','Kim Kardashian, Kylie Jenner, Gigi Hadid, Bella Hadid'],correct:1,info:'The 2026 co-chairs are Beyoncé (returning for the first time in a decade), Venus Williams, Nicole Kidman, and Lauren Sánchez Bezos — selected after she and Jeff Bezos committed to being the event\'s biggest donors.'},
+{emoji:'💰',q:'How much does a single 2026 Met Gala ticket cost — a new all-time record?',opts:['$75,000','$85,000','$100,000','$125,000'],correct:2,info:'The 2026 ticket price reached $100,000 — a new record, up from $75,000 in 2025. This makes the Met Gala one of the most expensive annual social events anywhere in the world.'},
+{emoji:'🌟',q:'Beyoncé\'s 2026 Met Gala appearance is historic — it marks her return after how long away?',opts:['5 years','7 years','10 years','She has never attended before'],correct:2,info:'Beyoncé returned to the Met Gala in 2026 for the first time in a decade — her appearance as co-chair was the single most anticipated moment of the event, generating extraordinary global media coverage.'},
+{emoji:'👓',q:'What did Anna Wintour wear to the 2026 Met Gala, embodying the "Fashion is Art" dress code?',opts:['A sequined Prada ballgown','A feathery turquoise Chanel jacket over an embroidered gown','A black Chanel suit with pearl accessories','A draped Valentino caftan in deep emerald'],correct:1,info:'Anna Wintour wore a feathery turquoise Chanel jacket over a turquoise and black embroidered gown, completing the look with her signature bob, oversized sunglasses, strappy stilettos, and a jeweled statement necklace.'},
+{emoji:'📰',q:'Who succeeded Anna Wintour as editor-in-chief of US Vogue in 2025?',opts:['Grace Coddington','Tonne Goodman','Chloe Malle','Hamish Bowles'],correct:2,info:'Chloe Malle — formerly editor of Vogue.com — was named head of editorial content at US Vogue in September 2025. She continues to report to Anna Wintour, who now serves as chief content officer at Condé Nast.'},
+{emoji:'🏛️',q:'What does the 2026 "Costume Art" exhibition uniquely do?',opts:['Charts haute couture history from 1900 to present','Pairs fashion pieces with art objects from across museum departments','Shows the influence of street fashion on museums','Explores the relationship between tech and fashion'],correct:1,info:'The 2026 exhibition pairs fashion pieces with existing art objects from across the Metropolitan Museum\'s many curatorial departments — uniquely positioning clothing as an art form in direct dialogue with painting, sculpture and more.'},
+{emoji:'🎬',q:'Which 2026 co-chair brought her daughter — on her very first Met Gala visit — as her guest?',opts:['Blue Ivy Carter','Sunday Rose Kidman Urban','Willow Smith','North West'],correct:1,info:'Nicole Kidman brought her daughter Sunday Rose Kidman Urban to the 2026 Met Gala — Sunday\'s very first time at the event. Nicole, by contrast, has been attending for over two decades.'}
+]},
+'2020':{badge:'🦠 2020 — Cancelled',questions:[
+{emoji:'🦠',q:'Why was the 2020 Met Gala cancelled — the first cancellation since 2002?',opts:['A major security threat in New York','The COVID-19 pandemic','A dispute between Anna Wintour and the Met','Hurricane damage to the museum'],correct:1,info:'The 2020 Met Gala was cancelled due to the COVID-19 pandemic — the first cancellation since 2002 and only the fourth time in the event\'s history it didn\'t take place. The exhibition and gala were postponed to 2021.'},
+{emoji:'📅',q:'What was the planned theme for the cancelled 2020 Met Gala?',opts:['In America: A Lexicon of Fashion','About Time: Fashion and Duration','Dreams and Realities: Fashion\'s Next Chapter','The Invisible Thread: Fashion in Crisis'],correct:1,info:'"About Time: Fashion and Duration" was the planned 2020 theme — inspired by philosopher Henri Bergson\'s concept of time. It was eventually held in 2021 as part of the "In America" exhibition instead.'},
+{emoji:'⏳',q:'The planned 2020 theme "About Time: Fashion and Duration" was inspired by which philosopher\'s concept of time?',opts:['Immanuel Kant','Henri Bergson','John Locke','Friedrich Nietzsche'],correct:1,info:'The theme drew on Henri Bergson\'s concept of "la durée" — the idea that time is not linear but a continuous flow of past into present. The exhibition would have explored how fashion exists in a constant dialogue with its own history.'},
+{emoji:'💻',q:'How did the fashion world respond to the Met Gala cancellation in 2020?',opts:['The entire fashion calendar shut down for the year','A virtual Met Gala and #MetGalaChallenge went viral on social media','Designers held private salons instead','Anna Wintour organized a secret dinner for 50 guests'],correct:1,info:'With the physical gala cancelled, the internet took over — a #MetGalaChallenge went viral on TikTok and Twitter with people recreating iconic looks at home. The fashion community found creative ways to celebrate despite the pandemic.'},
+{emoji:'🗓️',q:'In which years before 2020 was the Met Gala also cancelled or not held?',opts:['1950, 1965, and 1980','1957, 2000, and 2002','1960, 1975, and 1990','1948, 1955, and 1999'],correct:1,info:'The Met Gala did not take place in 1957, 2000, 2002, and 2020. The 2020 cancellation was the most high-profile, given how culturally dominant the event had become by then.'},
+{emoji:'👗',q:'The "About Time" exhibition concept explored fashion\'s relationship with time. Which idea was at its core?',opts:['That fashion trends repeat every 20 years','That fashion both reflects and transcends the era in which it is created','That vintage fashion is always superior to contemporary design','That technology will eventually replace human designers'],correct:1,info:'The core idea was that fashion simultaneously reflects the era in which it\'s created and transcends it — that a garment can carry the past, present, and future within its construction, materials, and silhouette.'},
+{emoji:'💰',q:'The 2020 cancellation cost the Costume Institute significant fundraising. Approximately how much does the Met Gala typically raise each year?',opts:['Around $5 million','Around $10–17 million','Around $25 million','Around $50 million'],correct:1,info:'The Met Gala typically raises between $10 and $17 million per year for the Costume Institute. The 2022 event set a record at $17.4 million. The 2020 cancellation represented a major financial gap for the museum\'s fashion collections.'},
+{emoji:'🌍',q:'The COVID-19 pandemic also disrupted the entire fashion calendar in 2020. Which major fashion week went fully digital for the first time?',opts:['Paris Fashion Week only','London Fashion Week only','Multiple fashion weeks including London, Milan, and Paris','New York Fashion Week only'],correct:2,info:'The COVID-19 pandemic forced multiple fashion weeks — including London, Milan, and Paris — to go fully digital in 2020 for the first time in their histories. It fundamentally changed how the fashion industry presents collections and engages audiences.'}
+]},
+'2019':{badge:'Met Gala 2019',questions:[
+{emoji:'🎪',q:'What was the theme of the 2019 Met Gala, inspired by a 1964 essay by Susan Sontag?',opts:['Punk: Chaos to Couture','Camp: Notes on Fashion','Heavenly Bodies','Manus x Machina'],correct:1,info:'"Camp: Notes on Fashion" was inspired by Susan Sontag\'s 1964 essay "Notes on Camp" — celebrating irony, humor, artifice, exaggeration, and theatricality in fashion. The pink carpet was the most extravagant in Met Gala history.'},
+{emoji:'👗',q:'Lady Gaga\'s legendary 2019 Met Gala entrance involved how many outfit changes on the carpet?',opts:['One','Two','Three','Four'],correct:3,info:'Lady Gaga performed four dramatic outfit changes on the Met Gala carpet in a sequence of Brandon Maxwell looks — going from a huge pink gown to a black dress to a bedazzled bodysuit to a tiny bubble-gum pink outfit. Pure camp theater.'},
+{emoji:'🤡',q:'Which actor arrived at the 2019 Met Gala carrying a severed replica of his own head, in a Gucci look?',opts:['Billy Porter','Jared Leto','Harry Styles','Ezra Miller'],correct:1,info:'Jared Leto arrived carrying a lifelike replica of his own head — part of a full Alessandro Michele for Gucci look that perfectly embodied the camp theme. It remains one of the most talked-about Met Gala moments ever.'},
+{emoji:'👠',q:'Billy Porter\'s 2019 Met Gala entrance became iconic — he was carried in by six shirtless men wearing what?',opts:['A golden suit of armor','A winged Egyptian-inspired sun god look','A Marie Antoinette gown','A sequined tuxedo dress'],correct:1,info:'Billy Porter arrived as a "Sun God" — carried on a golden litter by six shirtless men in a dramatic custom Christian Siriano look with enormous feathered golden wings. The entrance perfectly embodied the camp spirit.'},
+{emoji:'👒',q:'Zendaya wore a Cinderella-inspired light-up gown to the 2019 Met Gala. Which house created it?',opts:['Valentino','Tommy Hilfiger','Vera Wang','Alexander McQueen'],correct:1,info:'Zendaya wore a custom Tommy Hilfiger Cinderella gown that actually lit up like a fairytale on the carpet — with her stylist Law Roach playing the Fairy Godmother, wand in hand. A show-stopping camp moment.'},
+{emoji:'💧',q:'Kim Kardashian\'s 2019 Met Gala look by Thierry Mugler was designed to look like what?',opts:['Melting gold','A wet body emerging from water','Wrapped in latex','Crystal armor'],correct:1,info:'Kim Kardashian wore a custom Thierry Mugler gown designed to look like a dripping wet body — complete with sculpted corset and fabric that mimicked water clinging to skin. Mugler came out of retirement specifically to create it.'},
+{emoji:'📝',q:'The 2019 Met Gala theme "Camp: Notes on Fashion" was directly inspired by an essay written in which decade?',opts:['1940s','1950s','1960s','1970s'],correct:2,info:'Susan Sontag published "Notes on \'Camp\'" in 1964 — a seminal essay that defined camp as a sensibility of artifice, irony, and exaggeration. The exhibition explored how this concept has shaped fashion across the decades.'},
+{emoji:'💰',q:'The 2019 Met Gala was the first event to push the Costume Institute\'s total fundraising past which milestone?',opts:['$100 million','$150 million','$200 million','$250 million'],correct:2,info:'Total contributions to the Costume Institute surpassed $200 million for the first time after the 2019 event — a testament to the extraordinary growth of the Met Gala under Anna Wintour\'s leadership since 1995.'}
+]},
+'2018':{badge:'Met Gala 2018',questions:[
+{emoji:'✝️',q:'What was the full title of the controversial 2018 Met Gala theme that drew on Catholic imagery?',opts:['Sacred & Profane: Fashion and Faith','Heavenly Bodies: Fashion and the Catholic Imagination','God & Glamour: The Holy Couture','Divine Fashion: The Vatican and Vogue'],correct:1,info:'"Heavenly Bodies: Fashion and the Catholic Imagination" explored how Catholicism has influenced fashion through centuries of religious iconography. The Vatican lent over 40 papal vestments for the exhibition — yet the theme still sparked controversy.'},
+{emoji:'⛪',q:'Which institution lent more than 40 authentic papal vestments to the 2018 Met Gala exhibition?',opts:['The Vatican','The Sistine Chapel Trust','The Holy See Museum','The Papal Foundation'],correct:0,info:'The Vatican lent more than 40 papal vestments and accessories from the Sistine Chapel sacristy for the exhibition — making it a genuine collaboration with the Catholic Church, despite criticism from some about mixing religion and fashion.'},
+{emoji:'👗',q:'Rihanna\'s 2018 Met Gala look included a papal mitre hat and a pearl-encrusted robe. Which house designed it?',opts:['Versace','Chanel','Maison Margiela','Givenchy'],correct:2,info:'Rihanna wore a custom Maison Margiela look by John Galliano — a pearl and jewel-encrusted robe with a papal mitre and Christian Louboutin heels. Critics called it "sacrilegious cosplay" while others celebrated it as artistic brilliance.'},
+{emoji:'👼',q:'Blake Lively\'s 2018 Met Gala look was designed to reference which artistic concept?',opts:['A fallen angel','A Renaissance Madonna','A Baroque cathedral ceiling','A medieval saint'],correct:0,info:'Blake Lively wore a dramatic Atelier Versace gown with a halo-inspired headpiece and enormous trailing skirt — a look widely described as a fallen angel, combining sacred imagery with glamorous fashion in true Met Gala spirit.'},
+{emoji:'🦸',q:'Which actress wore a full golden armor-inspired look to the 2018 Met Gala, styled by Law Roach?',opts:['Chadwick Boseman\'s partner','Lupita Nyong\'o','Zendaya','Janelle Monáe'],correct:2,info:'Zendaya wore a custom Joan of Arc-inspired golden armor look — styled by Law Roach — with a matching chain mail headpiece. The look was a powerful interpretation of the Heavenly Bodies theme through a warrior-saint lens.'},
+{emoji:'💒',q:'The 2018 Met Gala was the highest-attended in history at the time, with how many guests?',opts:['450','550','650','750'],correct:2,info:'The 2018 Met Gala welcomed approximately 650 guests — the maximum capacity. The exhibition "Heavenly Bodies" became the most visited in the Costume Institute\'s history, with over 1.6 million visitors.'},
+{emoji:'🎸',q:'Which male artist wore a custom cape covered in crosses and religious imagery to the 2018 Met Gala?',opts:['Frank Ocean','Childish Gambino','Chadwick Boseman','Miguel'],correct:3,info:'Chadwick Boseman wore a stunning custom Versace look featuring an embroidered cape with religious iconography — a powerful interpretation of the Heavenly Bodies theme that garnered widespread critical acclaim.'},
+{emoji:'📊',q:'The "Heavenly Bodies" 2018 exhibition became the most visited in the Costume Institute\'s history. How many visitors came?',opts:['800,000','1.1 million','1.6 million','2.3 million'],correct:2,info:'With over 1.6 million visitors, "Heavenly Bodies: Fashion and the Catholic Imagination" became the most visited exhibition in the Costume Institute\'s entire history — surpassing even the 2011 Alexander McQueen: Savage Beauty show.'}
+]},
+'2017':{badge:'Met Gala 2017',questions:[
+{emoji:'🥋',q:'The 2017 Met Gala honored which avant-garde Japanese designer and her groundbreaking label?',opts:['Yohji Yamamoto','Issey Miyake','Rei Kawakubo / Comme des Garçons','Junya Watanabe'],correct:2,info:'"Rei Kawakubo/Comme des Garçons: Art of the In-Between" was only the second time in the Met Gala\'s history that a living designer was honored — the first being Yves Saint Laurent in 1983. Kawakubo is famous for her avant-garde, body-challenging designs.'},
+{emoji:'🎭',q:'The 2017 Met Gala theme explored which central concept in Rei Kawakubo\'s design philosophy?',opts:['Minimalism and silence','The in-between — fashion that exists between opposing ideas','Traditional Japanese textile craft','The conflict between East and West'],correct:1,info:'"Art of the In-Between" explored Kawakubo\'s lifelong fascination with binaries — fashion/anti-fashion, East/West, clothes/not clothes. Her designs challenge the very definition of what clothing is, existing in the space between opposites.'},
+{emoji:'👗',q:'Rihanna\'s 2017 Met Gala look — a stunning yellow ruffled cape — was created by which Chinese designer?',opts:['Vera Wang','Jason Wu','Guo Pei','Han Feng'],correct:2,info:'Rihanna wore a magnificent yellow Guo Pei haute couture gown with an enormous ruffled train in 2015 — but her yellow look became so iconic it\'s often misremembered. Her 2017 look was by Comme des Garçons, perfectly suited to the theme.'},
+{emoji:'🧠',q:'Comme des Garçons is known for designs that challenge conventional fashion. What does the brand\'s name mean in English?',opts:['Art of the Boys','Like the Boys','For the Boys Only','Beyond the Boys'],correct:1,info:'"Comme des Garçons" translates to "Like the Boys" in French — a name that itself challenges gender norms in fashion. Founded in Tokyo in 1969, the brand moved to Paris in 1981 and revolutionized the fashion world.'},
+{emoji:'🏆',q:'The 2017 Met Gala was only the second time in history a living designer was honored. Who was the first?',opts:['Karl Lagerfeld','Coco Chanel','Yves Saint Laurent','Giorgio Armani'],correct:2,info:'Yves Saint Laurent was the first living designer to be honored at the Met Gala in 1983. Rei Kawakubo in 2017 was only the second — a mark of extraordinary respect in the fashion world.'},
+{emoji:'👔',q:'Pharrell Williams wore a distinctive outfit to the 2017 Met Gala that many called the most on-theme look of the night. What was it?',opts:['A traditional Japanese kimono robe','A giant sculptural tuxedo with no lapels','A deconstructed suit with one sleeve','A gown that looked inside-out'],correct:1,info:'Pharrell Williams wore a dramatically architectural custom Comme des Garçons suit with exaggerated proportions — widely considered one of the most genuinely on-theme looks of the 2017 Met Gala.'},
+{emoji:'📅',q:'Rei Kawakubo founded Comme des Garçons in which city in 1969?',opts:['Osaka','Kyoto','Tokyo','Hiroshima'],correct:2,info:'Rei Kawakubo founded Comme des Garçons in Tokyo in 1969. She moved the brand to Paris in 1981, where her debut show — featuring black, asymmetrical, and deliberately "imperfect" garments — shocked the French fashion establishment.'},
+{emoji:'🎬',q:'Which co-chair of the 2017 Met Gala wore a sculptural Comme des Garçons look that became one of the most discussed outfits of the night?',opts:['Katy Perry','Rihanna','Pharrell Williams','Priyanka Chopra'],correct:3,info:'Priyanka Chopra wore a custom Ralph Lauren gown with a dramatically long train — but it was her co-chair role that put her at the center of the 2017 event alongside Pharrell Williams, Katy Perry, and Alessandro Michele.'}
+]},
+'2016':{badge:'Met Gala 2016',questions:[
+{emoji:'🤖',q:'What was the full title of the 2016 Met Gala theme, exploring the relationship between fashion and technology?',opts:['Digital Couture: Fashion Meets Code','Manus x Machina: Fashion in an Age of Technology','Tech Runway: The Future of Fashion','Human x Machine: Designing Tomorrow'],correct:1,info:'"Manus x Machina: Fashion in an Age of Technology" explored the relationship between handmade haute couture (manus = hand) and machine-made fashion (machina = machine) — asking whether technology enhances or diminishes the art of fashion.'},
+{emoji:'💡',q:'Claire Danes wore a light-up gown to the 2016 Met Gala that glowed in the dark. Which house created it?',opts:['Chanel','Dior','Zac Posen','Valentino'],correct:2,info:'Claire Danes wore a custom Zac Posen gown fitted with fiber optic filaments that made the skirt glow dramatically in the dark — a literal embodiment of the "Manus x Machina" theme and one of the most viral looks in Met Gala history.'},
+{emoji:'🌸',q:'What did the exhibition\'s title "Manus x Machina" literally mean?',opts:['Hand and Machine','Art and Science','Human and Robot','Past and Future'],correct:0,info:'"Manus x Machina" translates directly to "Hand and Machine" in Latin — the exhibition explored the binary between handcrafted haute couture techniques and the industrial machine-made methods that have increasingly shaped fashion since the 19th century.'},
+{emoji:'👗',q:'Taylor Swift wore which designer to the 2016 Met Gala, as part of her famous "Squad"?',opts:['Louis Vuitton','Atelier Versace','Calvin Klein by Appointment','Gucci'],correct:1,info:'Taylor Swift attended the 2016 Met Gala in a custom Atelier Versace look — arriving as part of her famous "squad" that included Karlie Kloss, Gigi Hadid, and others, making it one of the most photographed celebrity group arrivals in gala history.'},
+{emoji:'👑',q:'Which designer\'s work was referenced by many guests at the 2016 Met Gala for pioneering the use of technology in fashion?',opts:['Alexander McQueen','Hussein Chalayan','Iris van Herpen','Thierry Mugler'],correct:2,info:'Iris van Herpen — the Dutch designer known for using 3D printing, water simulation, and biomimicry in her couture — was a touchstone of the 2016 exhibition. She has been at the forefront of technology-driven fashion design for over a decade.'},
+{emoji:'🎨',q:'The concept of "manus" (handcraft) in the 2016 exhibition referred primarily to which fashion category?',opts:['Ready-to-wear','High street fashion','Haute couture','Sportswear'],correct:2,info:'The "manus" (hand) side of the exhibition focused on haute couture — the most labor-intensive form of fashion, requiring thousands of hours of skilled handwork per garment — contrasting it with increasingly mechanized production methods.'},
+{emoji:'⚙️',q:'Which famous fashion house\'s early history, pioneering the use of sewing machines in the 1800s, was highlighted in the 2016 exhibition?',opts:['Chanel','Worth','Balenciaga','Poiret'],correct:1,info:'Charles Frederick Worth — who founded the House of Worth in Paris in 1858 — was cited as a pioneer of machine-assisted fashion. Worth was the first couturier to use sewing machines alongside handwork, bridging the "manus x machina" divide.'},
+{emoji:'📸',q:'The 2016 Met Gala was co-chaired by which pop star, who arrived in a futuristic silver look?',opts:['Taylor Swift','Madonna','Beyoncé','Katy Perry'],correct:0,info:'Taylor Swift co-chaired the 2016 Met Gala alongside Idris Elba, Jonathan Ive, and Anna Wintour. She wore a custom Louis Vuitton look designed by Nicolas Ghesquière — a sleek, futuristic interpretation of the technology theme.'}
+]},
+'wintour':{badge:'👓 Anna Wintour',questions:[
+{emoji:'📅',q:'In which year did Anna Wintour officially become chair of the Met Gala, transforming it forever?',opts:['1988','1992','1995','2001'],correct:2,info:'Wintour became chair of the Costume Institute Benefit in 1995. With the exception of 1996 and 1998, she has chaired the event ever since — turning a modest industry dinner into the world\'s most glamorous fashion spectacle.'},
+{emoji:'📰',q:'In what year was Anna Wintour appointed editor-in-chief of American Vogue — a role she held until 2025?',opts:['1983','1985','1988','1991'],correct:2,info:'Wintour became EIC of American Vogue in 1988. Her very first cover — a model in jeans rather than haute couture — was immediately controversial, signaling a revolutionary new direction for the magazine.'},
+{emoji:'🇬🇧',q:'Anna Wintour was born in London. What was her father\'s profession, which deeply influenced her career?',opts:['Fashion designer','Newspaper editor','Film critic','Theatre director'],correct:1,info:'Anna\'s father Charles Wintour was editor of the London Evening Standard. Growing up around journalism profoundly shaped her ambitions — she reportedly told colleagues very early on that she intended to edit Vogue.'},
+{emoji:'🕶️',q:'Anna Wintour is recognized worldwide by two iconic signature style elements. What are they?',opts:['Red lips and white gloves','Pageboy bob and dark sunglasses','Fur coat and pearls','Silk scarves and stilettos'],correct:1,info:'Wintour\'s pageboy bob and oversized dark sunglasses are globally iconic — worn everywhere, including inside fashion show front rows. They are widely interpreted as both a power shield and an armor of authority.'},
+{emoji:'🚫',q:'Which former U.S. President was famously banned from the Met Gala by Anna Wintour?',opts:['George W. Bush','Barack Obama','Donald Trump','Bill Clinton'],correct:2,info:'Donald Trump attended the Met Gala from 2004 to 2012 before being banned by Anna Wintour — making him the first celebrity ever officially excluded. Wintour confirmed the ban on a 2017 episode of The Late Late Show.'},
+{emoji:'💄',q:'Wintour\'s fearsome influence over fashion inspired which iconic fictional character?',opts:['Edna Mode in The Incredibles','Miranda Priestly in The Devil Wears Prada','Cruella de Vil in Cruella','The Countess in American Horror Story'],correct:1,info:'Meryl Streep\'s terrifying Miranda Priestly in "The Devil Wears Prada" (2006) is widely understood as inspired by Anna Wintour. Based on Lauren Weisberger\'s novel, the film became a defining cultural touchstone.'},
+{emoji:'🏅',q:'What prestigious U.S. honor was Anna Wintour awarded in January 2025?',opts:['The National Medal of Arts','The Presidential Medal of Freedom','The Pulitzer Prize for Journalism','The Kennedy Center Honors'],correct:1,info:'President Biden awarded Wintour the Presidential Medal of Freedom in January 2025 — the highest civilian honor in the United States, recognizing her extraordinary contributions to fashion, culture, and philanthropy.'},
+{emoji:'👸',q:'At the 1996 Met Gala — which Wintour did NOT chair — which royal icon made her only-ever appearance?',opts:['Queen Elizabeth II','Princess Margaret','Princess Diana','Kate Middleton'],correct:2,info:'Princess Diana attended the 1996 Met Gala — her only ever visit — wearing a silk Dior slip dress with a sapphire and pearl choker. The 1996 gala was chaired by Liz Tilberis, Wintour\'s great rival at British Vogue.'}
+]}
+};
+
+let currentEdition=null,currentQ=0,score=0,streak=0,bestStreak=0,correctCount=0,answered=false;
+
+(function(){const c=document.getElementById('particles');for(let i=0;i<30;i++){const p=document.createElement('div');p.className='particle';p.style.cssText=`left:${Math.random()*100}%;width:${1+Math.random()*3}px;height:${1+Math.random()*3}px;animation-duration:${9+Math.random()*16}s;animation-delay:${Math.random()*12}s`;c.appendChild(p);}})();
+
+function selectEdition(id){
+  currentEdition=id;
+  document.querySelectorAll('.edition-btn').forEach(b=>b.classList.remove('active'));
+  const sb=document.getElementById('sb-'+id);if(sb)sb.classList.add('active');
+  document.querySelectorAll('.edition-card-main').forEach(c=>c.classList.remove('active'));
+  const mc=document.getElementById('mc-'+id);if(mc)mc.classList.add('active');
+  const btn=document.getElementById('startBtn');
+  if(btn){btn.disabled=false;btn.textContent='Walk the Carpet →';}
+}
+
+function startQuiz(){
+  currentQ=0;score=0;streak=0;bestStreak=0;correctCount=0;
+  document.getElementById('startView').style.display='none';
+  document.getElementById('resultView').style.display='none';
+  document.getElementById('quizView').style.display='block';
+  document.getElementById('sideScore').style.display='block';
+  updateSideScore();
+  loadQuestion();
+}
+
+function loadQuestion(){
+  answered=false;
+  const ed=EDITIONS[currentEdition];
+  const q=ed.questions[currentQ];
+  const total=ed.questions.length;
+  document.getElementById('qNum').textContent=`Question ${currentQ+1} of ${total}`;
+  document.getElementById('qBadge').textContent=ed.badge;
+  document.getElementById('qEmoji').textContent=q.emoji;
+  document.getElementById('qText').textContent=q.q;
+  updateSideScore();
+  const oc=document.getElementById('optionsContainer');
+  oc.innerHTML='';
+  ['A','B','C','D'].forEach((letter,i)=>{
+    const btn=document.createElement('button');
+    btn.className='option';btn.tabIndex=0;btn.dataset.index=i;
+    btn.innerHTML=`<span class="opt-letter">${letter}</span><span class="opt-text">${q.opts[i]}</span>`;
+    btn.onclick=()=>selectAnswer(i,btn);
+    oc.appendChild(btn);
+  });
+  document.getElementById('feedbackBox').className='feedback';
+  document.getElementById('feedbackBox').innerHTML='';
+  document.getElementById('nextBtn').className='btn-next';
+  document.getElementById('streakBanner').className='streak-banner';
+  const card=document.getElementById('qCard');
+  card.style.animation='none';void card.offsetWidth;
+  card.style.animation='slideUp .5s cubic-bezier(.4,0,.2,1) both';
+  setTimeout(()=>{const o=document.querySelectorAll('.option');if(o[0])o[0].focus();},400);
+}
+
+function selectAnswer(idx,btn){
+  if(answered)return;
+  answered=true;
+  const q=EDITIONS[currentEdition].questions[currentQ];
+  document.querySelectorAll('.option').forEach(o=>{o.classList.add('disabled');o.tabIndex=-1;});
+  const fb=document.getElementById('feedbackBox');
+  if(idx===q.correct){
+    btn.classList.add('correct');
+    const bonus=streak>=2?streak*2:0;
+    score+=10+bonus;streak++;correctCount++;
+    if(streak>bestStreak)bestStreak=streak;
+    fb.className='feedback show correct-fb';
+    fb.innerHTML=`<strong>✅ Correct!${bonus>0?' +'+bonus+' streak bonus!':''}</strong><p>${q.info}</p>`;
+    if(streak>=3)showStreak();
+  }else{
+    btn.classList.add('wrong');
+    document.querySelectorAll('.option')[q.correct].classList.add('correct');
+    streak=0;
+    fb.className='feedback show wrong-fb';
+    fb.innerHTML=`<strong>❌ Not quite!</strong><p>${q.info}</p>`;
+    document.getElementById('qCard').classList.add('shake');
+    setTimeout(()=>document.getElementById('qCard').classList.remove('shake'),400);
+  }
+  updateSideScore();
+  const nb=document.getElementById('nextBtn');
+  nb.className='btn-next show';
+  nb.textContent=currentQ<EDITIONS[currentEdition].questions.length-1?'Next Question →':'See My Results ✨';
+  nb.focus();
+}
+
+function showStreak(){
+  const b=document.getElementById('streakBanner');
+  const msgs={3:'🔥 On Fire!',4:'⚡ Unstoppable!',5:'💎 Fashion Oracle!',6:'🌟 Style God!',7:'👑 Fashion Royalty!'};
+  b.textContent=msgs[streak]||`🔥 ${streak}x Streak!`;
+  b.className='streak-banner show fire';
+}
+
+function nextQuestion(){
+  currentQ++;
+  if(currentQ<EDITIONS[currentEdition].questions.length)loadQuestion();
+  else showResults();
+}
+
+function updateSideScore(){
+  const total=EDITIONS[currentEdition]?.questions.length||8;
+  document.getElementById('sScore').textContent=score;
+  document.getElementById('sStreak').textContent=streak;
+  document.getElementById('sProgLabel').textContent=`${currentQ}/${total}`;
+  document.getElementById('sProgFill').style.width=`${(currentQ/total)*100}%`;
+}
+
+function showResults(){
+  document.getElementById('quizView').style.display='none';
+  document.getElementById('sideScore').style.display='none';
+  const rv=document.getElementById('resultView');rv.style.display='block';
+  const total=EDITIONS[currentEdition].questions.length;
+  const pct=(correctCount/total)*100;
+  document.getElementById('resScore').textContent=score;
+  document.getElementById('stCorrect').textContent=correctCount;
+  document.getElementById('stWrong').textContent=total-correctCount;
+  document.getElementById('stStreak').textContent=bestStreak;
+  document.getElementById('stAccuracy').textContent=Math.round(pct)+'%';
+  let trophy,title,sub,rank;
+  if(pct===100){trophy='🏆';title='Flawless!';sub='Perfect score — every answer correct. Anna Wintour would personally give you a front-row seat.';rank='👑 MET GALA ROYALTY';}
+  else if(pct>=87){trophy='💎';title='Fashion Icon!';sub='Near-perfect! You clearly live and breathe the Met Gala. The front row is practically yours.';rank='💎 FASHION ICON';}
+  else if(pct>=62){trophy='✨';title='Fashion Forward!';sub='Great showing! You know your way around the carpet — just a few more details to master.';rank='✨ FASHION INSIDER';}
+  else if(pct>=37){trophy='👗';title='Getting Dressed!';sub='You know the basics! Time to study a few more looks and do some fashion research.';rank='👗 STYLE STUDENT';}
+  else{trophy='📖';title='Study the Looks!';sub='The Met Gala universe is vast — every fashion journey starts somewhere. Try again!';rank='📖 FASHION NEWBIE';}
+  document.getElementById('resTrophy').textContent=trophy;
+  document.getElementById('resTitle').textContent=title;
+  document.getElementById('resSub').textContent=sub;
+  document.getElementById('rankText').textContent=rank;
+  if(pct>=75)confetti();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function restartSame(){
+  currentQ=0;score=0;streak=0;bestStreak=0;correctCount=0;
+  document.getElementById('resultView').style.display='none';
+  document.getElementById('quizView').style.display='block';
+  document.getElementById('sideScore').style.display='block';
+  updateSideScore();loadQuestion();
+}
+
+function backToMenu(){
+  document.getElementById('resultView').style.display='none';
+  document.getElementById('quizView').style.display='none';
+  document.getElementById('sideScore').style.display='none';
+  document.getElementById('startView').style.display='block';
+}
+
+function copyLink(){
+  const url=window.location.href.split('?')[0];
+  navigator.clipboard.writeText(url).then(()=>{
+    const t=document.getElementById('shareToast');
+    t.className='share-toast show';
+    setTimeout(()=>t.className='share-toast',3000);
+  }).catch(()=>prompt('Copy this link to share with your students:',window.location.href));
+}
+
+function shareScore(){
+  const ed=EDITIONS[currentEdition];
+  const total=ed.questions.length;
+  const pct=Math.round((correctCount/total)*100);
+  const rank=document.getElementById('rankText')?.textContent||'';
+  const text=`🎭 Met Gala Quiz — ${ed.badge}\n👗 Score: ${score} pts | ${correctCount}/${total} correct (${pct}%)\n🏆 Rank: ${rank}\n\nCan you beat me? 👑`;
+  if(navigator.share){navigator.share({title:'Met Gala Quiz',text,url:window.location.href}).catch(()=>{});}
+  else{navigator.clipboard.writeText(text+'\n'+window.location.href).then(()=>alert('Score copied! Paste it anywhere to share.'));}
+}
+
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('quizView').style.display==='none')return;
+  const key=e.key.toLowerCase();
+  const map={'a':0,'b':1,'c':2,'d':3,'1':0,'2':1,'3':2,'4':3};
+  if(!answered&&key in map){
+    const opts=document.querySelectorAll('.option:not(.disabled)');
+    if(opts[map[key]]){e.preventDefault();opts[map[key]].click();}
+  }
+  if(answered&&(e.key==='Enter'||e.key===' ')){
+    const nb=document.getElementById('nextBtn');
+    if(nb.classList.contains('show')){e.preventDefault();nb.click();}
+  }
+});
+
+function confetti(){
+  const colors=['#C9A84C','#E8CC7A','#8B1A1A','#F5E6B8','#FFFFFF','#B8B8C8','#9B59B6'];
+  for(let i=0;i<80;i++){
+    setTimeout(()=>{
+      const c=document.createElement('div');c.className='confetti-piece';
+      c.style.cssText=`left:${Math.random()*100}vw;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*.4}s;border-radius:${Math.random()>.5?'50%':'2px'};width:${6+Math.random()*6}px;height:${6+Math.random()*6}px;transform:rotate(${Math.random()*360}deg)`;
+      document.body.appendChild(c);setTimeout(()=>c.remove(),6000);
+    },i*22);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pronunciation Guide – Teacher Samira Nunes</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --prussian:#00395D;--prussian-light:#004f82;--prussian-dark:#002740;
+  --garnet:#6C2624;--garnet-light:#8a3230;
+  --jet:#292929;--platinum:#E5E7E6;--silver:#BFBFBF;
+  --white:#FFFFFF;--off-white:#F4F5F5;
+  --font-d:'Montserrat',sans-serif;--font-b:'Crimson Text',Georgia,serif;
+  --r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:24px;
+  --sh-card:0 4px 24px rgba(0,57,93,.10);--sh-hover:0 8px 32px rgba(0,57,93,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-b);background:var(--platinum);color:var(--jet);min-height:100vh;font-size:16px;line-height:1.65;}
+
+/* HEADER */
+.site-header{background:var(--prussian-dark);position:sticky;top:0;z-index:100;border-bottom:3px solid var(--garnet);}
+.header-inner{max-width:1100px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:13px;}
+.brand-icon{width:42px;height:42px;background:var(--prussian);border:2px solid var(--silver);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:900;font-size:14px;color:var(--white);flex-shrink:0;}
+.brand-name{font-family:var(--font-d);font-weight:800;font-size:16px;color:var(--white);letter-spacing:.5px;text-transform:uppercase;line-height:1.1;}
+.brand-sub{font-family:var(--font-d);font-size:10px;color:var(--silver);letter-spacing:2px;text-transform:uppercase;}
+.header-nav{display:flex;gap:5px;flex-wrap:wrap;}
+.nav-btn{font-family:var(--font-d);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:7px 15px;border-radius:30px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:var(--silver);cursor:pointer;transition:all .2s;}
+.nav-btn:hover{background:rgba(255,255,255,.08);color:var(--white);}
+.nav-btn.active{background:var(--garnet);border-color:var(--garnet);color:var(--white);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--prussian-dark) 0%,var(--prussian) 60%,#005a8e 100%);padding:60px 28px 70px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;bottom:-2px;left:0;right:0;height:56px;background:var(--platinum);clip-path:ellipse(55% 100% at 50% 100%);}
+.hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 38px,rgba(255,255,255,.02) 38px,rgba(255,255,255,.02) 39px);}
+.hero-content{position:relative;z-index:1;max-width:660px;margin:0 auto;}
+.hero-eyebrow{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--silver);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.hero-eyebrow span{width:28px;height:1px;background:var(--silver);display:inline-block;}
+.hero-title{font-family:var(--font-d);font-size:clamp(30px,5vw,50px);font-weight:900;color:var(--white);line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:18px;}
+.hero-title em{color:transparent;-webkit-text-stroke:2px var(--silver);font-style:normal;}
+.hero-desc{font-family:var(--font-b);font-size:18px;color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 28px;line-height:1.6;}
+.hero-pills{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;}
+.pill{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 16px;border-radius:30px;border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);background:none;cursor:pointer;transition:all .2s;}
+.pill:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:var(--white);}
+.pill:active{transform:scale(.96);}
+.pill-a{background:var(--garnet);border-color:var(--garnet);color:var(--white);}
+.pill-a:hover{background:var(--garnet-light);}
+
+/* LAYOUT */
+.main{max-width:1100px;margin:0 auto;padding:44px 28px 80px;}
+.panel{display:none;}.panel.active{display:block;}
+
+/* SECTION */
+.sec-lbl{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--garnet);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--garnet);opacity:.3;}
+.sec-title{font-family:var(--font-d);font-size:clamp(20px,3vw,28px);font-weight:900;color:var(--prussian-dark);text-transform:uppercase;letter-spacing:-.5px;margin-bottom:6px;}
+.sec-intro{font-family:var(--font-b);font-size:17px;color:#555;margin-bottom:16px;max-width:640px;}
+.ipa-note{font-family:var(--font-b);font-size:15px;color:#555;margin-bottom:22px;padding:10px 16px;background:var(--white);border-radius:var(--r-md);box-shadow:var(--sh-card);display:inline-block;}
+.ipa-note strong{font-family:var(--font-d);font-size:11px;font-weight:800;letter-spacing:1px;color:var(--prussian);}
+.tip-box{background:var(--white);border-left:4px solid var(--prussian);border-radius:0 var(--r-md) var(--r-md) 0;padding:13px 18px;margin-bottom:26px;font-family:var(--font-b);font-size:15px;color:var(--prussian-dark);box-shadow:var(--sh-card);}
+.tip-box strong{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--prussian);display:block;margin-bottom:3px;}
+.no-speech{display:none;background:#fff3cd;border:1px solid #ffc107;border-radius:var(--r-md);padding:10px 16px;font-family:var(--font-b);font-size:14px;color:#856404;margin-bottom:18px;}
+.no-speech.show{display:block;}
+
+/* CATEGORY */
+.cat-header{display:flex;align-items:center;gap:12px;margin:32px 0 14px;}
+.cat-header:first-of-type{margin-top:0;}
+.cat-badge{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:30px;white-space:nowrap;}
+.bv{background:var(--prussian);color:var(--white);}
+.bc{background:var(--garnet);color:var(--white);}
+.cat-line{flex:1;height:1px;background:var(--silver);}
+
+/* IPA GRID */
+.sc{background:var(--white);border:1.5px solid transparent;border-radius:var(--r-lg);padding:14px 10px 10px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:var(--sh-card);position:relative;overflow:hidden;}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--prussian);transform:scaleX(0);transition:transform .2s;transform-origin:left;}
+.sc:hover{border-color:var(--prussian);transform:translateY(-2px);box-shadow:var(--sh-hover);}
+.sc:hover::before,.sc.active::before{transform:scaleX(1);}
+.sc.active{border-color:var(--prussian);background:var(--prussian);}
+.sc.active::before{background:var(--garnet);}
+.sc-ipa{font-family:var(--font-d);font-size:28px;font-weight:900;color:var(--prussian);line-height:1;margin-bottom:5px;transition:all .15s;cursor:pointer;border-radius:8px;padding:2px 4px;}
+.sc-ipa:hover{transform:scale(1.12);color:var(--prussian-light);}
+.sc-ipa:active{transform:scale(.95);}
+.sc.active .sc-ipa{color:var(--white);}
+.sc.active .sc-ipa:hover{color:rgba(255,255,255,.85);}
+.sc-lbl{font-family:var(--font-d);font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--silver);margin-bottom:4px;}
+.sc.active .sc-lbl{color:rgba(255,255,255,.6);}
+.sc-ex{font-family:var(--font-b);font-size:13px;color:var(--jet);font-weight:600;}
+.sc-ex b{color:#E8001A;font-weight:900;}
+.sc.active .sc-ex{color:rgba(255,255,255,.9);}
+.sc.active .sc-ex b{color:#ff6b6b;}
+.sc-qbtn{display:none;margin-top:7px;display:flex;justify-content:center;gap:5px;opacity:0;transition:opacity .2s;}
+.sc:hover .sc-qbtn,.sc.active .sc-qbtn{opacity:1;}
+.sc-speak{font-family:var(--font-d);font-size:10px;font-weight:700;padding:3px 9px;background:rgba(0,57,93,.10);color:var(--prussian);border:none;border-radius:20px;cursor:pointer;transition:all .18s;}
+.sc-speak:hover{background:rgba(0,57,93,.2);}
+.sc.active .sc-speak{background:rgba(255,255,255,.18);color:var(--white);}
+.sc.active .sc-speak:hover{background:rgba(255,255,255,.3);}
+.mini-qbtn{font-family:var(--font-d);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;border:none;background:var(--garnet);color:var(--white);cursor:pointer;}
+.mini-qbtn:hover{opacity:.85;}
+
+/* ---- Descrição inline após o card ---- */
+.ipa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:9px;margin-bottom:8px;align-items:start;}
+.sc-desc-row{grid-column:1/-1;background:var(--prussian-dark);border-radius:var(--r-lg);padding:20px 24px;box-shadow:var(--sh-hover);display:none;animation:sld .2s ease;margin-bottom:4px;}
+.sc-desc-row.open{display:block;}
+.sc-desc-row-title{font-family:var(--font-d);font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.sc-desc-row-title em{font-style:normal;color:#ff9999;}
+.sc-desc-row-text{font-family:var(--font-b);font-size:18px;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:10px;}
+.sc-desc-row-tip{font-family:var(--font-b);font-size:17px;color:#ffd0ce;font-style:italic;margin-top:10px;background:rgba(108,38,36,.3);border:1px solid rgba(108,38,36,.5);border-radius:var(--r-md);padding:10px 16px;line-height:1.6;}
+.dr-speak-btn{font-family:var(--font-d);font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;border:none;background:var(--prussian);color:var(--white);cursor:pointer;transition:opacity .15s;}
+.dr-speak-btn:hover{opacity:.82;}
+.dr-quiz-btn{font-family:var(--font-d);font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;border:none;background:var(--garnet);color:var(--white);cursor:pointer;transition:opacity .15s;}
+.dr-quiz-btn:hover{opacity:.82;}
+.dr-words-lbl{font-family:var(--font-d);font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:8px;}
+.dr-words-lbl small{font-family:var(--font-b);font-size:12px;text-transform:none;letter-spacing:0;font-weight:400;font-style:italic;color:rgba(255,255,255,.4);}
+.dr-words{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:2px;}
+.dr-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-md);padding:5px 12px;font-family:var(--font-b);font-size:14px;color:var(--white);cursor:pointer;transition:all .15s;}
+.dr-chip:hover{background:rgba(255,255,255,.2);transform:translateY(-1px);}
+.dr-chip span{font-family:var(--font-d);font-size:9px;color:var(--silver);display:block;margin-top:1px;}
+
+/* DETAIL PANEL */
+.detail-panel{background:var(--prussian-dark);border-radius:var(--r-xl);padding:26px 30px;margin-top:22px;display:none;animation:sld .25s ease;box-shadow:var(--sh-hover);}
+.detail-panel.open{display:block;}
+@keyframes sld{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.dp-top{display:flex;align-items:flex-start;gap:22px;flex-wrap:wrap;}
+.dp-sym-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:76px;}
+.dp-sym{font-family:var(--font-d);font-size:68px;font-weight:900;color:var(--white);line-height:1;}
+.sound-wave{display:flex;align-items:center;gap:3px;height:22px;opacity:0;transition:opacity .2s;}
+.sound-wave.visible{opacity:1;}
+.sound-wave span{display:block;width:3px;border-radius:3px;background:var(--garnet);animation:wavebar .7s ease infinite alternate;}
+.sound-wave span:nth-child(1){height:8px;animation-delay:0s;}
+.sound-wave span:nth-child(2){height:16px;animation-delay:.1s;}
+.sound-wave span:nth-child(3){height:22px;animation-delay:.2s;}
+.sound-wave span:nth-child(4){height:14px;animation-delay:.3s;}
+.sound-wave span:nth-child(5){height:8px;animation-delay:.4s;}
+@keyframes wavebar{from{transform:scaleY(.4)}to{transform:scaleY(1)}}
+.dp-info{flex:1;min-width:200px;}
+.dp-name{font-family:var(--font-d);font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);margin-bottom:5px;}
+.dp-desc{font-family:var(--font-b);font-size:17px;color:rgba(255,255,255,.85);margin-bottom:14px;line-height:1.5;}
+.dp-words-lbl{font-family:var(--font-d);font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:8px;}
+.dp-words{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px;}
+.dp-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-md);padding:5px 13px;font-family:var(--font-b);font-size:15px;color:var(--white);cursor:pointer;transition:all .18s;}
+.dp-chip:hover{background:rgba(255,255,255,.2);transform:translateY(-1px);}
+.dp-chip.speaking{background:rgba(255,255,255,.25);outline:2px solid rgba(255,255,255,.5);}
+.dp-chip span{font-family:var(--font-d);font-size:9px;color:var(--silver);display:block;margin-top:1px;}
+.dp-tip{background:rgba(108,38,36,.28);border:1px solid rgba(108,38,36,.45);border-radius:var(--r-md);padding:10px 15px;font-family:var(--font-b);font-size:15px;color:#ffd0ce;line-height:1.5;}
+.dp-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+.dp-speak-btn{font-family:var(--font-d);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:9px 22px;border-radius:30px;border:none;background:var(--prussian);color:var(--white);cursor:pointer;transition:all .2s;}
+.dp-speak-btn:hover{background:var(--prussian-light);transform:translateY(-1px);}
+.dp-speak-btn.speaking{background:var(--prussian-light);animation:speakPulse .5s ease infinite alternate;}
+@keyframes speakPulse{from{box-shadow:0 0 0 0 rgba(0,57,93,.3)}to{box-shadow:0 0 0 8px rgba(0,57,93,0)}}
+.dp-quiz-btn{font-family:var(--font-d);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:9px 22px;border-radius:30px;border:none;background:var(--garnet);color:var(--white);cursor:pointer;transition:all .2s;}
+.dp-quiz-btn:hover{background:var(--garnet-light);transform:translateY(-1px);}
+
+/* MINIMAL PAIRS */
+.mp-grid{display:flex;flex-direction:column;gap:11px;}
+.mp-card{background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-card);border:1.5px solid transparent;transition:border-color .2s,box-shadow .2s;}
+.mp-card:hover{border-color:var(--prussian);box-shadow:var(--sh-hover);}
+.mp-head{padding:15px 19px;display:flex;align-items:center;gap:13px;cursor:pointer;background:var(--off-white);transition:background .2s;user-select:none;}
+.mp-head:hover{background:#eceef0;}
+.mp-head.open{background:var(--prussian);}
+.mp-syms{display:flex;align-items:center;gap:7px;}
+.mp-sym{font-family:var(--font-d);font-size:17px;font-weight:900;padding:3px 13px;border-radius:30px;background:var(--prussian);color:var(--white);cursor:pointer;transition:opacity .15s;}
+.mp-sym:hover{opacity:.8;}
+.mp-head.open .mp-sym{background:rgba(255,255,255,.15);}
+.mp-vs{font-family:var(--font-d);font-size:10px;font-weight:700;color:var(--silver);text-transform:uppercase;}
+.mp-head.open .mp-vs{color:rgba(255,255,255,.5);}
+.mp-lbl{flex:1;font-family:var(--font-d);font-size:11px;font-weight:600;color:#666;}
+.mp-head.open .mp-lbl{color:rgba(255,255,255,.7);}
+.mp-chev{font-size:16px;color:var(--silver);transition:transform .25s;line-height:1;}
+.mp-head.open .mp-chev{transform:rotate(180deg);color:rgba(255,255,255,.5);}
+.mp-body{display:none;padding:0 19px 15px;}
+.mp-body.open{display:block;}
+.mp-tbl{width:100%;border-collapse:collapse;margin-top:14px;}
+.mp-tbl th{font-family:var(--font-d);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);padding:5px 9px;text-align:left;border-bottom:1px solid var(--platinum);}
+.mp-tbl td{padding:9px 9px;border-bottom:1px solid var(--platinum);vertical-align:top;}
+.mp-tbl tr:last-child td{border-bottom:none;}
+.mp-word{font-family:var(--font-d);font-size:16px;font-weight:700;color:var(--prussian-dark);cursor:pointer;}
+.mp-word:hover{color:var(--prussian);}
+.mp-ipa{font-family:var(--font-b);font-size:12px;color:var(--garnet);display:block;margin-top:2px;}
+.mp-tc{font-family:var(--font-b);font-size:13px;color:#777;font-style:italic;}
+
+/* QUIZ */
+.quiz-wrapper{max-width:620px;margin:0 auto;}
+.quiz-mode-bar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+.qmode-btn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:7px 16px;border-radius:30px;border:1.5px solid var(--prussian);background:transparent;color:var(--prussian);cursor:pointer;transition:all .2s;}
+.qmode-btn:hover,.qmode-btn.active{background:var(--prussian);color:var(--white);}
+.sound-filter{display:none;margin-bottom:16px;}
+.sound-filter.visible{display:block;}
+.sf-label{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);margin-bottom:8px;}
+.sf-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.fchip{font-family:var(--font-d);font-size:13px;font-weight:900;padding:4px 14px;border-radius:30px;border:1.5px solid var(--platinum);background:var(--white);color:var(--prussian);cursor:pointer;transition:all .2s;}
+.fchip:hover{border-color:var(--prussian);}
+.fchip.sel{background:var(--prussian);color:var(--white);border-color:var(--prussian);}
+.score-bar{display:flex;gap:11px;margin-bottom:18px;}
+.score-chip{font-family:var(--font-d);font-size:12px;font-weight:700;letter-spacing:.5px;padding:7px 17px;border-radius:30px;}
+.sc-c{background:#e8f5e9;color:#2e7d32;}
+.sc-w{background:#fce4e4;color:var(--garnet);}
+.prog-wrap{margin-bottom:22px;}
+.prog-lbl{font-family:var(--font-d);font-size:10px;font-weight:700;color:var(--silver);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.prog-track{height:5px;background:var(--platinum);border-radius:3px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--prussian);border-radius:3px;transition:width .3s;}
+.quiz-card{background:var(--white);border-radius:var(--r-xl);padding:30px;box-shadow:var(--sh-card);}
+.q-ctx{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--garnet);margin-bottom:12px;}
+.q-sym{font-family:var(--font-d);font-size:64px;font-weight:900;color:var(--prussian-dark);line-height:1;margin-bottom:6px;cursor:pointer;display:inline-block;}
+.q-sym:hover{color:var(--prussian-light);}
+.q-prompt{font-family:var(--font-b);font-size:19px;color:var(--prussian-dark);margin-bottom:4px;}
+.q-sub{font-family:var(--font-b);font-size:14px;color:#999;margin-bottom:24px;}
+.q-choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
+.choice-btn{background:var(--off-white);border:2px solid var(--platinum);border-radius:var(--r-lg);padding:22px 14px;text-align:center;cursor:pointer;transition:all .2s;}
+.choice-btn:hover:not(:disabled){border-color:var(--prussian);background:#f0f5fa;transform:translateY(-2px);}
+.choice-btn:disabled{cursor:default;}
+.choice-btn.correct{border-color:#4caf50;background:#e8f5e9;}
+.choice-btn.wrong{border-color:var(--garnet);background:#fce4e4;}
+.cw{font-family:var(--font-d);font-size:24px;font-weight:900;color:var(--prussian-dark);display:block;}
+.ci{font-family:var(--font-b);font-size:13px;color:var(--garnet);display:none;margin-top:4px;}
+.revealed .ci{display:block;}
+.q-fb{padding:12px 17px;border-radius:var(--r-md);font-family:var(--font-b);font-size:16px;min-height:48px;margin-bottom:18px;}
+.fb-idle{background:var(--off-white);color:#999;}
+.fb-ok{background:#e8f5e9;color:#2e7d32;border-left:4px solid #4caf50;}
+.fb-err{background:#fce4e4;color:var(--garnet);border-left:4px solid var(--garnet);}
+.btn-next{font-family:var(--font-d);font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:11px 26px;background:var(--prussian);color:var(--white);border:none;border-radius:30px;cursor:pointer;transition:all .2s;}
+.btn-next:hover{background:var(--prussian-dark);transform:translateY(-1px);}
+.btn-restart{font-family:var(--font-d);font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:11px 26px;background:var(--garnet);color:var(--white);border:none;border-radius:30px;cursor:pointer;transition:all .2s;}
+.btn-restart:hover{background:var(--garnet-light);}
+/* Quiz de pares mínimos */
+.mp-quiz-btn{font-family:var(--font-d);font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 12px;border-radius:20px;border:none;background:var(--garnet);color:var(--white);cursor:pointer;margin-left:auto;flex-shrink:0;transition:opacity .15s;}
+.mp-quiz-btn:hover{opacity:.85;}
+.mp-head.open .mp-quiz-btn{background:rgba(255,255,255,.2);}
+/* modo pares no quiz */
+.qmode-btn.pairs-active{background:var(--garnet);border-color:var(--garnet);color:var(--white);}
+.mp-filter{display:none;margin-bottom:16px;}
+.mp-filter.visible{display:block;}
+.mp-filter-label{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);margin-bottom:8px;}
+.mp-filter-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.mpchip{font-family:var(--font-d);font-size:11px;font-weight:700;padding:4px 13px;border-radius:30px;border:1.5px solid var(--platinum);background:var(--white);color:var(--prussian);cursor:pointer;transition:all .2s;line-height:1.4;}
+.mpchip:hover{border-color:var(--prussian);}
+.mpchip.sel{background:var(--garnet);color:var(--white);border-color:var(--garnet);}
+/* questão de pares — mostra os dois símbolos */
+.q-pair-syms{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:10px;}
+.q-pair-sym{font-family:var(--font-d);font-size:42px;font-weight:900;color:var(--prussian-dark);cursor:pointer;padding:4px 12px;border-radius:var(--r-md);transition:all .15s;}
+.q-pair-sym:hover{color:var(--prussian);background:var(--off-white);}
+.q-pair-vs{font-family:var(--font-d);font-size:12px;font-weight:700;color:var(--silver);text-transform:uppercase;}
+.quiz-finish{text-align:center;padding:16px 0 8px;}
+.qf-big{font-family:var(--font-d);font-size:52px;font-weight:900;color:var(--prussian-dark);line-height:1;}
+.qf-lbl{font-family:var(--font-d);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:14px;}
+.qf-msg{font-family:var(--font-b);font-size:18px;color:#555;margin-bottom:22px;line-height:1.5;}
+.footer-wave{height:4px;background:linear-gradient(90deg,var(--prussian-dark),var(--prussian),var(--garnet),var(--prussian),var(--prussian-dark));background-size:200% 100%;animation:ws 4s linear infinite;position:fixed;bottom:0;left:0;right:0;}
+@keyframes ws{0%{background-position:0%}100%{background-position:200%}}
+@media(max-width:600px){
+  .header-inner{flex-direction:column;align-items:flex-start;}
+  .hero{padding:36px 18px 52px;}
+  .main{padding:28px 16px 60px;}
+  .q-choices{grid-template-columns:1fr;}
+  .dp-top{flex-direction:column;}
+  .dp-sym{font-size:50px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-icon">SN</div>
+      <div>
+        <div class="brand-name">Samira Nunes</div>
+        <div class="brand-sub">English Teacher</div>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <button class="nav-btn active" onclick="switchPanel('ipa',this)">Símbolos IPA</button>
+      <button class="nav-btn" onclick="switchPanel('pairs',this)">Pares Mínimos</button>
+      <button class="nav-btn" onclick="switchPanel('quiz',this)">Quiz</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span></span>American English Pronunciation<span></span></div>
+    <h1 class="hero-title">Master the<br><em>Sounds</em> of English</h1>
+    <p class="hero-desc">Aprenda todos os símbolos fonéticos do inglês americano, treine pares mínimos e teste seus conhecimentos.</p>
+  </div>
+</section>
+
+<main class="main">
+
+<!-- IPA -->
+<div class="panel active" id="panel-ipa">
+  <div class="sec-lbl">Fonética</div>
+  <h2 class="sec-title">Símbolos do IPA</h2>
+  <p class="sec-intro">Clique em qualquer símbolo para ver descrição, exemplos e dicas. Use o botão <strong>Quiz ▸</strong> para treinar aquele som específico.</p>
+  <p class="ipa-note"><strong>IPA</strong> — <em>International Phonetic Alphabet</em> (Alfabeto Fonético Internacional): sistema universal de símbolos que representa os sons de qualquer língua, independente da ortografia.</p>
+  <div class="no-speech" id="noSpeechBanner">⚠ Seu navegador não suporta síntese de voz. Tente Chrome ou Edge para ouvir os sons.</div>
+  <div class="cat-header"><span class="cat-badge bv">Vogais &amp; Ditongos</span><div class="cat-line"></div></div>
+  <div class="ipa-grid" id="grid-vowels"></div>
+  <div class="cat-header"><span class="cat-badge bc">Consoantes</span><div class="cat-line"></div></div>
+  <div class="ipa-grid" id="grid-consonants"></div>
+</div>
+
+<!-- PAIRS -->
+<div class="panel" id="panel-pairs">
+  <div class="sec-lbl">Contraste Fonético</div>
+  <h2 class="sec-title">Pares Mínimos</h2>
+  <p class="sec-intro">Palavras que diferem por apenas um som. Clique nos símbolos ou nas palavras para ouvi-los.</p>
+  <div class="tip-box"><strong>Por que praticar?</strong>Confundir sons muda o significado completamente — "ship" e "sheep", "think" e "sink", "van" e "ban" são mundos diferentes para o ouvinte nativo!</div>
+  <div class="mp-grid" id="mpGrid"></div>
+</div>
+
+<!-- QUIZ -->
+<div class="panel" id="panel-quiz">
+  <div class="sec-lbl">Pratique</div>
+  <h2 class="sec-title">Quiz de Pronúncia</h2>
+  <p class="sec-intro">Identifique qual palavra contém o som indicado. Clique no símbolo para ouvi-lo a qualquer momento.</p>
+  <div class="quiz-wrapper">
+    <div class="quiz-mode-bar">
+      <button class="qmode-btn active" id="modeAll" onclick="setMode('all')">Todos os sons</button>
+      <button class="qmode-btn" id="modeSound" onclick="setMode('sound')">Por som IPA</button>
+      <button class="qmode-btn" id="modePairs" onclick="setMode('pairs')">Pares Mínimos</button>
+    </div>
+    <div class="sound-filter" id="soundFilter">
+      <div class="sf-label">Selecione o som:</div>
+      <div class="sf-chips" id="filterChips"></div>
+    </div>
+    <div class="mp-filter" id="mpFilter">
+      <div class="mp-filter-label">Selecione o par:</div>
+      <div class="mp-filter-chips" id="mpFilterChips"></div>
+    </div>
+    <div class="score-bar">
+      <div class="score-chip sc-c">✓ Corretas: <span id="scoreC">0</span></div>
+      <div class="score-chip sc-w">✗ Erradas: <span id="scoreW">0</span></div>
+    </div>
+    <div class="prog-wrap">
+      <div class="prog-lbl">Questão <span id="qNum">1</span> de <span id="qTotal">20</span></div>
+      <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    </div>
+    <div class="quiz-card" id="quizCard">
+      <div class="q-ctx" id="qCtx">Qual palavra tem este som?</div>
+      <div class="q-sym" id="qSym" title="Clique para ouvir">—</div>
+      <div class="q-prompt" id="qPrompt">Iniciando...</div>
+      <div class="q-sub" id="qSub"></div>
+      <div class="q-choices" id="qChoices"></div>
+      <div class="q-fb fb-idle" id="qFb">Selecione uma das palavras acima.</div>
+      <button class="btn-next" id="btnNext" onclick="nextQ()">Próxima →</button>
+      <button class="btn-restart" id="btnRestart" style="display:none" onclick="restartQuiz()">Recomeçar ↺</button>
+    </div>
+  </div>
+</div>
+
+</main>
+<div class="footer-wave"></div>
+
+<script>
+/* ===== SOUND DATA ===== */
+const SOUNDS=[
+  {ipa:'iː',cat:'v',lbl:'Long EE',ex1:'s<b>ee</b>',
+   desc:'Vogal longa anterior fechada. Lábios esticados e tensos, como um sorriso largo.',
+   words:[{w:'see',n:'ver'},{w:'tree',n:'árvore'},{w:'believe',n:'acreditar'},{w:'machine',n:'máquina'},
+          {w:'please',n:'por favor'},{w:'green',n:'verde'},{w:'street',n:'rua'},{w:'free',n:'livre'},
+          {w:'keep',n:'manter'},{w:'speak',n:'falar'},{w:'teach',n:'ensinar'},{w:'achieve',n:'alcançar'}],
+   tip:'Estique os lábios para os lados como um sorriso firme e MANTENHA a tensão. Som longo!'},
+  {ipa:'ɪ',cat:'v',lbl:'Short I',ex1:'s<b>i</b>t',
+   desc:'Vogal curta anterior média. Relaxada e breve — diferente do /iː/ tenso.',
+   words:[{w:'sit',n:'sentar'},{w:'kit',n:'kit'},{w:'fish',n:'peixe'},{w:'live',n:'viver'},
+          {w:'big',n:'grande'},{w:'win',n:'vencer'},{w:'give',n:'dar'},{w:'build',n:'construir'},
+          {w:'which',n:'qual'},{w:'trip',n:'viagem'},{w:'think',n:'pensar'},{w:'still',n:'ainda'}],
+   tip:'Relaxe tudo — a língua não sobe tanto quanto em /iː/. É uma vogal preguiçosa e rápida!'},
+  {ipa:'eɪ',cat:'v',lbl:'Diphthong AY',ex1:'d<b>ay</b>',
+   desc:'Ditongo: começa em /e/ e desliza para /ɪ/. Dois sons em movimento contínuo.',
+   words:[{w:'day',n:'dia'},{w:'name',n:'nome'},{w:'late',n:'tarde'},{w:'say',n:'dizer'},
+          {w:'great',n:'ótimo'},{w:'wait',n:'esperar'},{w:'rain',n:'chuva'},{w:'cake',n:'bolo'},
+          {w:'plane',n:'avião'},{w:'grade',n:'nota'},{w:'break',n:'pausa'},{w:'weight',n:'peso'}],
+   tip:'O som precisa DESLIZAR — não é estático como o "e" do português. Sinta a língua se mover!'},
+  {ipa:'ɛ',cat:'v',lbl:'Short E',ex1:'b<b>e</b>d',
+   desc:'Vogal curta anterior semi-aberta. Boca mais aberta que em /eɪ/.',
+   words:[{w:'bed',n:'cama'},{w:'red',n:'vermelho'},{w:'ten',n:'dez'},{w:'said',n:'disse'},
+          {w:'head',n:'cabeça'},{w:'friend',n:'amigo'},{w:'best',n:'melhor'},{w:'left',n:'esquerda'},
+          {w:'help',n:'ajuda'},{w:'any',n:'qualquer'},{w:'next',n:'próximo'},{w:'meant',n:'quis dizer'}],
+   tip:'Abra mais a boca do que para /eɪ/. É o "é" aberto — pense em "é" e relaxe.'},
+  {ipa:'æ',cat:'v',lbl:'Flat A',ex1:'c<b>a</b>t',
+   desc:'Vogal tensa anterior baixa — a mais característica do inglês americano.',
+   words:[{w:'cat',n:'gato'},{w:'man',n:'homem'},{w:'bad',n:'ruim'},{w:'hand',n:'mão'},
+          {w:'stand',n:'ficar em pé'},{w:'black',n:'preto'},{w:'fact',n:'fato'},
+          {w:'back',n:'costas'},{w:'add',n:'adicionar'},{w:'that',n:'aquele'},{w:'sad',n:'triste'},{w:'land',n:'terra'}],
+   tip:'ABAIXE a mandíbula E estique os lábios para os lados simultaneamente. Som que mais difere do português!'},
+  {ipa:'ɑː',cat:'v',lbl:'AH Vowel',ex1:'f<b>a</b>ther',
+   desc:'Vogal longa posterior aberta. Produzida na parte de trás da boca, bem aberta.',
+   words:[{w:'father',n:'pai'},{w:'car',n:'carro'},{w:'hot',n:'quente'},{w:'calm',n:'calmo'},
+          {w:'doctor',n:'médico'},{w:'stop',n:'parar'},{w:'clock',n:'relógio'},{w:'problem',n:'problema'},
+          {w:'body',n:'corpo'},{w:'want',n:'querer'},{w:'lot',n:'muito'},{w:'job',n:'trabalho'}],
+   tip:'Boca BEM aberta, como quando o médico pede "abra a boca e diga aah". Sem arredondamento.'},
+  {ipa:'ɔː',cat:'v',lbl:'AW Vowel',ex1:'l<b>aw</b>',
+   desc:'Vogal longa posterior semi-fechada arredondada.',
+   words:[{w:'law',n:'lei'},{w:'call',n:'ligar'},{w:'ball',n:'bola'},{w:'tall',n:'alto'},
+          {w:'talk',n:'falar'},{w:'walk',n:'caminhar'},{w:'caught',n:'pego'},{w:'bought',n:'comprou'},
+          {w:'taught',n:'ensinou'},{w:'hall',n:'corredor'},{w:'fault',n:'culpa'},{w:'awful',n:'terrível'}],
+   tip:'Lábios bem arredondados e projetados para frente, como um beijo levemente aberto. Som longo!'},
+  {ipa:'oʊ',cat:'v',lbl:'Diphthong OH',ex1:'g<b>o</b>',
+   desc:'Ditongo: começa em /o/ e desliza para /ʊ/. O "o" americano — nunca puro.',
+   words:[{w:'go',n:'ir'},{w:'road',n:'estrada'},{w:'home',n:'lar'},{w:'show',n:'mostrar'},
+          {w:'know',n:'saber'},{w:'cold',n:'frio'},{w:'phone',n:'telefone'},{w:'close',n:'fechar'},
+          {w:'whole',n:'inteiro'},{w:'grow',n:'crescer'},{w:'role',n:'papel'},{w:'flow',n:'fluxo'}],
+   tip:'Lábios se arredondam progressivamente. Não trave — deixe deslizar de /o/ para /ʊ/.'},
+  {ipa:'ʊ',cat:'v',lbl:'Short OO',ex1:'b<b>oo</b>k',
+   desc:'Vogal curta posterior semi-fechada arredondada. Relaxada e breve.',
+   words:[{w:'book',n:'livro'},{w:'good',n:'bom'},{w:'foot',n:'pé'},{w:'pull',n:'puxar'},
+          {w:'could',n:'poderia'},{w:'would',n:'iria'},{w:'full',n:'cheio'},
+          {w:'look',n:'olhar'},{w:'took',n:'pegou'},{w:'stood',n:'ficou em pé'},{w:'should',n:'deveria'},{w:'cook',n:'cozinhar'}],
+   tip:'Diferente de /uː/ — mais curta, relaxada. Não projete tanto os lábios.'},
+  {ipa:'uː',cat:'v',lbl:'Long OO',ex1:'f<b>oo</b>d',
+   desc:'Vogal longa posterior fechada arredondada. Lábios bem projetados.',
+   words:[{w:'food',n:'comida'},{w:'blue',n:'azul'},{w:'moon',n:'lua'},{w:'true',n:'verdadeiro'},
+          {w:'school',n:'escola'},{w:'group',n:'grupo'},{w:'move',n:'mover'},
+          {w:'fruit',n:'fruta'},{w:'cool',n:'legal'},{w:'rule',n:'regra'},{w:'soon',n:'em breve'},{w:'tooth',n:'dente'}],
+   tip:'Projete os lábios para frente como um beijo e MANTENHA a tensão. Som bem longo!'},
+  {ipa:'ʌ',cat:'v',lbl:'Short U',ex1:'c<b>u</b>p',
+   desc:'Vogal central curta. A mais "americana" — presente em muitas sílabas tônicas comuns.',
+   words:[{w:'cup',n:'xícara'},{w:'love',n:'amor'},{w:'fun',n:'diversão'},{w:'but',n:'mas'},
+          {w:'money',n:'dinheiro'},{w:'come',n:'vir'},{w:'blood',n:'sangue'},{w:'enough',n:'suficiente'},
+          {w:'young',n:'jovem'},{w:'touch',n:'tocar'},{w:'done',n:'pronto'},{w:'run',n:'correr'}],
+   tip:'Posição neutra: nem frente nem trás, boca meio aberta. Relaxe mandíbula e língua.'},
+  {ipa:'ə',cat:'v',lbl:'Schwa',ex1:'<b>a</b>bout',
+   desc:'O som mais frequente do inglês! Presente em toda sílaba átona — o "coringa" do inglês.',
+   words:[{w:'about',n:'ə-baʊt'},{w:'sofa',n:'soʊ-fə'},{w:'teacher',n:'tiː-tʃər'},{w:'again',n:'ə-gɛn'},
+          {w:'problem',n:'prɑːb-ləm'},{w:'family',n:'fæm-ə-li'},{w:'suppose',n:'sə-poʊz'},{w:'support',n:'sə-pɔːrt'},
+          {w:'banana',n:'bə-næn-ə'},{w:'common',n:'kɑːm-ən'},{w:'lesson',n:'lɛs-ən'},{w:'open',n:'oʊ-pən'}],
+   tip:'Som completamente relaxado e neutro. Se a sílaba é átona, provavelmente é schwa!'},
+  {ipa:'aɪ',cat:'v',lbl:'Diphthong EYE',ex1:'m<b>y</b>',
+   desc:'Ditongo: começa com a boca bem aberta /a/ e fecha em /ɪ/.',
+   words:[{w:'my',n:'meu'},{w:'time',n:'tempo'},{w:'fly',n:'voar'},{w:'night',n:'noite'},
+          {w:'light',n:'luz'},{w:'find',n:'encontrar'},{w:'mind',n:'mente'},{w:'life',n:'vida'},
+          {w:'style',n:'estilo'},{w:'height',n:'altura'},{w:'write',n:'escrever'},{w:'inside',n:'dentro'}],
+   tip:'Começa com a boca MUITO aberta e vai fechando. Exagere na abertura inicial!'},
+  {ipa:'aʊ',cat:'v',lbl:'Diphthong OW',ex1:'n<b>ow</b>',
+   desc:'Ditongo: começa aberto /a/ e arredonda para /ʊ/.',
+   words:[{w:'now',n:'agora'},{w:'how',n:'como'},{w:'out',n:'fora'},{w:'house',n:'casa'},
+          {w:'town',n:'cidade'},{w:'down',n:'para baixo'},{w:'cloud',n:'nuvem'},{w:'south',n:'sul'},
+          {w:'loud',n:'barulhento'},{w:'mouth',n:'boca'},{w:'found',n:'encontrou'},{w:'around',n:'ao redor'}],
+   tip:'A boca abre muito e depois os lábios se arredondam. São dois movimentos claros!'},
+  {ipa:'ɔɪ',cat:'v',lbl:'Diphthong OY',ex1:'b<b>oy</b>',
+   desc:'Ditongo: começa arredondado /ɔ/ e fecha em /ɪ/.',
+   words:[{w:'boy',n:'menino'},{w:'noise',n:'barulho'},{w:'oil',n:'óleo'},{w:'enjoy',n:'curtir'},
+          {w:'voice',n:'voz'},{w:'choice',n:'escolha'},{w:'point',n:'ponto'},{w:'coin',n:'moeda'},
+          {w:'join',n:'juntar-se'},{w:'avoid',n:'evitar'},{w:'royal',n:'real'},{w:'destroy',n:'destruir'}],
+   tip:'Começa com lábios arredondados e termina com lábios esticados.'},
+  {ipa:'p',cat:'c',lbl:'Bilabial P',ex1:'<b>p</b>en',
+   desc:'Plosiva bilabial surda. Lábios fecham e explodem ar.',
+   words:[{w:'pen',n:'caneta'},{w:'cup',n:'xícara'},{w:'happy',n:'feliz'},{w:'stop',n:'parar'},
+          {w:'people',n:'pessoas'},{w:'speak',n:'falar'},{w:'trip',n:'viagem'},{w:'open',n:'abrir'},
+          {w:'price',n:'preço'},{w:'hope',n:'esperança'},{w:'map',n:'mapa'},{w:'cap',n:'boné'}],
+   tip:'Junte os lábios com força e solte ar de repente. Sem vibração na garganta.'},
+  {ipa:'b',cat:'c',lbl:'Voiced B',ex1:'<b>b</b>at',
+   desc:'Plosiva bilabial sonora. Igual ao /p/ mas com vibração vocal.',
+   words:[{w:'bat',n:'morcego'},{w:'rob',n:'roubar'},{w:'about',n:'sobre'},{w:'job',n:'trabalho'},
+          {w:'ball',n:'bola'},{w:'big',n:'grande'},{w:'baby',n:'bebê'},{w:'bring',n:'trazer'},
+          {w:'back',n:'voltar'},{w:'best',n:'melhor'},{w:'build',n:'construir'},{w:'grab',n:'pegar'}],
+   tip:'Mesma articulação de /p/, mas a garganta vibra. Coloque a mão no pescoço para sentir!'},
+  {ipa:'t',cat:'c',lbl:'Alveolar T',ex1:'<b>t</b>op',
+   desc:'Plosiva alveolar surda. Entre vogais, pode virar um "flap" /ɾ/ em inglês americano.',
+   words:[{w:'top',n:'topo'},{w:'cat',n:'gato'},{w:'time',n:'tempo'},{w:'take',n:'pegar'},
+          {w:'talk',n:'falar'},{w:'test',n:'teste'},{w:'today',n:'hoje'},{w:'title',n:'título'},
+          {w:'street',n:'rua'},{w:'letter',n:'carta'},{w:'button',n:'botão'},{w:'bat',n:'morcego'}],
+   tip:'Língua toca os alvéolos (atrás dos dentes superiores). Em "water" soa quase como /d/!'},
+  {ipa:'d',cat:'c',lbl:'Voiced D',ex1:'<b>d</b>og',
+   desc:'Plosiva alveolar sonora.',
+   words:[{w:'dog',n:'cachorro'},{w:'bed',n:'cama'},{w:'door',n:'porta'},{w:'idea',n:'ideia'},
+          {w:'do',n:'fazer'},{w:'did',n:'fez'},{w:'drive',n:'dirigir'},{w:'hard',n:'difícil'},
+          {w:'need',n:'precisar'},{w:'middle',n:'meio'},{w:'dream',n:'sonho'},{w:'add',n:'adicionar'}],
+   tip:'Como /t/ mas com vibração. A língua toca exatamente o mesmo lugar.'},
+  {ipa:'k',cat:'c',lbl:'Velar K',ex1:'<b>c</b>at',
+   desc:'Plosiva velar surda.',
+   words:[{w:'cat',n:'gato'},{w:'book',n:'livro'},{w:'king',n:'rei'},{w:'back',n:'costas'},
+          {w:'clock',n:'relógio'},{w:'week',n:'semana'},
+          {w:'quick',n:'rápido'},{w:'black',n:'preto'},{w:'kick',n:'chutar'},{w:'rock',n:'pedra'},{w:'pack',n:'pacote'},{w:'lack',n:'falta'}],
+   tip:'Parte posterior da língua toca o palato mole.'},
+  {ipa:'ɡ',cat:'c',lbl:'Voiced G',ex1:'<b>g</b>et',
+   desc:'Plosiva velar sonora.',
+   words:[{w:'get',n:'conseguir'},{w:'big',n:'grande'},{w:'go',n:'ir'},{w:'again',n:'de novo'},
+          {w:'game',n:'jogo'},{w:'give',n:'dar'},{w:'grow',n:'crescer'},{w:'good',n:'bom'},
+          {w:'dog',n:'cachorro'},{w:'bag',n:'bolsa'},{w:'flag',n:'bandeira'},{w:'leg',n:'perna'}],
+   tip:'Como /k/ mas com vibração na garganta.'},
+  {ipa:'f',cat:'c',lbl:'Labiodental F',ex1:'<b>f</b>an',
+   desc:'Fricativa labiodental surda.',
+   words:[{w:'fan',n:'ventilador'},{w:'leaf',n:'folha'},{w:'off',n:'desligado'},{w:'phone',n:'telefone'},
+          {w:'food',n:'comida'},{w:'life',n:'vida'},{w:'after',n:'depois'},
+          {w:'half',n:'metade'},{w:'staff',n:'equipe'},{w:'flat',n:'plano'},{w:'proof',n:'prova'},{w:'effect',n:'efeito'}],
+   tip:'Dentes superiores tocam levemente o lábio inferior e você sopra.'},
+  {ipa:'v',cat:'c',lbl:'Labiodental V',ex1:'<b>v</b>an',
+   desc:'Fricativa labiodental sonora. Muito confundida com /b/ por falantes de português!',
+   words:[{w:'van',n:'van'},{w:'love',n:'amor'},{w:'very',n:'muito'},{w:'have',n:'ter'},
+          {w:'voice',n:'voz'},{w:'visit',n:'visitar'},{w:'live',n:'viver'},{w:'give',n:'dar'},
+          {w:'over',n:'acima'},{w:'every',n:'cada'},{w:'invite',n:'convidar'},{w:'brave',n:'corajoso'}],
+   tip:'Dentes no lábio inferior + vibração. Pratique muito — não existe igual no português!'},
+  {ipa:'θ',cat:'c',lbl:'TH Voiceless',ex1:'<b>th</b>ink',
+   desc:'Fricativa dental surda — o "th" surdo. Som exclusivo do inglês!',
+   words:[{w:'think',n:'pensar'},{w:'bath',n:'banho'},{w:'three',n:'três'},{w:'both',n:'ambos'},
+          {w:'thank',n:'agradecer'},{w:'teeth',n:'dentes'},{w:'birthday',n:'aniversário'},
+          {w:'something',n:'algo'},{w:'author',n:'autor'},{w:'thin',n:'fino'},{w:'north',n:'norte'},{w:'earth',n:'terra'}],
+   tip:'LÍNGUA ENTRE OS DENTES e sopre. Não é /f/, não é /t/, não é /s/. Único!'},
+  {ipa:'ð',cat:'c',lbl:'TH Voiced',ex1:'<b>th</b>is',
+   desc:'Fricativa dental sonora. Presente em "the", "this", "that", "they".',
+   words:[{w:'this',n:'este'},{w:'breathe',n:'respirar'},{w:'the',n:'o/a (artigo)'},{w:'that',n:'aquele'},
+          {w:'there',n:'lá'},{w:'they',n:'eles'},{w:'other',n:'outro'},{w:'mother',n:'mãe'},
+          {w:'brother',n:'irmão'},{w:'weather',n:'clima'},{w:'together',n:'juntos'},{w:'smooth',n:'suave'}],
+   tip:'Como /θ/ mas com vibração. "The" usa ESTE som — o mais comum do inglês inteiro!'},
+  {ipa:'s',cat:'c',lbl:'Alveolar S',ex1:'s<b>i</b>t',
+   desc:'Fricativa alveolar surda. Mais aguda e tensa que o "s" do português.',
+   words:[{w:'sit',n:'sentar'},{w:'bus',n:'ônibus'},{w:'class',n:'aula'},
+          {w:'six',n:'seis'},{w:'some',n:'algum'},{w:'sound',n:'som'},{w:'say',n:'dizer'},
+          {w:'best',n:'melhor'},{w:'lesson',n:'aula'},{w:'snake',n:'cobra'},{w:'salt',n:'sal'},{w:'space',n:'espaço'}],
+   tip:'Mais agudo e tenso que o /s/ do português. Sem vibração.'},
+  {ipa:'z',cat:'c',lbl:'Alveolar Z',ex1:'<b>z</b>oo',
+   desc:'Fricativa alveolar sonora. Presente em "is", "was", "his", "please", "dogs".',
+   words:[{w:'zoo',n:'zoológico'},{w:'nose',n:'nariz'},{w:'is',n:'é'},{w:'please',n:'por favor'},
+          {w:'dogs',n:'cachorros'},{w:'was',n:'era'},{w:'his',n:'dele'},
+          {w:'busy',n:'ocupado'},{w:'easy',n:'fácil'},{w:'zero',n:'zero'},{w:'zone',n:'zona'},{w:'prize',n:'prêmio'}],
+   tip:'Como /s/ mas com vibração. "Is", "was", "his" terminam em /z/ — não em /s/!'},
+  {ipa:'ʃ',cat:'c',lbl:'SH Sound',ex1:'<b>sh</b>ip',
+   desc:'Fricativa palato-alveolar surda.',
+   words:[{w:'ship',n:'navio'},{w:'wish',n:'desejo'},{w:'she',n:'ela'},{w:'shore',n:'costa'},
+          {w:'share',n:'compartilhar'},{w:'show',n:'mostrar'},{w:'rush',n:'pressa'},{w:'brush',n:'escova'},
+          {w:'fresh',n:'fresco'},{w:'finish',n:'terminar'},{w:'English',n:'inglês'},{w:'push',n:'empurrar'}],
+   tip:'Como o "ch" de "chave" em português. Lábios levemente projetados.'},
+  {ipa:'ʒ',cat:'c',lbl:'ZH Sound',ex1:'vi<b>si</b>on',
+   desc:'Fricativa palato-alveolar sonora. Raro em inglês — mas importante.',
+   words:[{w:'measure',n:'medida'},{w:'vision',n:'visão'},{w:'usual',n:'usual'},{w:'genre',n:'gênero'},
+          {w:'treasure',n:'tesouro'},{w:'pleasure',n:'prazer'},{w:'television',n:'televisão'},{w:'leisure',n:'lazer'},
+          {w:'illusion',n:'ilusão'},{w:'decision',n:'decisão'},{w:'casual',n:'casual'},{w:'beige',n:'bege'}],
+   tip:'Como /ʃ/ mas com vibração. Similar ao "j" de "hoje" em português.'},
+  {ipa:'tʃ',cat:'c',lbl:'CH Affricate',ex1:'<b>ch</b>air',
+   desc:'Africada palato-alveolar surda. Combinação rápida de /t/ + /ʃ/.',
+   words:[{w:'chair',n:'cadeira'},{w:'rich',n:'rico'},{w:'chip',n:'lasca'},{w:'much',n:'muito'},
+          {w:'check',n:'checar'},{w:'watch',n:'relógio'},{w:'teach',n:'ensinar'},{w:'match',n:'partida'},
+          {w:'choose',n:'escolher'},{w:'touch',n:'tocar'},{w:'church',n:'igreja'},{w:'beach',n:'praia'}],
+   tip:'Como "tch" em "tchan". Dois sons unidos num só movimento.'},
+  {ipa:'dʒ',cat:'c',lbl:'J Affricate',ex1:'<b>j</b>ob',
+   desc:'Africada palato-alveolar sonora. Combinação de /d/ + /ʒ/.',
+   words:[{w:'job',n:'trabalho'},{w:'age',n:'idade'},{w:'jet',n:'jato'},{w:'judge',n:'juiz'},
+          {w:'join',n:'juntar'},{w:'change',n:'mudar'},{w:'large',n:'grande'},
+          {w:'bridge',n:'ponte'},{w:'gym',n:'academia'},{w:'page',n:'página'},{w:'edge',n:'borda'},{w:'budget',n:'orçamento'}],
+   tip:'Como /tʃ/ mas com vibração. O "j" de "jeans" e o "g" de "George".'},
+  {ipa:'m',cat:'c',lbl:'Nasal M',ex1:'<b>m</b>ap',
+   desc:'Nasal bilabial sonora.',
+   words:[{w:'map',n:'mapa'},{w:'sum',n:'soma'},{w:'more',n:'mais'},{w:'name',n:'nome'},
+          {w:'dream',n:'sonho'},{w:'time',n:'tempo'},{w:'him',n:'ele'},{w:'some',n:'algum'},
+          {w:'memory',n:'memória'},{w:'problem',n:'problema'},{w:'exam',n:'exame'},{w:'swim',n:'nadar'}],
+   tip:'Lábios fechados, ar sai pelo nariz.'},
+  {ipa:'n',cat:'c',lbl:'Nasal N',ex1:'<b>n</b>ow',
+   desc:'Nasal alveolar sonora.',
+   words:[{w:'now',n:'agora'},{w:'sun',n:'sol'},{w:'no',n:'não'},{w:'ten',n:'dez'},
+          {w:'night',n:'noite'},{w:'know',n:'saber'},{w:'run',n:'correr'},{w:'own',n:'próprio'},
+          {w:'can',n:'poder'},{w:'seen',n:'visto'},{w:'noun',n:'substantivo'},{w:'learn',n:'aprender'}],
+   tip:'Língua nos alvéolos, ar sai pelo nariz.'},
+  {ipa:'ŋ',cat:'c',lbl:'Velar NG',ex1:'si<b>ng</b>',
+   desc:'Nasal velar sonora — o "ng" final. NÃO pronuncie o /g/ separado!',
+   words:[{w:'sing',n:'cantar'},{w:'ring',n:'anel'},{w:'king',n:'rei'},{w:'long',n:'longo'},
+          {w:'wrong',n:'errado'},{w:'bring',n:'trazer'},{w:'thing',n:'coisa'},{w:'morning',n:'manhã'},
+          {w:'running',n:'correndo'},{w:'thinking',n:'pensando'},{w:'strong',n:'forte'},{w:'bank',n:'banco'}],
+   tip:'Parte de trás da língua no palato mole, ar pelo nariz. Sem /g/ solto no final!'},
+  {ipa:'l',cat:'c',lbl:'Lateral L',ex1:'<b>l</b>ip',
+   desc:'Lateral alveolar sonora. Em final de sílaba, soa mais grave — o "dark L" americano.',
+   words:[{w:'lip',n:'lábio'},{w:'fill',n:'preencher'},{w:'live',n:'viver'},{w:'ball',n:'bola'},
+          {w:'feel',n:'sentir'},{w:'well',n:'bem'},{w:'people',n:'pessoas'},{w:'little',n:'pequeno'},
+          {w:'call',n:'ligar'},{w:'pull',n:'puxar'},{w:'salt',n:'sal'},{w:'help',n:'ajuda'}],
+   tip:'No início = língua nos alvéolos. No final ("ball", "feel") fica mais grave e escuro.'},
+  {ipa:'r',cat:'c',lbl:'American R',ex1:'<b>r</b>ed',
+   desc:'Aproximante retroflexa — o "r" americano. Completamente diferente do português!',
+   words:[{w:'red',n:'vermelho'},{w:'car',n:'carro'},{w:'rock',n:'pedra'},{w:'right',n:'certo'},
+          {w:'world',n:'mundo'},{w:'learn',n:'aprender'},{w:'bird',n:'pássaro'},{w:'sorry',n:'desculpa'},
+          {w:'rain',n:'chuva'},{w:'run',n:'correr'},{w:'river',n:'rio'},{w:'read',n:'ler'}],
+   tip:'Língua dobrada para trás SEM tocar o palato. NUNCA vibrante como no português.'},
+  {ipa:'w',cat:'c',lbl:'W Glide',ex1:'<b>w</b>et',
+   desc:'Aproximante labiovelar sonora.',
+   words:[{w:'wet',n:'molhado'},{w:'away',n:'longe'},{w:'word',n:'palavra'},{w:'swim',n:'nadar'},
+          {w:'when',n:'quando'},{w:'why',n:'por quê'},{w:'walk',n:'caminhar'},{w:'work',n:'trabalho'},
+          {w:'window',n:'janela'},{w:'twelve',n:'doze'},{w:'twice',n:'duas vezes'},{w:'sweet',n:'doce'}],
+   tip:'Lábios bem arredondados (como /uː/) e deslize para a vogal seguinte.'},
+  {ipa:'j',cat:'c',lbl:'Y Glide',ex1:'<b>y</b>es',
+   desc:'Aproximante palatal sonora.',
+   words:[{w:'yes',n:'sim'},{w:'you',n:'você'},{w:'year',n:'ano'},{w:'yet',n:'ainda'},
+          {w:'yellow',n:'amarelo'},{w:'young',n:'jovem'},{w:'your',n:'seu'},{w:'yesterday',n:'ontem'},
+          {w:'yell',n:'gritar'},{w:'yard',n:'jardim'},{w:'yield',n:'ceder'},{w:'beyond',n:'além'}],
+   tip:'Começa como /iː/ e desliza rápido para a próxima vogal.'},
+  {ipa:'h',cat:'c',lbl:'Glottal H',ex1:'<b>h</b>at',
+   desc:'Fricativa glotal surda.',
+   words:[{w:'hat',n:'chapéu'},{w:'ahead',n:'à frente'},{w:'he',n:'ele'},{w:'who',n:'quem'},
+          {w:'how',n:'como'},{w:'have',n:'ter'},{w:'hello',n:'olá'},{w:'here',n:'aqui'},
+          {w:'help',n:'ajuda'},{w:'happy',n:'feliz'},{w:'heavy',n:'pesado'},{w:'hide',n:'esconder'}],
+   tip:'Apenas sopre ar — sem articulação especial. NUNCA engula o /h/ como no português!'},
+];
+
+const MP=[
+  {s1:'/ɪ/',s2:'/iː/',desc:'Short I vs Long EE',pairs:[
+    {w1:'ship',w2:'sheep',i1:'/ʃɪp/',i2:'/ʃiːp/',tip:'Encurte ou alongue a vogal — muda tudo'},
+    {w1:'sit',w2:'seat',i1:'/sɪt/',i2:'/siːt/',tip:'sit = curto; seat = longo'},
+    {w1:'bit',w2:'beat',i1:'/bɪt/',i2:'/biːt/',tip:''},
+    {w1:'live',w2:'leave',i1:'/lɪv/',i2:'/liːv/',tip:'live (viver) vs leave (partir)'},
+    {w1:'fill',w2:'feel',i1:'/fɪl/',i2:'/fiːl/',tip:''},
+  ]},
+  {s1:'/æ/',s2:'/ɛ/',desc:'Flat A vs Short E',pairs:[
+    {w1:'bad',w2:'bed',i1:'/bæd/',i2:'/bɛd/',tip:'bad: mandíbula mais baixa'},
+    {w1:'pan',w2:'pen',i1:'/pæn/',i2:'/pɛn/',tip:''},
+    {w1:'man',w2:'men',i1:'/mæn/',i2:'/mɛn/',tip:'singular e plural com sons diferentes!'},
+    {w1:'land',w2:'lend',i1:'/lænd/',i2:'/lɛnd/',tip:''},
+    {w1:'sad',w2:'said',i1:'/sæd/',i2:'/sɛd/',tip:''},
+  ]},
+  {s1:'/θ/',s2:'/s/',desc:'Voiceless TH vs S',pairs:[
+    {w1:'think',w2:'sink',i1:'/θɪŋk/',i2:'/sɪŋk/',tip:'língua entre os dentes para /θ/'},
+    {w1:'three',w2:'sea',i1:'/θriː/',i2:'/siː/',tip:''},
+    {w1:'thin',w2:'sin',i1:'/θɪn/',i2:'/sɪn/',tip:''},
+    {w1:'mouth',w2:'mouse',i1:'/maʊθ/',i2:'/maʊs/',tip:''},
+    {w1:'worth',w2:'worse',i1:'/wɜːrθ/',i2:'/wɜːrs/',tip:''},
+  ]},
+  {s1:'/ð/',s2:'/d/',desc:'Voiced TH vs D',pairs:[
+    {w1:'then',w2:'den',i1:'/ðɛn/',i2:'/dɛn/',tip:'língua entre os dentes para /ð/'},
+    {w1:'than',w2:'Dan',i1:'/ðæn/',i2:'/dæn/',tip:''},
+    {w1:'they',w2:'day',i1:'/ðeɪ/',i2:'/deɪ/',tip:''},
+    {w1:'breathe',w2:'breed',i1:'/briːð/',i2:'/briːd/',tip:''},
+    {w1:'though',w2:'dough',i1:'/ðoʊ/',i2:'/doʊ/',tip:''},
+  ]},
+  {s1:'/v/',s2:'/b/',desc:'V vs B',pairs:[
+    {w1:'van',w2:'ban',i1:'/væn/',i2:'/bæn/',tip:'/v/ = dentes no lábio; /b/ = só lábios'},
+    {w1:'vest',w2:'best',i1:'/vɛst/',i2:'/bɛst/',tip:''},
+    {w1:'veil',w2:'bail',i1:'/veɪl/',i2:'/beɪl/',tip:''},
+    {w1:'vet',w2:'bet',i1:'/vɛt/',i2:'/bɛt/',tip:''},
+    {w1:'vote',w2:'boat',i1:'/voʊt/',i2:'/boʊt/',tip:''},
+  ]},
+  {s1:'/p/',s2:'/b/',desc:'Voiceless P vs Voiced B',pairs:[
+    {w1:'pat',w2:'bat',i1:'/pæt/',i2:'/bæt/',tip:'sinta a vibração em /b/'},
+    {w1:'pie',w2:'buy',i1:'/paɪ/',i2:'/baɪ/',tip:''},
+    {w1:'pin',w2:'bin',i1:'/pɪn/',i2:'/bɪn/',tip:''},
+    {w1:'rope',w2:'robe',i1:'/roʊp/',i2:'/roʊb/',tip:''},
+    {w1:'cup',w2:'cub',i1:'/kʌp/',i2:'/kʌb/',tip:''},
+  ]},
+  {s1:'/ʃ/',s2:'/tʃ/',desc:'SH vs CH',pairs:[
+    {w1:'ship',w2:'chip',i1:'/ʃɪp/',i2:'/tʃɪp/',tip:'/ʃ/ é contínuo; /tʃ/ tem parada inicial'},
+    {w1:'share',w2:'chair',i1:'/ʃɛr/',i2:'/tʃɛr/',tip:''},
+    {w1:'wish',w2:'witch',i1:'/wɪʃ/',i2:'/wɪtʃ/',tip:''},
+    {w1:'wash',w2:'watch',i1:'/wɑːʃ/',i2:'/wɑːtʃ/',tip:''},
+    {w1:'shoes',w2:'choose',i1:'/ʃuːz/',i2:'/tʃuːz/',tip:''},
+  ]},
+  {s1:'/ʊ/',s2:'/uː/',desc:'Short OO vs Long OO',pairs:[
+    {w1:'book',w2:'boot',i1:'/bʊk/',i2:'/buːt/',tip:'/ʊ/ relaxado; /uː/ lábios projetados'},
+    {w1:'full',w2:'fool',i1:'/fʊl/',i2:'/fuːl/',tip:''},
+    {w1:'pull',w2:'pool',i1:'/pʊl/',i2:'/puːl/',tip:''},
+    {w1:'look',w2:'Luke',i1:'/lʊk/',i2:'/luːk/',tip:''},
+    {w1:'could',w2:'cooed',i1:'/kʊd/',i2:'/kuːd/',tip:''},
+  ]},
+  {s1:'/ɛ/',s2:'/eɪ/',desc:'Short E vs Diphthong AY',pairs:[
+    {w1:'pet',w2:'paid',i1:'/pɛt/',i2:'/peɪd/',tip:'/ɛ/ estático; /eɪ/ desliza'},
+    {w1:'set',w2:'say',i1:'/sɛt/',i2:'/seɪ/',tip:''},
+    {w1:'met',w2:'mate',i1:'/mɛt/',i2:'/meɪt/',tip:''},
+    {w1:'tell',w2:'tail',i1:'/tɛl/',i2:'/teɪl/',tip:''},
+    {w1:'dead',w2:'date',i1:'/dɛd/',i2:'/deɪt/',tip:''},
+  ]},
+  {s1:'/t/',s2:'/d/',desc:'Voiceless T vs Voiced D',pairs:[
+    {w1:'ten',w2:'den',i1:'/tɛn/',i2:'/dɛn/',tip:'vibração só em /d/'},
+    {w1:'town',w2:'down',i1:'/taʊn/',i2:'/daʊn/',tip:''},
+    {w1:'time',w2:'dime',i1:'/taɪm/',i2:'/daɪm/',tip:''},
+    {w1:'right',w2:'ride',i1:'/raɪt/',i2:'/raɪd/',tip:''},
+    {w1:'tie',w2:'die',i1:'/taɪ/',i2:'/daɪ/',tip:''},
+  ]},
+  {s1:'/k/',s2:'/g/',desc:'Voiceless K vs Voiced G',pairs:[
+    {w1:'cap',w2:'gap',i1:'/kæp/',i2:'/ɡæp/',tip:'vibração só em /g/'},
+    {w1:'coat',w2:'goat',i1:'/koʊt/',i2:'/ɡoʊt/',tip:''},
+    {w1:'cold',w2:'gold',i1:'/koʊld/',i2:'/ɡoʊld/',tip:''},
+    {w1:'back',w2:'bag',i1:'/bæk/',i2:'/bæɡ/',tip:''},
+    {w1:'lock',w2:'log',i1:'/lɑːk/',i2:'/lɑːɡ/',tip:''},
+  ]},
+  {s1:'/f/',s2:'/v/',desc:'Voiceless F vs Voiced V',pairs:[
+    {w1:'fan',w2:'van',i1:'/fæn/',i2:'/væn/',tip:'vibração nos dentes em /v/'},
+    {w1:'fine',w2:'vine',i1:'/faɪn/',i2:'/vaɪn/',tip:''},
+    {w1:'few',w2:'view',i1:'/fjuː/',i2:'/vjuː/',tip:''},
+    {w1:'fat',w2:'vat',i1:'/fæt/',i2:'/væt/',tip:''},
+    {w1:'half',w2:'have',i1:'/hæf/',i2:'/hæv/',tip:''},
+  ]},
+  {s1:'/s/',s2:'/z/',desc:'Voiceless S vs Voiced Z',pairs:[
+    {w1:'sip',w2:'zip',i1:'/sɪp/',i2:'/zɪp/',tip:'vibração em /z/'},
+    {w1:'seal',w2:'zeal',i1:'/siːl/',i2:'/ziːl/',tip:''},
+    {w1:'price',w2:'prize',i1:'/praɪs/',i2:'/praɪz/',tip:''},
+    {w1:'bus',w2:'buzz',i1:'/bʌs/',i2:'/bʌz/',tip:''},
+    {w1:'ice',w2:'eyes',i1:'/aɪs/',i2:'/aɪz/',tip:''},
+  ]},
+  {s1:'/tʃ/',s2:'/dʒ/',desc:'CH vs J Affricate',pairs:[
+    {w1:'chain',w2:'Jane',i1:'/tʃeɪn/',i2:'/dʒeɪn/',tip:'vibração em /dʒ/'},
+    {w1:'cheap',w2:'jeep',i1:'/tʃiːp/',i2:'/dʒiːp/',tip:''},
+    {w1:'chunk',w2:'junk',i1:'/tʃʌŋk/',i2:'/dʒʌŋk/',tip:''},
+    {w1:'cheer',w2:'jeer',i1:'/tʃɪr/',i2:'/dʒɪr/',tip:''},
+    {w1:'batch',w2:'badge',i1:'/bætʃ/',i2:'/bædʒ/',tip:''},
+  ]},
+  {s1:'/l/',s2:'/r/',desc:'L vs American R',pairs:[
+    {w1:'light',w2:'right',i1:'/laɪt/',i2:'/raɪt/',tip:'/l/ língua nos alvéolos; /r/ língua para trás'},
+    {w1:'lead',w2:'read',i1:'/liːd/',i2:'/riːd/',tip:''},
+    {w1:'long',w2:'wrong',i1:'/lɔːŋ/',i2:'/rɔːŋ/',tip:''},
+    {w1:'lane',w2:'rain',i1:'/leɪn/',i2:'/reɪn/',tip:''},
+    {w1:'glass',w2:'grass',i1:'/ɡlæs/',i2:'/ɡræs/',tip:''},
+  ]},
+  {s1:'/n/',s2:'/ŋ/',desc:'N vs NG',pairs:[
+    {w1:'sin',w2:'sing',i1:'/sɪn/',i2:'/sɪŋ/',tip:'/ŋ/ sem /g/ separado no final'},
+    {w1:'thin',w2:'thing',i1:'/θɪn/',i2:'/θɪŋ/',tip:''},
+    {w1:'ban',w2:'bang',i1:'/bæn/',i2:'/bæŋ/',tip:''},
+    {w1:'run',w2:'rung',i1:'/rʌn/',i2:'/rʌŋ/',tip:''},
+    {w1:'win',w2:'wing',i1:'/wɪn/',i2:'/wɪŋ/',tip:''},
+  ]},
+  {s1:'/m/',s2:'/n/',desc:'M vs N',pairs:[
+    {w1:'map',w2:'nap',i1:'/mæp/',i2:'/næp/',tip:'/m/ lábios fechados; /n/ língua nos alvéolos'},
+    {w1:'mine',w2:'nine',i1:'/maɪn/',i2:'/naɪn/',tip:''},
+    {w1:'mail',w2:'nail',i1:'/meɪl/',i2:'/neɪl/',tip:''},
+    {w1:'moon',w2:'noon',i1:'/muːn/',i2:'/nuːn/',tip:''},
+    {w1:'some',w2:'sun',i1:'/sʌm/',i2:'/sʌn/',tip:''},
+  ]},
+  {s1:'/w/',s2:'/v/',desc:'W vs V',pairs:[
+    {w1:'wet',w2:'vet',i1:'/wɛt/',i2:'/vɛt/',tip:'/v/ usa dentes no lábio; /w/ só lábios'},
+    {w1:'wine',w2:'vine',i1:'/waɪn/',i2:'/vaɪn/',tip:''},
+    {w1:'west',w2:'vest',i1:'/wɛst/',i2:'/vɛst/',tip:''},
+    {w1:'worse',w2:'verse',i1:'/wɜːrs/',i2:'/vɜːrs/',tip:''},
+    {w1:'wow',w2:'vow',i1:'/waʊ/',i2:'/vaʊ/',tip:''},
+  ]},
+  {s1:'/iː/',s2:'/eɪ/',desc:'Long EE vs Diphthong AY',pairs:[
+    {w1:'peel',w2:'pale',i1:'/piːl/',i2:'/peɪl/',tip:'/iː/ estático e longo; /eɪ/ desliza'},
+    {w1:'feet',w2:'fate',i1:'/fiːt/',i2:'/feɪt/',tip:''},
+    {w1:'heat',w2:'hate',i1:'/hiːt/',i2:'/heɪt/',tip:''},
+    {w1:'steal',w2:'stale',i1:'/stiːl/',i2:'/steɪl/',tip:''},
+    {w1:'meal',w2:'mail',i1:'/miːl/',i2:'/meɪl/',tip:''},
+  ]},
+  {s1:'/ʌ/',s2:'/ɑː/',desc:'Short U vs AH Vowel',pairs:[
+    {w1:'cup',w2:'cop',i1:'/kʌp/',i2:'/kɑːp/',tip:'/ʌ/ central; /ɑː/ posterior e aberto'},
+    {w1:'luck',w2:'lock',i1:'/lʌk/',i2:'/lɑːk/',tip:''},
+    {w1:'sun',w2:'son',i1:'/sʌn/',i2:'/sɑːn/',tip:''},
+    {w1:'come',w2:'calm',i1:'/kʌm/',i2:'/kɑːm/',tip:''},
+    {w1:'bun',w2:'bon',i1:'/bʌn/',i2:'/bɑːn/',tip:''},
+  ]},
+  {s1:'/oʊ/',s2:'/ɑː/',desc:'Diphthong OH vs AH Vowel',pairs:[
+    {w1:'coat',w2:'cot',i1:'/koʊt/',i2:'/kɑːt/',tip:'/oʊ/ desliza; /ɑː/ aberto e posterior'},
+    {w1:'hole',w2:'hall',i1:'/hoʊl/',i2:'/hɑːl/',tip:''},
+    {w1:'bone',w2:'bond',i1:'/boʊn/',i2:'/bɑːnd/',tip:''},
+    {w1:'woke',w2:'walk',i1:'/woʊk/',i2:'/wɑːk/',tip:''},
+    {w1:'pole',w2:'pal',i1:'/poʊl/',i2:'/pæl/',tip:''},
+  ]},
+  {s1:'/θ/',s2:'/ð/',desc:'TH Voiceless vs TH Voiced',pairs:[
+    {w1:'thigh',w2:'thy',i1:'/θaɪ/',i2:'/ðaɪ/',tip:'/θ/ sem vibração; /ð/ com vibração'},
+    {w1:'ether',w2:'either',i1:'/iːθər/',i2:'/iːðər/',tip:''},
+    {w1:'loath',w2:'loathe',i1:'/loʊθ/',i2:'/loʊð/',tip:''},
+    {w1:'mouth',w2:'mouthe',i1:'/maʊθ/',i2:'/maʊð/',tip:'substantivo vs verbo'},
+    {w1:'teeth',w2:'teethe',i1:'/tiːθ/',i2:'/tiːð/',tip:'substantivo vs verbo'},
+  ]},
+  {s1:'/aɪ/',s2:'/aʊ/',desc:'Diphthong EYE vs Diphthong OW',pairs:[
+    {w1:'mine',w2:'mound',i1:'/maɪn/',i2:'/maʊnd/',tip:'/aɪ/ fecha em /ɪ/; /aʊ/ arredonda em /ʊ/'},
+    {w1:'light',w2:'loud',i1:'/laɪt/',i2:'/laʊd/',tip:''},
+    {w1:'tie',w2:'tow',i1:'/taɪ/',i2:'/taʊ/',tip:''},
+    {w1:'find',w2:'found',i1:'/faɪnd/',i2:'/faʊnd/',tip:''},
+    {w1:'side',w2:'sound',i1:'/saɪd/',i2:'/saʊnd/',tip:''},
+  ]},
+];
+
+/* =====================================================
+   SPEECH ENGINE
+===================================================== */
+const SpeechSynth = window.speechSynthesis;
+let usVoice = null;
+let speakingEl = null;
+
+function initVoices(){
+  if(!SpeechSynth){ document.getElementById('noSpeechBanner').classList.add('show'); return; }
+  const load = () => {
+    const voices = SpeechSynth.getVoices();
+    const prefs = [
+      v => v.lang==='en-US' && /samantha|zira|david|google us|ava|nicky/i.test(v.name),
+      v => v.lang==='en-US',
+      v => v.lang.startsWith('en'),
+    ];
+    for(const pred of prefs){ const f=voices.find(pred); if(f){usVoice=f;break;} }
+  };
+  load();
+  if(!usVoice) SpeechSynth.addEventListener('voiceschanged',load,{once:true});
+}
+
+function speak(text,animEl,opts){
+  if(!SpeechSynth) return;
+  opts = opts||{};
+  SpeechSynth.cancel();
+  if(speakingEl){ speakingEl.classList.remove('speaking'); speakingEl=null; }
+  const wave = document.getElementById('dpWave');
+  if(wave) wave.classList.remove('visible');
+  const u = new SpeechSynthesisUtterance(text);
+  u.voice = usVoice; u.lang='en-US';
+  u.rate  = opts.rate  !== undefined ? opts.rate  : 0.88;
+  u.pitch = opts.pitch !== undefined ? opts.pitch : 1.0;
+  if(animEl){
+    speakingEl=animEl; animEl.classList.add('speaking');
+    if(animEl.id==='dpSpeakBtn' && wave) wave.classList.add('visible');
+  }
+  u.onend = function(){ if(speakingEl){speakingEl.classList.remove('speaking');speakingEl=null;} if(wave)wave.classList.remove('visible'); if(opts.onend)opts.onend(); };
+  u.onerror = function(){ if(speakingEl){speakingEl.classList.remove('speaking');speakingEl=null;} if(wave)wave.classList.remove('visible'); };
+  SpeechSynth.speak(u);
+}
+
+function speakWord(word,el,rate){ speak(word,el,{rate:rate!==undefined?rate:0.82}); }
+
+const IPA_HELPERS = {
+  'iː':'see',   'ɪ':'sit',     'eɪ':'day',   'ɛ':'bed',
+  'æ':'cat',    'ɑː':'father', 'ɔː':'law',    'oʊ':'go',
+  'ʊ':'book',   'uː':'food',   'ʌ':'cup',     'ə':'about',
+  'aɪ':'my',    'aʊ':'now',    'ɔɪ':'boy',
+  'p':'pen',    'b':'bat',     't':'top',     'd':'dog',
+  'k':'cat',    'ɡ':'get',     'f':'fan',     'v':'van',
+  'θ':'think',  'ð':'this',    's':'sit',     'z':'zoo',
+  'ʃ':'ship',   'ʒ':'vision', 'tʃ':'chair',  'dʒ':'job',
+  'm':'map',    'n':'now',     'ŋ':'sing',    'l':'lip',
+  'r':'red',    'w':'wet',     'j':'yes',     'h':'hat'
+};
+
+function speakIPA(ipa,el){
+  var clean = ipa.replace(/\//g,'');
+  var word  = IPA_HELPERS[clean] || clean;
+  speak(word,el,{rate:0.75,pitch:1.0});
+}
+
+/* =====================================================
+   BUILD IPA GRIDS
+===================================================== */
+var activeCard = -1;
+function buildGrids(){
+  var gv=document.getElementById('grid-vowels');
+  var gc=document.getElementById('grid-consonants');
+  SOUNDS.forEach(function(s,i){
+    var d=document.createElement('div');
+    d.className='sc'; d.id='sc-'+i;
+    d.innerHTML=
+      '<div class="sc-ipa" data-ipa="'+s.ipa+'" title="Clique para ouvir">'+s.ipa+'</div>'+
+      '<div class="sc-lbl">'+s.lbl+'</div>'+
+      '<div class="sc-ex">'+s.ex1+'</div>'+
+      '<div class="sc-qbtn">'+
+        '<button class="sc-speak" onclick="speakIPA(\''+s.ipa+'\',this);event.stopPropagation();">🔊</button>'+
+        '<button class="mini-qbtn" onclick="startSoundQuiz(\''+s.ipa+'\',event)">Quiz ▸</button>'+
+      '</div>';
+    d.querySelector('.sc-ipa').addEventListener('click',function(e){
+      e.stopPropagation();
+      speakIPA(e.currentTarget.dataset.ipa, e.currentTarget);
+    });
+    d.addEventListener('click',function(e){
+      var t=e.target;
+      if(t.classList.contains('mini-qbtn')||t.classList.contains('sc-speak')||t.classList.contains('sc-ipa')) return;
+      showDetail(i);
+    });
+
+    /* --- desc-row: ocupa linha inteira abaixo do card --- */
+    var wordChips='';
+    s.words.forEach(function(w){
+      wordChips+=
+        '<div class="dr-chip" data-word="'+w.w.replace(/"/g,'&quot;')+'">'+
+          '🔊 '+w.w+
+          '<span>'+w.n+'</span>'+
+        '</div>';
+    });
+    var dr=document.createElement('div');
+    dr.className='sc-desc-row'; dr.id='sc-desc-'+i;
+    dr.innerHTML=
+      '<div class="sc-desc-row-title">'+
+        '<span>'+s.lbl+' &mdash; <em>'+s.ipa+'</em></span>'+
+        '<button class="dr-speak-btn" id="dr-spk-'+i+'">🔊 Ouvir som</button>'+
+        '<button class="dr-quiz-btn" onclick="startSoundQuiz(\''+s.ipa+'\',event)">Quiz ▸</button>'+
+      '</div>'+
+      '<div class="sc-desc-row-text">'+s.desc+'</div>'+
+      '<div class="dr-words-lbl">Exemplos <small>— clique para ouvir</small></div>'+
+      '<div class="dr-words">'+wordChips+'</div>'+
+      '<div class="sc-desc-row-tip">💡 '+s.tip+'</div>';
+
+    /* bind speak btn */
+    dr.querySelector('#dr-spk-'+i).addEventListener('click',function(){
+      speakIPA(s.ipa, dr.querySelector('#dr-spk-'+i));
+    });
+    /* bind word chips */
+    dr.querySelectorAll('.dr-chip').forEach(function(chip){
+      chip.addEventListener('click',function(e){
+        e.stopPropagation();
+        speakWord(chip.dataset.word, chip);
+      });
+    });
+
+    (s.cat==='v'?gv:gc).appendChild(d);
+    (s.cat==='v'?gv:gc).appendChild(dr);
+  });
+}
+
+function showDetail(idx){
+  var s=SOUNDS[idx];
+  /* fechar se já está aberto */
+  if(activeCard===idx){
+    document.getElementById('sc-'+idx).classList.remove('active');
+    document.getElementById('sc-desc-'+idx).classList.remove('open');
+    activeCard=-1; return;
+  }
+  /* fechar anterior */
+  if(activeCard>=0){
+    document.getElementById('sc-'+activeCard).classList.remove('active');
+    document.getElementById('sc-desc-'+activeCard).classList.remove('open');
+  }
+  document.getElementById('sc-'+idx).classList.add('active');
+  activeCard=idx;
+  var dr=document.getElementById('sc-desc-'+idx);
+  dr.classList.add('open');
+  dr.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* =====================================================
+   BUILD MINIMAL PAIRS
+===================================================== */
+function buildPairs(){
+  var g=document.getElementById('mpGrid');
+  MP.forEach(function(mp,gi){
+    var c=document.createElement('div'); c.className='mp-card';
+    var s1clean=mp.s1.replace(/\//g,''); var s2clean=mp.s2.replace(/\//g,'');
+    var rows='';
+    mp.pairs.forEach(function(p){
+      rows+='<tr>'+
+        '<td><span class="mp-word" data-word="'+p.w1+'" title="Ouvir: '+p.w1+'">🔊 '+p.w1+'</span><span class="mp-ipa">'+p.i1+'</span></td>'+
+        '<td><span class="mp-word" data-word="'+p.w2+'" title="Ouvir: '+p.w2+'">🔊 '+p.w2+'</span><span class="mp-ipa">'+p.i2+'</span></td>'+
+        '<td class="mp-tc">'+(p.tip||'—')+'</td>'+
+      '</tr>';
+    });
+    c.innerHTML=
+      '<div class="mp-head" id="mph-'+gi+'" onclick="toggleMP('+gi+')">'+
+        '<div class="mp-syms">'+
+          '<span class="mp-sym" data-ipa="'+s1clean+'" title="Ouvir '+mp.s1+'">'+mp.s1+'</span>'+
+          '<span class="mp-vs">vs</span>'+
+          '<span class="mp-sym" data-ipa="'+s2clean+'" title="Ouvir '+mp.s2+'">'+mp.s2+'</span>'+
+        '</div>'+
+        '<span class="mp-lbl">'+mp.desc+'</span>'+
+        '<button class="mp-quiz-btn" onclick="startMPQuiz('+gi+',event)">Quiz ▸</button>'+
+        '<span class="mp-chev">▾</span>'+
+      '</div>'+
+      '<div class="mp-body" id="mpb-'+gi+'">'+
+        '<table class="mp-tbl">'+
+          '<thead><tr><th>'+mp.s1+'</th><th>'+mp.s2+'</th><th>Dica articulatória</th></tr></thead>'+
+          '<tbody>'+rows+'</tbody>'+
+        '</table>'+
+      '</div>';
+    c.querySelectorAll('.mp-sym').forEach(function(sym){
+      sym.addEventListener('click',function(e){
+        e.stopPropagation(); speakIPA(sym.dataset.ipa,sym);
+      });
+    });
+    g.appendChild(c);
+  });
+  document.getElementById('mpGrid').addEventListener('click',function(e){
+    var mw=e.target.closest('.mp-word');
+    if(mw) speakWord(mw.dataset.word,mw);
+  });
+}
+function toggleMP(gi){
+  var h=document.getElementById('mph-'+gi); var b=document.getElementById('mpb-'+gi);
+  var was=b.classList.contains('open');
+  document.querySelectorAll('.mp-head').forEach(function(x){x.classList.remove('open');});
+  document.querySelectorAll('.mp-body').forEach(function(x){x.classList.remove('open');});
+  if(!was){h.classList.add('open');b.classList.add('open');}
+}
+
+/* =====================================================
+   QUIZ ENGINE
+===================================================== */
+var quizMode='all', quizSoundFilter=null, quizMPFilter=null;
+var quizQs=[], qIdx=0, answered=false, sc=0, sw=0, quizTotal=20;
+
+function setMode(m){
+  quizMode=m;
+  document.getElementById('modeAll').classList.toggle('active',m==='all');
+  document.getElementById('modeSound').classList.toggle('active',m==='sound');
+  document.getElementById('modePairs').classList.toggle('active',m==='pairs');
+  document.getElementById('soundFilter').classList.toggle('visible',m==='sound');
+  document.getElementById('mpFilter').classList.toggle('visible',m==='pairs');
+  if(m==='all'){quizSoundFilter=null;quizMPFilter=null;restartQuiz();}
+  if(m==='pairs'&&quizMPFilter===null){restartQuiz();}
+}
+
+function buildFilterChips(){
+  var c=document.getElementById('filterChips');
+  SOUNDS.forEach(function(s){
+    var btn=document.createElement('button');
+    btn.className='fchip'; btn.textContent=s.ipa; btn.title=s.lbl;
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.fchip').forEach(function(x){x.classList.remove('sel');});
+      btn.classList.add('sel'); quizSoundFilter=s.ipa; restartQuiz();
+    });
+    c.appendChild(btn);
+  });
+}
+
+function buildMPFilterChips(){
+  var c=document.getElementById('mpFilterChips');
+  MP.forEach(function(mp,gi){
+    var btn=document.createElement('button');
+    btn.className='mpchip';
+    btn.textContent=mp.s1+' vs '+mp.s2;
+    btn.title=mp.desc;
+    btn.dataset.gi=gi;
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.mpchip').forEach(function(x){x.classList.remove('sel');});
+      btn.classList.add('sel'); quizMPFilter=gi; restartQuiz();
+    });
+    c.appendChild(btn);
+  });
+}
+
+function shuffle(arr){
+  for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t;}
+}
+
+function buildQuestions(mode,ipaFilter,mpFilter){
+  var pool=[];
+  if(mode==='sound'&&ipaFilter){
+    var snd=null;
+    for(var i=0;i<SOUNDS.length;i++){if(SOUNDS[i].ipa===ipaFilter){snd=SOUNDS[i];break;}}
+    if(!snd) return [];
+    var correctPool=snd.words.map(function(w){return {word:w.w,ipa:ipaFilter};});
+    var wrongPool=[];
+    SOUNDS.forEach(function(s){
+      if(s.ipa!==ipaFilter) s.words.forEach(function(w){wrongPool.push({word:w.w,ipa:s.ipa});});
+    });
+    shuffle(correctPool); shuffle(wrongPool);
+    var count=Math.min(correctPool.length,12);
+    for(var i=0;i<count;i++){
+      var w=wrongPool[Math.floor(Math.random()*wrongPool.length)];
+      pool.push({type:'ipa',sym:ipaFilter,soundLbl:snd.lbl,correct:correctPool[i],wrong:w,mp:null});
+    }
+  } else if(mode==='pairs'){
+    var groups=[];
+    if(mpFilter!==null&&mpFilter!==undefined){
+      groups=[MP[mpFilter]];
+    } else {
+      groups=MP;
+    }
+    groups.forEach(function(mp){
+      mp.pairs.forEach(function(p){
+        /* questão tipo 1: dado símbolo, qual palavra tem esse som? */
+        var useFirst=Math.random()<.5;
+        var sym=useFirst?mp.s1:mp.s2;
+        pool.push({
+          type:'pairs',
+          sym:sym,
+          s1:mp.s1,s2:mp.s2,
+          soundLbl:mp.desc,
+          correct:{word:useFirst?p.w1:p.w2,ipa:useFirst?p.i1:p.i2},
+          wrong:  {word:useFirst?p.w2:p.w1,ipa:useFirst?p.i2:p.i1},
+          mp:mp
+        });
+      });
+    });
+  } else {
+    /* mode all — usa todos os pares mínimos */
+    MP.forEach(function(mp){
+      mp.pairs.forEach(function(p){
+        var useFirst=Math.random()<.5;
+        var sym=useFirst?mp.s1:mp.s2;
+        pool.push({
+          type:'pairs',
+          sym:sym,
+          s1:mp.s1,s2:mp.s2,
+          soundLbl:mp.desc,
+          correct:{word:useFirst?p.w1:p.w2,ipa:useFirst?p.i1:p.i2},
+          wrong:  {word:useFirst?p.w2:p.w1,ipa:useFirst?p.i2:p.i1},
+          mp:mp
+        });
+      });
+    });
+  }
+  shuffle(pool);
+  var limit=mode==='sound'?Math.min(pool.length,12):Math.min(pool.length,20);
+  return pool.slice(0,limit);
+}
+
+function restartQuiz(){
+  sc=0;sw=0;qIdx=0;answered=false;
+  document.getElementById('scoreC').textContent=0;
+  document.getElementById('scoreW').textContent=0;
+  quizQs=buildQuestions(quizMode,quizSoundFilter,quizMPFilter);
+  quizTotal=quizQs.length;
+  document.getElementById('qTotal').textContent=quizTotal;
+  var card=document.getElementById('quizCard');
+  if(!document.getElementById('qSym')){
+    card.innerHTML=
+      '<div class="q-ctx" id="qCtx"></div>'+
+      '<div id="qSymArea"></div>'+
+      '<div class="q-prompt" id="qPrompt"></div>'+
+      '<div class="q-sub" id="qSub"></div>'+
+      '<div class="q-choices" id="qChoices"></div>'+
+      '<div class="q-fb fb-idle" id="qFb">Selecione uma das palavras acima.</div>'+
+      '<button class="btn-next" id="btnNext" onclick="nextQ()">Próxima →</button>'+
+      '<button class="btn-restart" id="btnRestart" style="display:none" onclick="restartQuiz()">Recomeçar ↺</button>';
+  }
+  document.getElementById('btnNext').style.display='inline-block';
+  document.getElementById('btnRestart').style.display='none';
+  renderQ();
+}
+
+function renderQ(){
+  if(qIdx>=quizQs.length){showFinish();return;}
+  answered=false;
+  var q=quizQs[qIdx];
+  document.getElementById('progFill').style.width=Math.round((qIdx/quizTotal)*100)+'%';
+  document.getElementById('qNum').textContent=qIdx+1;
+
+  /* contexto */
+  var ctxMap={'all':'Pares Mínimos — Todos','pairs':'Quiz: Pares Mínimos','sound':'Quiz: Som '+(quizSoundFilter||'')};
+  document.getElementById('qCtx').textContent=ctxMap[quizMode]||'Quiz';
+
+  /* área do símbolo — modo pairs mostra os dois símbolos em contraste */
+  var symArea=document.getElementById('qSymArea');
+  if(!symArea){
+    /* fallback: recriar área */
+    var card=document.getElementById('quizCard');
+    card.innerHTML=
+      '<div class="q-ctx" id="qCtx"></div>'+
+      '<div id="qSymArea"></div>'+
+      '<div class="q-prompt" id="qPrompt"></div>'+
+      '<div class="q-sub" id="qSub"></div>'+
+      '<div class="q-choices" id="qChoices"></div>'+
+      '<div class="q-fb fb-idle" id="qFb">Selecione uma das palavras acima.</div>'+
+      '<button class="btn-next" id="btnNext" onclick="nextQ()">Próxima →</button>'+
+      '<button class="btn-restart" id="btnRestart" style="display:none" onclick="restartQuiz()">Recomeçar ↺</button>';
+    symArea=document.getElementById('qSymArea');
+    document.getElementById('qCtx').textContent=ctxMap[quizMode]||'Quiz';
+  }
+
+  if(q.type==='pairs'){
+    var s1c=q.s1.replace(/\//g,''); var s2c=q.s2.replace(/\//g,'');
+    symArea.innerHTML=
+      '<div class="q-pair-syms">'+
+        '<span class="q-pair-sym" data-ipa="'+s1c+'" title="Ouvir '+q.s1+'">'+q.s1+'</span>'+
+        '<span class="q-pair-vs">vs</span>'+
+        '<span class="q-pair-sym" data-ipa="'+s2c+'" title="Ouvir '+q.s2+'">'+q.s2+'</span>'+
+      '</div>';
+    symArea.querySelectorAll('.q-pair-sym').forEach(function(el){
+      el.addEventListener('click',function(){speakIPA(el.dataset.ipa,el);});
+    });
+    document.getElementById('qPrompt').innerHTML='Qual palavra tem o som <strong>'+q.sym+'</strong>?';
+  } else {
+    symArea.innerHTML='<div class="q-sym" id="qSym" title="Clique para ouvir">'+q.sym+'</div>';
+    document.getElementById('qSym').onclick=function(){speakIPA(q.sym.replace(/\//g,''),document.getElementById('qSym'));};
+    document.getElementById('qPrompt').textContent='Qual palavra contém este som?';
+  }
+
+  document.getElementById('qSub').textContent=q.soundLbl||'';
+
+  var opts=Math.random()<.5?[q.correct,q.wrong]:[q.wrong,q.correct];
+  var ch=document.getElementById('qChoices'); ch.innerHTML='';
+  opts.forEach(function(opt){
+    var btn=document.createElement('button');
+    btn.className='choice-btn';
+    btn.dataset.ipa=opt.ipa;
+    btn.innerHTML='<span class="cw">'+opt.word+'</span><span class="ci">'+opt.ipa+'</span>';
+    btn.addEventListener('click',function(){
+      answer(btn,opt.word===q.correct.word,q);
+    });
+    ch.appendChild(btn);
+  });
+  document.getElementById('qFb').textContent='Selecione uma das palavras acima.';
+  document.getElementById('qFb').className='q-fb fb-idle';
+}
+
+function answer(btn,isCorrect,q){
+  if(answered) return;
+  answered=true;
+  document.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;b.classList.add('revealed');});
+  if(isCorrect){
+    btn.classList.add('correct'); sc++;
+    document.getElementById('scoreC').textContent=sc;
+    document.getElementById('qFb').textContent='✓ Correto! "'+q.correct.word+'" tem o som '+q.sym;
+    document.getElementById('qFb').className='q-fb fb-ok';
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.choice-btn').forEach(function(b){
+      if(b.querySelector('.cw').textContent===q.correct.word) b.classList.add('correct');
+    });
+    sw++;
+    document.getElementById('scoreW').textContent=sw;
+    document.getElementById('qFb').textContent='✗ Era "'+q.correct.word+'" '+q.correct.ipa+'. Continue praticando!';
+    document.getElementById('qFb').className='q-fb fb-err';
+  }
+}
+
+function nextQ(){
+  if(!answered&&qIdx<quizQs.length){
+    document.getElementById('qFb').textContent='⚠ Selecione uma resposta primeiro!';
+    return;
+  }
+  qIdx++; renderQ();
+}
+
+/* Inicia quiz de um grupo específico de pares mínimos */
+function startMPQuiz(gi,e){
+  if(e) e.stopPropagation();
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('panel-quiz').classList.add('active');
+  document.querySelectorAll('.nav-btn')[2].classList.add('active');
+  quizMode='pairs'; quizMPFilter=gi; quizSoundFilter=null;
+  document.getElementById('modeAll').classList.remove('active');
+  document.getElementById('modeSound').classList.remove('active');
+  document.getElementById('modePairs').classList.add('active');
+  document.getElementById('soundFilter').classList.remove('visible');
+  document.getElementById('mpFilter').classList.add('visible');
+  document.querySelectorAll('.mpchip').forEach(function(c){
+    c.classList.toggle('sel',parseInt(c.dataset.gi)===gi);
+  });
+  restartQuiz();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showFinish(){
+  if(SpeechSynth) SpeechSynth.cancel();
+  var pct=Math.round((sc/quizTotal)*100);
+  var msg=pct===100?'Perfeito! Você acertou tudo! 🏆':
+          pct>=80?'Excelente! Continue praticando para chegar ao 100%. 🎯':
+          pct>=60?'Bom trabalho! Revise os sons que errou e tente novamente. 💪':
+          'Continue praticando! Revise os símbolos IPA e tente de novo. 📚';
+  document.getElementById('quizCard').innerHTML=
+    '<div class="quiz-finish">'+
+      '<div class="qf-big">'+sc+'/'+quizTotal+'</div>'+
+      '<div class="qf-lbl">Resultado Final</div>'+
+      '<div class="qf-msg">'+msg+'</div>'+
+      '<button class="btn-restart" style="display:inline-block" onclick="restartQuiz()">Recomeçar ↺</button>'+
+    '</div>';
+}
+
+function startSoundQuiz(ipa,e){
+  if(e) e.stopPropagation();
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('panel-quiz').classList.add('active');
+  document.querySelectorAll('.nav-btn')[2].classList.add('active');
+  quizMode='sound'; quizSoundFilter=ipa;
+  document.getElementById('modeAll').classList.remove('active');
+  document.getElementById('modeSound').classList.add('active');
+  document.getElementById('soundFilter').classList.add('visible');
+  document.querySelectorAll('.fchip').forEach(function(c){c.classList.toggle('sel',c.textContent===ipa);});
+  restartQuiz();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function switchPanel(id,btn){
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('panel-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+  if(id==='quiz'&&quizQs.length===0) restartQuiz();
+  if(SpeechSynth) SpeechSynth.cancel();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* =====================================================
+   INIT
+===================================================== */
+initVoices();
+buildGrids();
+buildPairs();
+buildFilterChips();
+buildMPFilterChips();
+</script>
+</body>
+</html>

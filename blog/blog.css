@@ -1,0 +1,244 @@
+/* Blog Teacher Samira Nunes: complementa ../styles.css */
+
+.blog-main {
+    padding: 120px 0 80px;
+    background: #292929;
+}
+
+.blog-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    color: #bdbdbd;
+    margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--secondary-red); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* Cabeçalho do post */
+.post-kicker {
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--secondary-red);
+    margin-bottom: 0.75rem;
+}
+.post-header h1 {
+    font-size: 2.6rem;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+}
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    font-size: 0.95rem;
+    color: #bdbdbd;
+    margin-bottom: 2rem;
+}
+.post-meta strong { color: var(--white); font-weight: normal; }
+
+.post-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    margin-bottom: 2.5rem;
+    display: block;
+}
+
+/* Corpo do artigo */
+.post-body { font-size: 1.15rem; line-height: 1.75; }
+.post-body p { font-size: 1.15rem; margin-bottom: 1.25rem; }
+.post-body h2 {
+    text-align: left;
+    font-size: 1.85rem;
+    margin: 3rem 0 1rem;
+    padding-top: 0.5rem;
+}
+.post-body h3 {
+    font-size: 1.3rem;
+    margin: 2rem 0 0.75rem;
+    color: var(--secondary-red);
+}
+.post-body ul, .post-body ol { margin: 0 0 1.5rem 1.4rem; }
+.post-body li { margin-bottom: 0.5rem; }
+.post-body a { color: var(--secondary-red); }
+.post-body strong { color: #ffffff; }
+.post-body em.en, .post-body .en { font-style: italic; color: #f0e2cd; }
+
+/* Caixa de resposta rápida */
+.quick-answer {
+    background: #333333;
+    border-left: 5px solid var(--secondary-red);
+    border-radius: 0 12px 12px 0;
+    padding: 1.4rem 1.6rem;
+    margin: 0 0 2.5rem;
+}
+.quick-answer .label {
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--secondary-red);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.quick-answer p:last-child { margin-bottom: 0; }
+
+/* Exemplos */
+.examples {
+    list-style: none;
+    margin-left: 0 !important;
+    padding: 0;
+}
+.examples li {
+    background: #333333;
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.6rem;
+}
+.examples .en { display: block; font-size: 1.15rem; }
+.examples .pt { display: block; font-size: 0.98rem; color: #bdbdbd; }
+
+/* Erros comuns */
+.mistake {
+    background: #333333;
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+}
+.mistake .wrong, .mistake .right { display: block; font-size: 1.12rem; }
+.mistake .wrong { color: #e8a09a; text-decoration: line-through; text-decoration-thickness: 1px; }
+.mistake .right { color: #a8d5a2; margin-bottom: 0.4rem; }
+.mistake p { font-size: 1rem; margin: 0.4rem 0 0; color: #dcdcdc; }
+
+/* Tabelas */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0 2rem; }
+.post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+.post-body th, .post-body td {
+    text-align: left;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #454545;
+    vertical-align: top;
+}
+.post-body th {
+    font-family: var(--font-title);
+    font-size: 0.9rem;
+    background: #1a1a1a;
+    color: var(--secondary-red);
+}
+.post-body tr:nth-child(even) td { background: #2f2f2f; }
+
+/* Dica */
+.tip {
+    border: 1px solid rgba(210, 180, 140, 0.45);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0 2rem;
+}
+.tip p:last-child { margin-bottom: 0; }
+
+/* Quiz e FAQ */
+.quiz details, .faq details {
+    background: #333333;
+    border-radius: 10px;
+    margin-bottom: 0.7rem;
+    padding: 0.9rem 1.2rem;
+}
+.quiz summary, .faq summary {
+    cursor: pointer;
+    font-size: 1.1rem;
+    list-style-position: outside;
+}
+.faq summary { font-family: var(--font-title); font-weight: bold; font-size: 1.05rem; }
+.quiz details p, .faq details p { margin: 0.7rem 0 0; font-size: 1.05rem; }
+.quiz .blank { border-bottom: 2px solid var(--secondary-red); padding: 0 1.2em; }
+
+/* CTA */
+.post-cta {
+    background: linear-gradient(135deg, #1a1a1a 0%, #3a3329 100%);
+    border: 1px solid rgba(210, 180, 140, 0.4);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 3rem 0 1rem;
+    text-align: center;
+}
+.post-cta h2 { text-align: center; margin: 0 0 0.75rem; font-size: 1.6rem; }
+.post-cta p { font-size: 1.05rem; }
+.cta-links { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 1.2rem; }
+.cta-links a {
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+}
+.cta-links .primary { background: linear-gradient(135deg, #D2B48C 0%, #A08050 100%); color: #1a1a1a; }
+.cta-links .ghost { border: 2px solid var(--secondary-red); color: var(--white); }
+
+.author-box {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-top: 1px solid #454545;
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+}
+.author-box img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--secondary-red); }
+.author-box p { margin: 0; font-size: 0.98rem; color: #dcdcdc; }
+
+/* Índice do blog */
+.blog-hero { text-align: center; margin-bottom: 3rem; }
+.blog-hero h1 { font-size: 2.6rem; }
+.blog-hero p { color: #dcdcdc; max-width: 620px; margin: 0 auto; }
+
+.posts-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.post-card {
+    background: #404040;
+    border-radius: 15px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.post-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+.post-card img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; display: block; }
+.post-card-body { padding: 1.4rem; }
+.post-card-body .post-kicker { margin-bottom: 0.5rem; }
+.post-card-body h2 { font-size: 1.3rem; text-align: left; margin: 0 0 0.6rem; }
+.post-card-body p { font-size: 1rem; color: #dcdcdc; margin: 0 0 0.8rem; }
+.post-card-body time { font-size: 0.85rem; color: #bdbdbd; }
+
+@media (max-width: 768px) {
+    .post-header h1, .blog-hero h1 { font-size: 2rem; }
+    .post-body h2 { font-size: 1.5rem; }
+    .post-body, .post-body p { font-size: 1.08rem; }
+    .post-cta { padding: 1.5rem 1.2rem; }
+    .post-body table { font-size: 0.92rem; }
+    .post-body th, .post-body td { padding: 0.65rem 0.6rem; }
+    .post-body td .en { display: block; }
+}
