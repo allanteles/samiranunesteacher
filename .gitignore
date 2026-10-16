@@ -1,0 +1,21 @@
+# Artefatos locais de assistentes/IA
+.agent
+.agents
+.agents/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs e temporários
+*.log
+tmp/
+temp/
+
+# Variáveis de ambiente (segurança)
+.env
+.env.local
+.env.*.local
