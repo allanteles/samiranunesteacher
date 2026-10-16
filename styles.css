@@ -79,6 +79,13 @@ p {
     margin-bottom: 3rem;
 }
 
+.hero-signature {
+    color: var(--secondary-red);
+    font-size: 1.15rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.75rem;
+}
+
 /* Header e navegação */
 .header {
     background-color: #1a1a1a;
