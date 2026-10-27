@@ -37,17 +37,28 @@
     --radius: 14px;
   }
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-text);
     background: var(--platinum);
     color: var(--jet);
-    line-height: 1.55;
+    line-height: 1.6;
     min-height: 100vh;
   }
+  .header, .nav, .nav-container, .nav-menu, .nav-menu a, .cta-nav, .footer {
+    font-family: var(--font-text);
+  }
   .nivelamento-main {
+    font-family: 'Montserrat', sans-serif;
     background: var(--platinum);
     min-height: calc(100vh - 80px);
     padding-top: 110px;
     padding-bottom: 60px;
+    line-height: 1.55;
+  }
+  .nivelamento-main button,
+  .nivelamento-main input,
+  .nivelamento-main select,
+  .nivelamento-main textarea {
+    font-family: 'Montserrat', sans-serif;
   }
   .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px; }
   .card {
@@ -157,13 +168,13 @@
         <nav class="nav">
             <div class="nav-container">
                 <div class="logo">
-                    <a href="index.html"><img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes Logo" class="logo-img"></a>
+                    <img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes Logo" class="logo-img">
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="aulas-vip.html">Aulas VIP</a></li>
                     <li><a href="materiais.html">Materiais</a></li>
-                    <li><a href="nivelamento.html" style="color: var(--secondary-red);">Nivelamento</a></li>
+                    <li><a href="nivelamento.html">Nivelamento</a></li>
                     <li><a href="blog/index.html">Blog</a></li>
                     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" class="cta-nav" target="_blank" rel="noopener noreferrer">Quero me inscrever</a></li>
                 </ul>
