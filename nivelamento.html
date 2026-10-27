@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Nivelamento | Teacher Samira Nunes</title>
+    <meta name="description" content="Descubra seu nível de inglês em poucos minutos com o teste de nivelamento gratuito da Teacher Samira Nunes. Resultado imediato segundo o Quadro Europeu (CEFR), de A1 a C1.">
+    <meta name="keywords" content="teste de nivelamento ingles, nivel de ingles cefr, teste ingles gratuito, nivelamento cambridge, teacher samira nunes">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samiranunes.com/nivelamento.html">
+    <meta property="og:title" content="Teste de Nivelamento | Teacher Samira Nunes">
+    <meta property="og:description" content="Descubra seu nível de inglês em poucos minutos com o teste de nivelamento gratuito da Teacher Samira Nunes. Resultado imediato segundo o Quadro Europeu (CEFR), de A1 a C1.">
+    <meta property="og:image" content="https://samiranunes.com/assets/logos/og-icon.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&family=Cambria:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blue: #00395D;
+    --garnet: #6C2624;
+    --jet: #292929;
+    --platinum: #E5E7E6;
+    --white: #FFFFFF;
+    --soft: #F4F5F5;
+    --ok: #1F7A4D;
+    --radius: 14px;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--platinum);
+    color: var(--jet);
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+  .nivelamento-main {
+    background: var(--platinum);
+    min-height: calc(100vh - 80px);
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+  .card {
+    background: var(--white); border-radius: var(--radius);
+    padding: 32px 24px; box-shadow: 0 8px 30px rgba(0, 57, 93, .08);
+    color: var(--jet);
+  }
+  .card h1, .card h2 {
+    font-family: 'Crimson Text', serif; color: var(--blue);
+    line-height: 1.15;
+  }
+  .card h1 { font-size: 38px; margin-bottom: 12px; }
+  .card h2 { font-size: 28px; margin-bottom: 10px; }
+  .card p { color: var(--jet); }
+  .lead { font-size: 16px; margin-bottom: 20px; }
+  .facts { list-style: none; margin: 20px 0 28px; display: grid; gap: 10px; }
+  .facts li {
+    background: var(--soft); border-left: 4px solid var(--garnet);
+    padding: 10px 14px; border-radius: 8px; font-size: 14px;
+    color: var(--jet);
+  }
+  .btn {
+    display: inline-block; width: 100%; border: none; cursor: pointer;
+    background: var(--blue); color: var(--white);
+    font-family: inherit; font-weight: 600; font-size: 16px;
+    padding: 16px 20px; border-radius: 10px; text-align: center;
+    text-decoration: none; transition: background .2s, transform .1s;
+  }
+  .btn:hover { background: #002a45; }
+  .btn:active { transform: scale(.99); }
+  .btn:disabled { background: #9aa7b0; cursor: not-allowed; }
+  .btn.garnet { background: var(--garnet); }
+  .btn.garnet:hover { background: #561e1c; }
+  .btn.ghost {
+    background: transparent; color: var(--blue);
+    border: 2px solid var(--blue); margin-top: 10px;
+  }
+
+  /* Formulário */
+  .field { margin-bottom: 16px; }
+  label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  input, select, textarea {
+    width: 100%; padding: 13px 14px; border: 1.5px solid #c9cecc;
+    border-radius: 10px; font-family: inherit; font-size: 16px;
+    background: var(--white); color: var(--jet);
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); }
+  textarea { resize: vertical; min-height: 70px; }
+  .err { color: var(--garnet); font-size: 13px; margin-top: 4px; display: none; }
+  .field.invalid input, .field.invalid select { border-color: var(--garnet); }
+  .field.invalid .err { display: block; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; margin: 8px 0 20px; }
+  .consent input { width: auto; margin-top: 3px; }
+
+  /* Teste */
+  .progress-top { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; color: #5b6166; }
+  .bar { height: 8px; background: var(--platinum); border-radius: 10px; overflow: hidden; margin-bottom: 26px; }
+  .bar span { display: block; height: 100%; width: 0; background: var(--garnet); transition: width .3s; }
+  .question { font-size: 20px; font-weight: 600; margin-bottom: 20px; color: var(--jet); }
+  .question .gap { color: var(--blue); }
+  .options { display: grid; gap: 10px; }
+  .opt {
+    text-align: left; background: var(--soft); border: 2px solid transparent;
+    border-radius: 10px; padding: 14px 16px; font-family: inherit; font-size: 16px;
+    cursor: pointer; color: var(--jet); transition: border-color .15s, background .15s;
+  }
+  .opt:hover { border-color: #9fb3c2; }
+  .opt.selected { border-color: var(--blue); background: #e6eef4; }
+  .opt.dontknow { font-style: italic; color: #5b6166; }
+  .quiz-nav { display: flex; gap: 10px; margin-top: 24px; }
+  .quiz-nav .btn { width: auto; flex: 1; }
+
+  /* Resultado */
+  .level-badge {
+    width: 120px; height: 120px; border-radius: 50%; margin: 8px auto 18px;
+    background: var(--blue); color: var(--white);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Crimson Text', serif;
+  }
+  .level-badge strong { font-size: 44px; line-height: 1; }
+  .level-badge small { font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+  .center { text-align: center; }
+  .score { font-size: 14px; color: #5b6166; margin-bottom: 18px; }
+  .scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 22px 0; }
+  .scale div {
+    text-align: center; padding: 8px 0; border-radius: 8px; font-size: 13px; font-weight: 600;
+    background: var(--platinum); color: #6b7277;
+  }
+  .scale div.on { background: var(--garnet); color: var(--white); }
+  .note {
+    font-size: 13px; background: var(--soft); padding: 12px 14px;
+    border-radius: 8px; margin: 18px 0 22px; text-align: left;
+    color: var(--jet);
+  }
+  .hidden { display: none; }
+
+  @media (max-width: 480px) {
+    .card h1 { font-size: 31px; }
+    .card { padding: 26px 18px; }
+    .question { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes Logo" class="logo-img"></a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="aulas-vip.html">Aulas VIP</a></li>
+                    <li><a href="materiais.html">Materiais</a></li>
+                    <li><a href="nivelamento.html" style="color: var(--secondary-red);">Nivelamento</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" class="cta-nav" target="_blank" rel="noopener noreferrer">Quero me inscrever</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<main class="nivelamento-main">
+<div class="wrap">
+  <!-- TELA 1: Boas-vindas -->
+  <div class="card quiz-screen" id="screen-intro">
+    <h1>Qual é o seu nível de inglês?</h1>
+    <p class="lead">Faça o teste de nivelamento gratuito e descubra em poucos minutos onde você está na escala internacional de proficiência (CEFR), do A1 ao C1.</p>
+    <ul class="facts">
+      <li><strong>25 questões</strong> de gramática e vocabulário, da mais fácil à mais desafiadora</li>
+      <li><strong>Cerca de 10 minutos</strong> para concluir</li>
+      <li><strong>Resultado imediato</strong> com a descrição do seu nível e os próximos passos</li>
+    </ul>
+    <button class="btn" onclick="show('screen-contact')">Começar o teste</button>
+  </div>
+
+  <!-- TELA 2: Contato -->
+  <div class="card quiz-screen hidden" id="screen-contact">
+    <h2>Antes de começar</h2>
+    <p class="lead">Informe seus dados para receber o resultado e orientações personalizadas.</p>
+    <form id="contact-form" novalidate>
+      <div class="field" id="f-nome">
+        <label for="nome">Nome completo</label>
+        <input id="nome" type="text" autocomplete="name" placeholder="Seu nome">
+        <div class="err">Por favor, informe seu nome.</div>
+      </div>
+      <div class="field" id="f-whatsapp">
+        <label for="whatsapp">WhatsApp</label>
+        <input id="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(00) 00000-0000">
+        <div class="err">Informe um WhatsApp válido com DDD.</div>
+      </div>
+      <div class="field" id="f-email">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com">
+        <div class="err">Informe um e-mail válido.</div>
+      </div>
+      <div class="field" id="f-interesse">
+        <label for="interesse">O que você procura?</label>
+        <select id="interesse">
+          <option value="">Selecione uma opção</option>
+          <option>Aulas particulares (VIP)</option>
+          <option>English Circle (turma em grupo)</option>
+          <option>Ainda não sei, quero orientação</option>
+        </select>
+        <div class="err">Selecione uma opção.</div>
+      </div>
+      <div class="field">
+        <label for="objetivo">Qual é o seu principal objetivo com o inglês? <span style="font-weight:400">(opcional)</span></label>
+        <textarea id="objetivo" placeholder="Ex.: trabalho, viagens, intercâmbio, perder o medo de falar..."></textarea>
+      </div>
+      <label class="consent" id="f-consent">
+        <input type="checkbox" id="consent">
+        <span>Autorizo a Teacher Samira Nunes a entrar em contato pelo WhatsApp e pelo e-mail informados, conforme a Lei Geral de Proteção de Dados (LGPD). Seus dados não serão compartilhados com terceiros.</span>
+      </label>
+      <div class="err" id="consent-err" style="margin:-12px 0 16px">É necessário autorizar o contato para continuar.</div>
+      <button type="submit" class="btn">Iniciar o teste</button>
+    </form>
+  </div>
+
+  <!-- TELA 3: Teste -->
+  <div class="card quiz-screen hidden" id="screen-test">
+    <div class="progress-top">
+      <span id="q-count">Questão 1 de 25</span>
+      <span>Escolha a alternativa correta</span>
+    </div>
+    <div class="bar"><span id="q-bar"></span></div>
+    <div class="question" id="q-text"></div>
+    <div class="options" id="q-options"></div>
+    <div class="quiz-nav">
+      <button class="btn ghost" id="btn-back" style="margin-top:0">Voltar</button>
+      <button class="btn" id="btn-next" disabled>Próxima</button>
+    </div>
+  </div>
+
+  <!-- TELA 4: Resultado -->
+  <div class="card quiz-screen hidden center" id="screen-result">
+    <p class="score">Resultado de <span id="r-name"></span></p>
+    <div class="level-badge"><small>Nível</small><strong id="r-code"></strong></div>
+    <h2 id="r-title"></h2>
+    <p class="score" id="r-score"></p>
+    <div class="scale" id="r-scale">
+      <div>A1</div><div>A2</div><div>B1</div><div>B2</div><div>C1</div>
+    </div>
+    <p class="lead" id="r-desc" style="text-align:left"></p>
+    <div class="note">Este teste avalia gramática e vocabulário e oferece uma indicação do seu nível. Na conversa de diagnóstico, também avaliamos compreensão oral e fala para montar o plano ideal para você.</div>
+    <a class="btn garnet" id="r-whats" target="_blank" rel="noopener">Falar com a Teacher Samira no WhatsApp</a>
+    <a class="btn ghost" href="index.html">Voltar ao site</a>
+  </div>
+</div>
+</main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes" class="footer-logo-img">
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/samiranunes_teacher/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/TeacherSamiraNunes" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/teachersamiranunes" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://vm.tiktok.com/ZMeak2FRv/" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+
+                <div class="footer-text">
+                    <p>&copy; 2026 Teacher Samira Nunes. Todos os direitos reservados.</p>
+                    <p>Aulas de inglês online personalizadas com foco em conversação e neurociência da aprendizagem.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="script.js"></script>
+<script>
+/* ================= CONFIGURAÇÃO ================= */
+// Cole aqui a URL do App da Web gerada no Google Apps Script
+const SCRIPT_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
+// WhatsApp comercial (código do país + DDD + número, só dígitos)
+const WHATSAPP_NUMBER = '5533998009249';
+/* ================================================ */
+
+const QUESTIONS = [
+  // A1
+  { q: '___ name is Ana.', o: ['My', 'I', 'Me', 'Mine'], a: 0 },
+  { q: 'They ___ from Brazil.', o: ['is', 'am', 'are', 'be'], a: 2 },
+  { q: '___ you like coffee?', o: ['Are', 'Do', 'Does', 'Is'], a: 1 },
+  { q: 'There ___ two books on the table.', o: ['is', 'be', 'am', 'are'], a: 3 },
+  { q: 'She ___ to school every day.', o: ['go', 'goes', 'going', 'gone'], a: 1 },
+  // A2
+  { q: 'I ___ to the cinema last weekend.', o: ['go', 'gone', 'went', 'going'], a: 2 },
+  { q: 'This is ___ restaurant in town.', o: ['the best', 'best', 'the better', 'more good'], a: 0 },
+  { q: 'We ___ dinner when the phone rang.', o: ['had', 'were having', 'have', 'are having'], a: 1 },
+  { q: 'How ___ water do you drink a day?', o: ['many', 'lot', 'much', 'few'], a: 2 },
+  { q: 'You ___ wear a seatbelt. It\u2019s the law.', o: ['might', 'can', 'would', 'must'], a: 3 },
+  // B1
+  { q: 'I ___ here since 2020.', o: ['live', 'am living', 'lived', 'have lived'], a: 3 },
+  { q: 'If it rains tomorrow, we ___ at home.', o: ['will stay', 'stay', 'would stay', 'stayed'], a: 0 },
+  { q: 'This book ___ by millions of people.', o: ['has read', 'has been read', 'have read', 'is reading'], a: 1 },
+  { q: 'She asked me where ___.', o: ['did I live', 'do I live', 'I lived', 'I am live'], a: 2 },
+  { q: 'I\u2019m not used to ___ up so early.', o: ['wake', 'woke', 'be waking', 'waking'], a: 3 },
+  // B2
+  { q: 'If I ___ more time, I would travel more.', o: ['had', 'have', 'would have', 'will have'], a: 0 },
+  { q: 'By the time we arrived, the movie ___.', o: ['already started', 'has already started', 'had already started', 'was already start'], a: 2 },
+  { q: 'I wish I ___ that. It was a mistake.', o: ['didn\u2019t say', 'hadn\u2019t said', 'wouldn\u2019t say', 'haven\u2019t said'], a: 1 },
+  { q: 'He denied ___ the money.', o: ['to take', 'take', 'taking', 'to taking'], a: 2 },
+  { q: 'The meeting was called ___ because of the storm.', o: ['out', 'up', 'down', 'off'], a: 3 },
+  // C1
+  { q: 'No sooner ___ the house than it started to rain.', o: ['I had left', 'had I left', 'I left', 'did I left'], a: 1 },
+  { q: 'It\u2019s high time we ___ a decision.', o: ['make', 'will make', 'made', 'have made'], a: 2 },
+  { q: 'She\u2019s excellent at her job, ___ she has little experience.', o: ['although', 'despite', 'in spite', 'however'], a: 0 },
+  { q: 'The proposal was rejected, ___ was hardly surprising.', o: ['that', 'what', 'it', 'which'], a: 3 },
+  { q: 'Had I known about the traffic, I ___ earlier.', o: ['would leave', 'would have left', 'had left', 'will leave'], a: 1 }
+];
+
+const LEVELS = [
+  { max: 6,  code: 'A1', title: 'Iniciante',
+    desc: 'Você está dando os primeiros passos no inglês. Reconhece palavras e frases simples do dia a dia. Com uma base bem construída agora, sua evolução nas próximas etapas será muito mais rápida e segura.' },
+  { max: 11, code: 'A2', title: 'Básico',
+    desc: 'Você já entende e usa frases sobre temas familiares, como rotina, família e compras. O próximo passo é ganhar confiança para se expressar com mais liberdade e conectar ideias em situações reais.' },
+  { max: 16, code: 'B1', title: 'Intermediário',
+    desc: 'Você consegue se comunicar na maioria das situações do cotidiano e de viagens. É muito comum, neste nível, entender bastante e ainda travar na hora de falar. Com prática direcionada, a fluência vem.' },
+  { max: 21, code: 'B2', title: 'Intermediário Superior',
+    desc: 'Você se comunica com boa autonomia, entende textos mais complexos e participa de conversas com naturalidade. Agora o foco é refinar precisão, ampliar vocabulário e soar cada vez mais natural.' },
+  { max: 25, code: 'C1', title: 'Avançado',
+    desc: 'Você domina estruturas complexas e se expressa com fluência e flexibilidade. O trabalho a partir daqui é de sofisticação: nuances, registro formal e informal e uso estratégico da língua em contextos profissionais.' }
+];
+
+const answers = new Array(QUESTIONS.length).fill(null);
+let current = 0;
+let lead = {};
+
+function show(id) {
+  document.querySelectorAll('.quiz-screen').forEach(s => s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function send(payload) {
+  if (!SCRIPT_URL || SCRIPT_URL.indexOf('http') !== 0) {
+    console.warn('SCRIPT_URL não configurada. Dados não enviados:', payload);
+    return;
+  }
+  try {
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).catch(err => console.error('Erro ao enviar:', err));
+  } catch (err) { console.error(err); }
+}
+
+/* ---------- Máscara de WhatsApp ---------- */
+const whatsInput = document.getElementById('whatsapp');
+whatsInput.addEventListener('input', () => {
+  let d = whatsInput.value.replace(/\D/g, '').slice(0, 11);
+  let out = d;
+  if (d.length > 2) out = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+  if (d.length > 7) out = '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+  whatsInput.value = out;
+});
+
+/* ---------- Formulário de contato ---------- */
+document.getElementById('contact-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const nome = document.getElementById('nome').value.trim();
+  const whats = whatsInput.value.replace(/\D/g, '');
+  const email = document.getElementById('email').value.trim();
+  const interesse = document.getElementById('interesse').value;
+  const consent = document.getElementById('consent').checked;
+
+  const checks = [
+    ['f-nome', nome.length >= 3],
+    ['f-whatsapp', whats.length === 10 || whats.length === 11],
+    ['f-email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)],
+    ['f-interesse', interesse !== '']
+  ];
+  let ok = true;
+  checks.forEach(([id, valid]) => {
+    document.getElementById(id).classList.toggle('invalid', !valid);
+    if (!valid) ok = false;
+  });
+  document.getElementById('consent-err').style.display = consent ? 'none' : 'block';
+  if (!consent) ok = false;
+  if (!ok) return;
+
+  const params = new URLSearchParams(location.search);
+  lead = {
+    id: 'N' + Date.now().toString(36).toUpperCase() + Math.random().toString(36).slice(2, 6).toUpperCase(),
+    nome,
+    whatsapp: whatsInput.value,
+    email,
+    interesse,
+    objetivo: document.getElementById('objetivo').value.trim(),
+    origem: params.get('utm_source') || document.referrer || 'Acesso direto'
+  };
+  send(Object.assign({ action: 'start' }, lead));
+  renderQuestion();
+  show('screen-test');
+});
+
+/* ---------- Teste ---------- */
+function renderQuestion() {
+  const item = QUESTIONS[current];
+  document.getElementById('q-count').textContent = `Questão ${current + 1} de ${QUESTIONS.length}`;
+  document.getElementById('q-bar').style.width = ((current) / QUESTIONS.length * 100) + '%';
+  document.getElementById('q-text').innerHTML = item.q.replace('___', '<span class="gap">_____</span>');
+
+  const box = document.getElementById('q-options');
+  box.innerHTML = '';
+  const opts = item.o.map((txt, i) => ({ txt, i })).concat([{ txt: 'Não sei', i: -1 }]);
+  opts.forEach(({ txt, i }) => {
+    const b = document.createElement('button');
+    b.className = 'opt' + (i === -1 ? ' dontknow' : '') + (answers[current] === i ? ' selected' : '');
+    b.textContent = txt;
+    b.onclick = () => {
+      answers[current] = i;
+      box.querySelectorAll('.opt').forEach(x => x.classList.remove('selected'));
+      b.classList.add('selected');
+      document.getElementById('btn-next').disabled = false;
+    };
+    box.appendChild(b);
+  });
+
+  document.getElementById('btn-next').disabled = answers[current] === null;
+  document.getElementById('btn-next').textContent = current === QUESTIONS.length - 1 ? 'Ver resultado' : 'Próxima';
+  document.getElementById('btn-back').style.visibility = current === 0 ? 'hidden' : 'visible';
+}
+
+document.getElementById('btn-next').onclick = () => {
+  if (answers[current] === null) return;
+  if (current < QUESTIONS.length - 1) { current++; renderQuestion(); }
+  else finish();
+};
+document.getElementById('btn-back').onclick = () => {
+  if (current > 0) { current--; renderQuestion(); }
+};
+
+/* ---------- Resultado ---------- */
+function finish() {
+  const acertos = answers.reduce((sum, ans, i) => sum + (ans === QUESTIONS[i].a ? 1 : 0), 0);
+  const level = LEVELS.find(l => acertos <= l.max);
+  const firstName = lead.nome.split(' ')[0];
+
+  document.getElementById('r-name').textContent = firstName;
+  document.getElementById('r-code').textContent = level.code;
+  document.getElementById('r-title').textContent = level.title;
+  document.getElementById('r-score').textContent = `Você acertou ${acertos} de ${QUESTIONS.length} questões`;
+  document.getElementById('r-desc').textContent = level.desc;
+  document.querySelectorAll('#r-scale div').forEach(d => d.classList.toggle('on', d.textContent === level.code));
+
+  const msg = `Olá, Teacher Samira! Sou ${lead.nome} e acabei de fazer o teste de nivelamento. Meu resultado foi ${level.code} (${level.title}). Gostaria de saber mais sobre: ${lead.interesse}.`;
+  document.getElementById('r-whats').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+  send(Object.assign({ action: 'finish', acertos, nivel: `${level.code} ${level.title}` }, lead));
+  show('screen-result');
+}
+</script>
+</body>
+</html>
