@@ -109,6 +109,12 @@
 .examples .en { display: block; font-size: 1.15rem; }
 .examples .pt { display: block; font-size: 0.98rem; color: #bdbdbd; }
 
+/* Pronúncia aproximada (transliteração) */
+.pron { font-size: 0.9rem; color: #d2b48c; letter-spacing: 0.02em; }
+.pron::before { content: "🔊 "; }
+.examples .pron { display: block; margin: 0.15rem 0 0.2rem; }
+td .pron { display: block; margin-top: 0.2rem; }
+
 /* Erros comuns */
 .mistake {
     background: #333333;
@@ -242,3 +248,4 @@
     .post-body th, .post-body td { padding: 0.65rem 0.6rem; }
     .post-body td .en { display: block; }
 }
+.emoji { font-style: normal; }
