@@ -101,7 +101,7 @@
         }
     }
 
-    /* ---------- Valores calculados (preço por aula etc.) ---------- */
+    /* ---------- Valores calculados (totais e economia) ---------- */
     var total = parseInt(C.totalClasses, 10) || 80;
     var inst = parseInt(C.installments, 10) || 12;
     var pInst = Number(C.priceInstallment) || 300;
@@ -114,8 +114,6 @@
         totalInstallments: brl(inst * pInst),
         priceUpfront: brl(pUp),
         savings: brl(inst * pInst - pUp),
-        perClassInstallments: brl(inst * pInst / total, true),
-        perClassUpfront: brl(pUp / total, true),
         badgeLabel: 'Primeira turma'
     };
     $$('[data-ec]').forEach(function (el) {

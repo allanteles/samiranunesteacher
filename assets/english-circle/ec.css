@@ -359,7 +359,7 @@ strong { font-weight: 700; }
 .price__main { font-family: var(--font-title); font-size: 1.3rem; font-weight: 700; color: var(--cream) !important; margin: 0 0 .4em; }
 .price__main strong { font-size: clamp(2.3rem, 7vw, 2.9rem); font-weight: 900; line-height: 1; }
 .price__x { font-size: 1.6rem; font-weight: 900; }
-.price__total { margin: 0 0 .3em; }
+.price__total { margin: 0 0 1.2em; }
 .price__per { font-family: var(--font-detail); font-style: italic; font-size: 1.15rem; color: var(--cream) !important; margin: 0 0 20px; }
 .price--best { background: var(--cream); border: 0; box-shadow: 0 24px 50px -24px rgba(0, 0, 0, .8); }
 .price--best h3 { color: var(--garnet) !important; }
