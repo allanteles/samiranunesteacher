@@ -3,7 +3,8 @@
   "configurations": [
     {
       "name": "site",
-      "url": "http://localhost:8765",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8765", "-d", "/Users/samiranunes/Documents/samiranunesteacher"],
       "port": 8765
     }
   ]

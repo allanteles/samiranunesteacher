@@ -23,6 +23,21 @@ window.EC_CONFIG = {
   partyDate: "2027-12-16",            // confraternização de encerramento
   totalClasses: 80,
 
+  // Terças e quintas SEM aula (feriados e recessos). O calendário e a contagem de aulas usam esta lista.
+  noClassDates: [
+    { date: "2027-02-09", reason: "Recesso de Carnaval" },
+    { date: "2027-02-11", reason: "Recesso de Carnaval" },
+    { date: "2027-05-27", reason: "Corpus Christi" },
+    { date: "2027-07-20", reason: "Recesso de julho" },
+    { date: "2027-07-22", reason: "Recesso de julho" },
+    { date: "2027-07-27", reason: "Recesso de julho" },
+    { date: "2027-07-29", reason: "Recesso de julho" },
+    { date: "2027-09-07", reason: "Independência do Brasil" },
+    { date: "2027-10-12", reason: "Semana das Crianças" },
+    { date: "2027-10-14", reason: "Semana das Crianças" },
+    { date: "2027-11-02", reason: "Finados" }
+  ],
+
   // Links
   whatsappGroupLink: "https://chat.whatsapp.com/JF6XZ03iSFvHiu3374mOgd", // grupo de interesse (o mesmo da home)
   waitlistLink: "[DEFINIR]",              // lista de espera (se vazio, usa o WhatsApp direto e depois o grupo)
