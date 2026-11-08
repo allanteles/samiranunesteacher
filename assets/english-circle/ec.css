@@ -172,7 +172,7 @@ strong { font-weight: 700; }
         var(--brown-800);
 }
 .hero__grid { display: grid; gap: 40px; align-items: center; }
-.hero h1 { color: var(--white); max-width: 17ch; }
+.hero h1 { color: var(--white); max-width: 19ch; }
 .hero h1 em { font-style: normal; color: var(--cream); background: linear-gradient(transparent 62%, rgba(108, 38, 36, .85) 62%); padding: 0 .08em; }
 .lead { font-size: clamp(1.02rem, 2.3vw, 1.18rem); color: var(--on-dark-soft); max-width: 56ch; }
 .badge {
