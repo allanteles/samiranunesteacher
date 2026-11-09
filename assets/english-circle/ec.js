@@ -262,7 +262,6 @@
         if (!mount || !ok(C.classStart) || !ok(C.classEnd)) return;
         var off = {};
         (C.noClassDates || []).forEach(function (n) { off[n.date] = n.reason; });
-        var party = C.partyDate;
         function iso(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
         function parse(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
 
@@ -278,7 +277,7 @@
         }
 
         var months = [];
-        var last = party ? parse(party) : end;
+        var last = end;
         for (var m = new Date(start.getFullYear(), start.getMonth(), 1); m <= last; m.setMonth(m.getMonth() + 1)) months.push(new Date(m));
         var today = new Date();
         var idx = 0;
@@ -298,7 +297,6 @@
                 var cls = '', lab = '';
                 if (classes[key]) { cls = 'is-class'; lab = ', aula'; count++; }
                 else if (off[key]) { cls = 'is-off'; lab = ', sem aula: ' + off[key]; notes.push(dd + ': ' + off[key]); }
-                else if (key === party) { cls = 'is-party'; lab = ', confraternização de encerramento'; notes.push(dd + ': confraternização de encerramento'); }
                 cells += '<li class="mcal__day ' + cls + '"' + (lab ? ' aria-label="' + dd + lab + '"' : '') + '>' + dd + '</li>';
             }
             var name = first.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });

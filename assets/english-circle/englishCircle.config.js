@@ -20,7 +20,6 @@ window.EC_CONFIG = {
   enrollmentDeadline: "2027-01-27",   // [DEFINIR] confirmar a data limite
   classStart: "2027-02-02",
   classEnd: "2027-12-14",
-  partyDate: "2027-12-16",            // confraternização de encerramento
   totalClasses: 80,
 
   // Terças e quintas SEM aula (feriados e recessos). O calendário e a contagem de aulas usam esta lista.

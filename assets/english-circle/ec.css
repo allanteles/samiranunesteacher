@@ -313,7 +313,7 @@ strong { font-weight: 700; }
 
 /* ---------- Calendário ---------- */
 .cal { background: var(--white); border-radius: calc(var(--radius) + 6px); border: 1px solid var(--platinum); box-shadow: var(--shadow); padding: 22px; }
-.cal__facts { list-style: none; padding: 0; margin: 0 0 22px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.cal__facts { list-style: none; padding: 0; margin: 0 0 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .cal__facts li { background: var(--paper); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
 .cal__facts strong { display: block; font-family: var(--font-title); font-weight: 900; font-size: 1.6rem; color: var(--prussian); line-height: 1.1; }
 .cal__facts span { font-size: .85rem; color: var(--muted); }
@@ -345,7 +345,6 @@ strong { font-weight: 700; }
 .mcal__note { font-size: .85rem; color: var(--muted); margin: 10px 0 0; min-height: 1.4em; }
 @media (min-width: 768px) {
     .cal { padding: 32px; }
-    .cal__facts { grid-template-columns: repeat(4, 1fr); }
     .cal__body { grid-template-columns: minmax(280px, 380px) 1fr; gap: 40px; }
 }
 
