@@ -245,7 +245,7 @@
     var biz = C.business || {};
     var bizEl = $('[data-business]');
     if (bizEl && ok(biz.name) && ok(biz.cnpj)) {
-        bizEl.textContent = biz.name + ' | CNPJ ' + biz.cnpj + (ok(biz.city) ? ' | ' + biz.city : '');
+        bizEl.textContent = biz.name + ' | CNPJ ' + biz.cnpj;
         bizEl.hidden = false;
     }
     var mail = $('[data-ec-email]');

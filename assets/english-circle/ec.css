@@ -439,7 +439,7 @@ strong { font-weight: 700; }
 /* ---------- WhatsApp flutuante + CTA fixo no celular ---------- */
 .wa-float {
     position: fixed; right: 16px; bottom: 96px; z-index: 950;
-    width: 58px; height: 58px; border-radius: 50%; background: var(--wa); color: var(--white);
+    width: 58px; height: 58px; border-radius: 50%; background: linear-gradient(135deg, #8A3FB5 0%, #D6336C 55%, #F2A03D 100%); color: var(--white);
     display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 26px -8px rgba(0, 0, 0, .55);
     transition: transform .2s ease;
 }

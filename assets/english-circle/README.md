@@ -20,7 +20,7 @@ A página vira `closed` sozinha se `spotsLeft` for 0 ou se `enrollmentDeadline` 
 
 ## Links reais
 Troque cada `"[DEFINIR]"`:
-- `whatsappNumber`: só números com DDI, ex. `"5533999999999"`. Ativa o botão flutuante e todos os "Falar com a Samira".
+- `whatsappNumber`: só números com DDI, ex. `"5533999999999"`..
 - `paymentLinkInstallments` / `paymentLinkUpfront`: links de pagamento. Enquanto vazios, os botões abrem uma mensagem pré-preenchida no WhatsApp.
 - `waitlistLink`: lista de espera (se vazio, usa o WhatsApp e depois o grupo).
 - `calendarPdfUrl` / `contractPdfUrl`: coloque o PDF em `assets/english-circle/` e informe o caminho. O botão e o link só aparecem quando preenchidos.
