@@ -33,7 +33,10 @@
         @media (min-width: 640px) { .plans { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 1000px) { .plans { grid-template-columns: repeat(4, 1fr); } }
         .plans .price { display: flex; flex-direction: column; }
-        .plans .price__main { font-size: clamp(1.4rem, 3vw, 1.7rem); }
+        .plans > * { min-width: 0; }
+        .plans .price { padding: 28px 22px 22px; }
+        .plans .price__main { font-size: 1.15rem; overflow-wrap: anywhere; }
+        .plans .price__main strong { font-size: 2.9rem; margin-right: .1em; }
         .formacao { list-style: none; padding: 0; margin: 18px 0 22px; display: grid; gap: 10px; }
         .formacao li { display: flex; gap: 10px; align-items: flex-start; }
         .formacao .ico { color: var(--prussian); width: 22px; height: 22px; flex: none; margin-top: 2px; }
@@ -265,23 +268,23 @@
                 <div class="plans">
                     <article class="price reveal">
                         <h3>Start</h3>
-                        <p class="price__main"><strong>1 aula/semana</strong></p>
+                        <p class="price__main"><strong>1</strong> aula/semana</p>
                         <p class="price__total">Manutenção e ritmo leve</p>
                     </article>
                     <article class="price price--best reveal">
                         <p class="price__flag">Mais escolhido</p>
                         <h3>Fluency</h3>
-                        <p class="price__main"><strong>2 aulas/semana</strong></p>
+                        <p class="price__main"><strong>2</strong> aulas/semana</p>
                         <p class="price__total"><strong>Melhor custo/benefício</strong></p>
                     </article>
                     <article class="price reveal">
                         <h3>Intensive</h3>
-                        <p class="price__main"><strong>3 aulas/semana</strong></p>
+                        <p class="price__main"><strong>3</strong> aulas/semana</p>
                         <p class="price__total">Progresso acelerado</p>
                     </article>
                     <article class="price reveal">
                         <h3>Immersion</h3>
-                        <p class="price__main"><strong>4 aulas/semana</strong></p>
+                        <p class="price__main"><strong>4</strong> aulas/semana</p>
                         <p class="price__total">Foco total e urgência</p>
                     </article>
                 </div>
