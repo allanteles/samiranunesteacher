@@ -3,329 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aulas VIP - Teacher Samira Nunes</title>
+    <title>Aulas Individuais | Teacher Samira Nunes</title>
     <meta name="description" content="Aulas de inglês online personalizadas com Teacher Samira Nunes. Aprenda inglês com confiança usando neurociência da aprendizagem.">
     <meta name="keywords" content="aulas de inglês online, professora particular inglês, inglês online personalizado, certificação Cambridge, conversação inglês, neurociência aprendizagem">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://samiranunes.com/aulas-vip.html">
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Teacher Samira Nunes">
     <meta property="og:url" content="https://samiranunes.com/aulas-vip.html">
     <meta property="og:title" content="Aulas VIP | Teacher Samira Nunes">
     <meta property="og:description" content="Destrave seu inglês com segurança. Aulas particulares personalizadas com foco em conversação e neurociência.">
     <meta property="og:image" content="https://samiranunes.com/assets/logos/og-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <meta name="theme-color" content="#2B211C">
 
-    <link rel="stylesheet" href="styles.css?v=2">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cambria:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="16x16"  href="assets/favicons/favicon-16x16.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/english-circle/ec.css?v=2">
+
+    <style>
+        /* Ajustes só desta página (o resto vem de ec.css) */
+        .topbar__brand { font-weight: 800; color: var(--cream); letter-spacing: .02em; text-decoration: none; font-size: 1.05rem; }
+        .topbar__brand img { height: 42px; width: auto; }
+        .plans { display: grid; gap: 16px; margin-top: 10px; }
+        @media (min-width: 640px) { .plans { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1000px) { .plans { grid-template-columns: repeat(4, 1fr); } }
+        .plans .price { display: flex; flex-direction: column; }
+        .plans .price__main { font-size: clamp(1.4rem, 3vw, 1.7rem); }
+        .formacao { list-style: none; padding: 0; margin: 18px 0 22px; display: grid; gap: 10px; }
+        .formacao li { display: flex; gap: 10px; align-items: flex-start; }
+        .formacao .ico { color: var(--prussian); width: 22px; height: 22px; flex: none; margin-top: 2px; }
+        .results { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 10px; }
+        .results li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
+        .results .ico { color: var(--garnet); width: 22px; height: 22px; flex: none; }
+        .testimonials { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 28px; }
+        .testimonial { display: flex; flex-direction: column; gap: 14px; }
+        .testimonial__head { display: flex; align-items: center; gap: 12px; }
+        .testimonial__head img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: none; }
+        .testimonial blockquote { flex: 1; }
+        .testimonial a { font-weight: 700; color: var(--garnet); font-size: .92rem; }
+    </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="logo">
-                    <img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes Logo" class="logo-img">
+<body class="ec">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- Ícones (sprite SVG, mesmos da página de turma) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+        <symbol id="i-live" viewBox="0 0 24 24"><rect x="2.5" y="6" width="13" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 10.5l6-3.5v10l-6-3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+        <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c.7-3.7 3.5-5.8 7-5.8s6.3 2.1 7 5.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+        <symbol id="i-rec" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></symbol>
+        <symbol id="i-book" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 18.5h4M9.5 7h5M9.5 10.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10H10l-4.5 3.5v-3.5H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9.5h8M8 12.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+        <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 8.5l-2 5-5 2 2-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+        <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M19 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" fill="currentColor"/></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2.5 9.5L12 5l9.5 4.5L12 14z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6.5 11.5v4c1.5 1.6 3.5 2.4 5.5 2.4s4-.8 5.5-2.4v-4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+        <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </svg>
+
+    <!-- Barra superior fixa -->
+    <header class="topbar" id="topbar">
+        <div class="wrap topbar__inner">
+            <a class="topbar__logo topbar__brand" href="#topo" aria-label="Voltar ao topo">
+                <img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes" width="126" height="42">
+            </a>
+            <nav class="topbar__nav" id="topbar-nav" aria-label="Seções da página">
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#professora">Professora</a>
+                <a href="#planos">Planos</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <span class="topbar__divider" aria-hidden="true"></span>
+                <a href="index.html" class="topbar__site">Site da Samira</a>
+            </nav>
+            <a class="btn btn-primary btn-sm topbar__cta"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" target="_blank" rel="noopener noreferrer">Quero me inscrever</a>
+            <button class="topbar__menu" type="button" aria-expanded="false" aria-controls="topbar-nav">
+                <span class="sr-only">Abrir menu</span>
+                <span class="topbar__burger" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- Hero -->
+        <section class="hero section--dark" id="topo" aria-labelledby="hero-title">
+            <div class="wrap hero__grid">
+                <div class="hero__text">
+                    <p class="badge">Aulas individuais <span aria-hidden="true">|</span> Ao vivo <span aria-hidden="true">|</span> Vagas limitadas</p>
+                    <h1 id="hero-title">Fale inglês <em>com segurança.</em></h1>
+                    <p class="lead">Aulas particulares de inglês, ao vivo e personalizadas, focadas em conversação real, confiança e progresso consistente.</p>
+
+                    <div class="cta-row">
+                        <a class="btn btn-primary btn-lg" id="hero-cta"
+                           href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" target="_blank" rel="noopener noreferrer">Quero me inscrever</a>
+                        <a class="btn btn-ghost" href="https://www.instagram.com/samiranunes_teacher/" target="_blank" rel="noopener noreferrer">
+                            <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg> Falar com a Samira no Instagram
+                        </a>
+                    </div>
+
+                    <ul class="trust" aria-label="Autoridade">
+                        <li>Mais de 14 anos ajudando alunos a destravarem a fala</li>
+                        <li>Método e ciência</li>
+                        <li>Acompanhamento individual</li>
+                    </ul>
                 </div>
-                <ul class="nav-menu">
+
+                <figure class="hero__photo">
+                    <img src="assets/persona/photo-suite.jpg" width="800" height="1199"
+                         alt="Teacher Samira Nunes" fetchpriority="high">
+                    <figcaption>Teacher Samira Nunes</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Identificação da dor -->
+        <section class="section section--light" id="dor" aria-labelledby="dor-title">
+            <div class="wrap">
+                <h2 id="dor-title" class="reveal">Você já passou por alguma dessas situações?</h2>
+                <ul class="pain-grid">
+                    <li class="pain reveal"><span class="pain__quote">“Entendo inglês, mas travo quando preciso falar.”</span></li>
+                    <li class="pain reveal"><span class="pain__quote">“Penso demais antes de montar uma frase.”</span></li>
+                    <li class="pain reveal"><span class="pain__quote">“Tenho medo de errar ou parecer inseguro(a).”</span></li>
+                    <li class="pain reveal"><span class="pain__quote">“Já estudei e sinto que não saí do lugar.”</span></li>
+                    <li class="pain reveal"><span class="pain__quote">“Evito conversas, reuniões ou situações simples.”</span></li>
+                </ul>
+                <p class="closing reveal">Isso não acontece por falta de capacidade. E também não é falta de vocabulário. O que trava o inglês é <strong>pressão, medo e falta de direcionamento.</strong></p>
+            </div>
+        </section>
+
+        <!-- Virada de chave -->
+        <section class="section section--cream" id="posicionamento" aria-labelledby="pos-title">
+            <div class="wrap narrow">
+                <p class="eyebrow">A virada de chave</p>
+                <h2 id="pos-title" class="reveal">Falar inglês não exige perfeição. Exige segurança.</h2>
+                <blockquote class="honest reveal">
+                    <p>E segurança não se constrói decorando regras. Se constrói falando, com acompanhamento, estratégia e constância. É exatamente isso que acontece nas minhas aulas.</p>
+                    <cite>Samira Nunes</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Para quem é -->
+        <section class="section section--light" id="para-quem" aria-labelledby="para-quem-title">
+            <div class="wrap">
+                <h2 id="para-quem-title" class="reveal">As aulas são ideais para você que:</h2>
+                <div class="fit">
+                    <div class="fit__col fit__col--yes reveal">
+                        <h3>É para você se:</h3>
+                        <ul>
+                            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Quer falar inglês com mais segurança.</li>
+                            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Já estudou antes, mas não destravou.</li>
+                            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Vive ou pretende viver no exterior.</li>
+                            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Precisa do inglês para trabalho ou vida prática.</li>
+                            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Quer um acompanhamento individual, não um curso genérico.</li>
+                        </ul>
+                    </div>
+                    <div class="fit__col fit__col--no reveal">
+                        <h3>Talvez não seja para você se:</h3>
+                        <ul>
+                            <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> Está começando do zero e prefere aprender em grupo.</li>
+                            <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> Procura um método milagroso, sem prática.</li>
+                            <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> Prefere só aula gravada, sem interação.</li>
+                        </ul>
+                        <p class="fit__note">Está começando do zero? A turma do <a href="aulas-em-turma.html">English Circle</a> pode combinar mais com você.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como funcionam as aulas -->
+        <section class="section section--dark" id="como-funciona" aria-labelledby="como-title">
+            <div class="wrap">
+                <p class="eyebrow eyebrow--light">Como funcionam as aulas</p>
+                <h2 id="como-title" class="reveal">Aqui você não estuda sozinho(a).</h2>
+                <ol class="steps">
+                    <li class="step reveal"><svg class="ico" aria-hidden="true"><use href="#i-live"/></svg><h3>Individuais e ao vivo</h3><p>Pelo Zoom, só você e a professora, com duração de 50 minutos.</p></li>
+                    <li class="step reveal"><svg class="ico" aria-hidden="true"><use href="#i-user"/></svg><h3>Totalmente personalizadas</h3><p>Com foco em conversação real, no seu ritmo e nos seus objetivos.</p></li>
+                    <li class="step reveal"><svg class="ico" aria-hidden="true"><use href="#i-rec"/></svg><h3>Gravação das aulas</h3><p>Você pode rever cada aula quando quiser.</p></li>
+                    <li class="step reveal"><svg class="ico" aria-hidden="true"><use href="#i-compass"/></svg><h3>Direcionamento contínuo</h3><p>Estratégia clara do começo ao fim, com suporte via WhatsApp.</p></li>
+                    <li class="step reveal"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><h3>Tutora IA 24h</h3><p>Disponível para você praticar a qualquer hora, além do aplicativo de exercícios.</p></li>
+                </ol>
+                <p class="highlight reveal">Você tem <strong>acompanhamento real e estratégia clara</strong>.</p>
+            </div>
+        </section>
+
+        <!-- O que está incluído -->
+        <section class="section section--light" id="incluido" aria-labelledby="incluido-title">
+            <div class="wrap">
+                <h2 id="incluido-title" class="reveal">Tudo o que está incluído</h2>
+                <div class="value reveal">
+                    <ul class="value__list">
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-live"/></svg> <span><strong>Aulas individuais e ao vivo</strong>, pelo Zoom, com 50 minutos</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-user"/></svg> <span><strong>Totalmente personalizadas</strong>, com foco em conversação real</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg> <span><strong>Material incluído</strong></span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-rec"/></svg> <span><strong>Gravação das aulas</strong></span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-compass"/></svg> <span><strong>Direcionamento contínuo</strong></span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> <span><strong>Suporte via WhatsApp</strong></span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg> <span><strong>Tutora IA disponível para você praticar 24h</strong></span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg> <span><strong>Aplicativo de exercícios</strong></span></li>
+                    </ul>
+                    <div class="value__anchor">
+                        <p class="value__big">1:1</p>
+                        <p class="value__per">só você e a professora</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professora -->
+        <section class="section section--cream" id="professora" aria-labelledby="prof-title">
+            <div class="wrap teacher">
+                <figure class="teacher__photo reveal">
+                    <picture>
+                        <source type="image/webp" srcset="assets/english-circle/img/photo-seat-480.webp 480w, assets/english-circle/img/photo-seat-800.webp 800w" sizes="(min-width: 960px) 400px, 86vw">
+                        <img src="assets/english-circle/img/photo-seat-800.jpg"
+                             srcset="assets/english-circle/img/photo-seat-480.jpg 480w, assets/english-circle/img/photo-seat-800.jpg 800w"
+                             sizes="(min-width: 960px) 400px, 86vw" width="800" height="1199" loading="lazy" decoding="async"
+                             alt="Teacher Samira Nunes sentada, de blazer azul, sorrindo">
+                    </picture>
+                </figure>
+                <div class="teacher__text reveal">
+                    <p class="eyebrow">Quem é Samira</p>
+                    <h2 id="prof-title">Oi, eu sou a Samira.</h2>
+                    <p>Sou professora de Inglês, mentora e pesquisadora da aprendizagem, com mais de <strong>14 anos de experiência</strong>.</p>
+                    <h3>Formação e Certificações</h3>
+                    <ul class="formacao">
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg> <span><strong>Formação em Letras:</strong> Português/Inglês</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg> <span><strong>Pós-graduação:</strong> Ensino de Língua Inglesa</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg> <span><strong>Pós-graduação:</strong> Neurociências da Aprendizagem</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg> <span><strong>MBA:</strong> Gestão</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg> <span><strong>Certificações Internacionais:</strong> Cambridge (CELTA) e University of Michigan (CPE)</span></li>
+                    </ul>
+                    <blockquote class="honest">
+                        <p>Não acredito em métodos milagrosos. Acredito em ciência, clareza e consistência. Meu trabalho é ajudar você a construir confiança respeitando seu ritmo e objetivos reais.</p>
+                        <cite>Filosofia de ensino</cite>
+                    </blockquote>
+                    <div class="teacher__sign">
+                        <img src="assets/logos/logo.png" alt="Samira Nunes, English Teacher" width="180" height="60" loading="lazy" decoding="async">
+                        <a class="link-insta" href="https://www.instagram.com/samiranunes_teacher/" target="_blank" rel="noopener noreferrer">
+                            <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg> @samiranunes_teacher
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planos -->
+        <section class="section section--dark" id="planos" aria-labelledby="planos-title">
+            <div class="wrap">
+                <p class="eyebrow eyebrow--light">Planos de acompanhamento</p>
+                <h2 id="planos-title" class="reveal">Escolha o ritmo do seu acompanhamento.</h2>
+                <p class="reveal" style="max-width:720px">As aulas são organizadas em planos mensais, de acordo com a frequência de acompanhamento desejado.</p>
+                <div class="plans">
+                    <article class="price reveal">
+                        <h3>Start</h3>
+                        <p class="price__main"><strong>1 aula/semana</strong></p>
+                        <p class="price__total">Manutenção e ritmo leve</p>
+                    </article>
+                    <article class="price price--best reveal">
+                        <p class="price__flag">Mais escolhido</p>
+                        <h3>Fluency</h3>
+                        <p class="price__main"><strong>2 aulas/semana</strong></p>
+                        <p class="price__total"><strong>Melhor custo/benefício</strong></p>
+                    </article>
+                    <article class="price reveal">
+                        <h3>Intensive</h3>
+                        <p class="price__main"><strong>3 aulas/semana</strong></p>
+                        <p class="price__total">Progresso acelerado</p>
+                    </article>
+                    <article class="price reveal">
+                        <h3>Immersion</h3>
+                        <p class="price__main"><strong>4 aulas/semana</strong></p>
+                        <p class="price__total">Foco total e urgência</p>
+                    </article>
+                </div>
+                <p class="prices__note"><strong>Nota:</strong> A definição do plano ocorre após análise de perfil e objetivos.</p>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="section section--light" id="depoimentos" aria-labelledby="dep-title">
+            <div class="wrap">
+                <p class="eyebrow">O que os alunos dizem</p>
+                <h2 id="dep-title" class="reveal">Alunos que antes travavam hoje:</h2>
+                <ul class="results reveal">
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Resolvem problemas do dia a dia em inglês</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Conversam com mais naturalidade</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Sentem segurança para se expressar</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Perdem o medo de errar</li>
+                </ul>
+                <p class="closing reveal">O progresso acontece porque há <strong>direção, não improviso.</strong></p>
+
+                <div class="testimonials">
+                    <figure class="testimonial reveal">
+                        <div class="testimonial__head"><img src="assets/avatar/gabriel.png" alt="" loading="lazy"><figcaption><strong>Gabriel Machado</strong> <span>Boston, EUA</span></figcaption></div>
+                        <blockquote><p>“Seu padrão de aula é o mais alto (...) e só você é capaz de fazer o que você faz prestando atenção em cada pequeno detalhe.”</p></blockquote>
+                        <a href="https://www.instagram.com/p/DGoHRaIxKCP/" target="_blank" rel="noopener noreferrer">Ver vídeo →</a>
+                    </figure>
+                    <figure class="testimonial reveal">
+                        <div class="testimonial__head"><img src="assets/avatar/juciara.png" alt="" loading="lazy"><figcaption><strong>Juciara Alecirm</strong> <span>Belo Horizonte, MG</span></figcaption></div>
+                        <blockquote><p>“A teacher Sam me ajudou a perder o medo de falar.”</p></blockquote>
+                        <a href="https://youtube.com/watch?v=KUaTSRuwH18&amp;feature=youtu.be" target="_blank" rel="noopener noreferrer">Ver vídeo →</a>
+                    </figure>
+                    <figure class="testimonial reveal">
+                        <div class="testimonial__head"><img src="assets/avatar/joao.png" alt="" loading="lazy"><figcaption><strong>João Henrique</strong> <span>Vitória, ES</span></figcaption></div>
+                        <blockquote><p>“Ela foi fundamental no meu aprendizado de inglês.”</p></blockquote>
+                        <a href="https://youtu.be/hjND-TvLR08" target="_blank" rel="noopener noreferrer">Ver vídeo →</a>
+                    </figure>
+                    <figure class="testimonial reveal">
+                        <div class="testimonial__head"><img src="assets/avatar/josi.png" alt="" loading="lazy"><figcaption><strong>Josi Kumpel</strong> <span>Boston, EUA</span></figcaption></div>
+                        <blockquote><p>“Antes das suas aulas eu não falava nada, por mais que eu soubesse. Agora eu falo com todo mundo.”</p></blockquote>
+                        <a href="https://www.instagram.com/p/ChdaMJZFgYm/" target="_blank" rel="noopener noreferrer">Ver vídeo →</a>
+                    </figure>
+                    <figure class="testimonial reveal">
+                        <div class="testimonial__head"><img src="assets/avatar/cecilia.png" alt="" loading="lazy"><figcaption><strong>Cecília Rabelo</strong> <span>Washington, DC, EUA</span></figcaption></div>
+                        <blockquote><p>“Agora é fácil! Estou fluente!”</p></blockquote>
+                        <a href="https://www.instagram.com/p/Cn2uA4UD8eM/" target="_blank" rel="noopener noreferrer">Ver vídeo →</a>
+                    </figure>
+                    <figure class="testimonial reveal">
+                        <div class="testimonial__head"><img src="assets/avatar/danielly.png" alt="" loading="lazy"><figcaption><strong>Danielly Moura</strong> <span>Virginia Beach, EUA</span></figcaption></div>
+                        <blockquote><p>“Consegui ir aos correios e consertar meu celular sozinha em inglês com 5 meses de aulas.”</p></blockquote>
+                        <a href="https://www.instagram.com/p/DTi1EXYkQzW/" target="_blank" rel="noopener noreferrer">Ver vídeo →</a>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vagas -->
+        <section class="section section--cream section--slim" id="vagas" aria-labelledby="vagas-title">
+            <div class="wrap narrow center">
+                <h2 id="vagas-title" class="h3 reveal">As vagas são limitadas devido ao caráter individual do acompanhamento.</h2>
+            </div>
+        </section>
+
+        <!-- CTA final -->
+        <section class="section final" id="final" aria-labelledby="final-title">
+            <div class="wrap narrow center">
+                <h2 id="final-title">Se você sente que já passou da fase de “aprender inglês” e precisa finalmente começar a falar, esta é a sua próxima etapa.</h2>
+                <a class="btn btn-cream btn-lg"
+                   href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" target="_blank" rel="noopener noreferrer">Quero me inscrever</a>
+                <p class="final__alt">Após o envio, entrarei em contato para avaliar seu perfil e disponibilidade.</p>
+                <p class="final__alt">Prefere conversar antes? <a href="https://www.instagram.com/samiranunes_teacher/" target="_blank" rel="noopener noreferrer">Fale com a Samira no Instagram.</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="wrap footer__grid">
+            <div>
+                <img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes" width="160" height="53" loading="lazy" class="footer__logo">
+                <p class="footer__small">Aulas de inglês online personalizadas com foco em conversação e neurociência da aprendizagem.</p>
+            </div>
+            <nav aria-label="Links do site">
+                <ul class="footer__links">
                     <li><a href="index.html">Início</a></li>
                     <li><a href="aulas-vip.html">Aulas Individuais</a></li>
                     <li><a href="aulas-em-turma.html">Aulas em Turma</a></li>
                     <li><a href="materiais.html">Materiais</a></li>
                     <li><a href="nivelamento.html">Nivelamento</a></li>
-                    <li><a href="blog/index.html">Blog</a></li>
-                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" class="cta-nav" target="_blank" rel="noopener noreferrer">Quero me inscrever</a></li>
+                    <li><a href="blog/">Blog</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section com foco em conversão -->
-    <section id="home" class="hero-conversion">
-        <div class="hero-conversion-content">
-            <h1>Fale inglês com segurança.</h1>
-            <p class="subtitle">Aulas particulares de inglês, ao vivo e personalizadas, focadas em conversação real, confiança e progresso consistente.</p>
-            <div class="authority">
-                Mais de 14 anos ajudando alunos a destravarem a fala com método, ciência e acompanhamento individual.
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" class="btn-primary btn-large" target="_blank" rel="noopener noreferrer">Quero me inscrever</a>
+            </nav>
+            <ul class="footer__links">
+                <li><a href="https://www.instagram.com/samiranunes_teacher/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.facebook.com/TeacherSamiraNunes" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.youtube.com/teachersamiranunes" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                <li><a href="https://vm.tiktok.com/ZMeak2FRv/" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                <li><a href="privacidade.html">Política de Privacidade</a></li>
+            </ul>
         </div>
-    </section>
-
-    <!-- Seção de Identificação da Dor -->
-    <section id="dor" class="pain-section">
-        <div class="container">
-            <div class="pain-content">
-                <h2>Você já passou por alguma dessas situações?</h2>
-                
-                <div class="pain-checklist">
-                    <div class="pain-item">
-                        <span class="pain-icon">❌</span>
-                        <span>Entende inglês, mas trava quando precisa falar.</span>
-                    </div>
-                    <div class="pain-item">
-                        <span class="pain-icon">❌</span>
-                        <span>Pensa demais antes de montar uma frase.</span>
-                    </div>
-                    <div class="pain-item">
-                        <span class="pain-icon">❌</span>
-                        <span>Tem medo de errar ou parecer inseguro(a).</span>
-                    </div>
-                    <div class="pain-item">
-                        <span class="pain-icon">❌</span>
-                        <span>Já estudou e sente que não saiu do lugar.</span>
-                    </div>
-                    <div class="pain-item">
-                        <span class="pain-icon">❌</span>
-                        <span>Evita conversas, reuniões ou situações simples.</span>
-                    </div>
-                </div>
-
-                <div class="pain-explanation" style="opacity: 1; transform: translateY(0);">
-                    <h3>Isso não acontece por falta de capacidade. E também não é falta de vocabulário.</h3>
-                    <p>👉 O que trava o inglês é <strong>pressão, medo e falta de direcionamento.</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Virada de Chave (Posicionamento) -->
-    <section id="posicionamento" class="positioning-section">
-        <div class="container">
-            <div class="positioning-content">
-                <h2>Falar inglês não exige perfeição. <br>Exige <span class="highlight-text">segurança.</span></h2>
-                <p>E segurança não se constrói decorando regras — se constrói <span class="highlight-text">falando</span>, com <span class="highlight-text">acompanhamento</span>, <span class="highlight-text">estratégia</span> e <span class="highlight-text">constância</span>. <br>É exatamente isso que acontece nas minhas aulas.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Quem é Samira (Atualizada) -->
-    <section id="formacao" class="formacao">
-        <div class="container">
-            <div class="section-header">
-                <h2>QUEM É SAMIRA</h2>
-            </div>
-            <div class="formacao-content">
-                <div class="formacao-image">
-                    <img src="assets/persona/photo-suite.jpg" alt="Teacher Samira Nunes" class="section-img">
-                </div>
-                <div class="formacao-text">
-                    <p>Sou professora de Inglês, mentora e pesquisadora da aprendizagem, com mais de <strong>14 anos de experiência</strong>.</p>
-                    
-                    <h3>Formação e Certificações</h3>
-                    <ul class="formacao-list">
-                        <li><strong>Formação em Letras:</strong> Português/Inglês</li>
-                        <li><strong>Pós-graduação:</strong> Ensino de Língua Inglesa</li>
-                        <li><strong>Pós-graduação:</strong> Neurociências da Aprendizagem</li>
-                        <li><strong>MBA:</strong> Gestão</li>
-                        <li><strong>Certificações Internacionais:</strong> Cambridge (CELTA) e University of Michigan (CPE)</li>                      
-                    </ul>
-                    
-                    <div class="highlight">
-                        <p><strong>Filosofia de Ensino:</strong> Não acredito em métodos milagrosos. Acredito em <strong>ciência, clareza e consistência</strong>. Meu trabalho é ajudar você a construir confiança respeitando seu ritmo e objetivos reais.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Como Funcionam as Aulas -->
-    <section id="aulas" class="aulas">
-        <div class="container">
-            <div class="section-header">
-                <h2>COMO FUNCIONAM AS AULAS</h2>
-            </div>
-                    
-            <div class="aulas-content">
-                <div class="aulas-image">
-                    <img src="assets/persona/photo-seat.jpg" alt="Aulas online ao vivo" class="section-img">
-                </div>
-                <div class="aulas-text">
-                    <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 20px; line-height: 1.8;">
-                        <li>Individuais e ao vivo, pelo Zoom</li>
-                        <li>Com duração de 50 minutos</li>
-                        <li>Totalmente personalizadas</li>
-                        <li>Com foco em conversação real</li>
-                        <li>Material incluído</li>
-                        <li>Gravação das aulas</li>
-                        <li>Direcionamento contínuo</li>
-                        <li>Suporte via WhatsApp</li>
-                        <li><strong>Tutora IA disponível para você praticar 24h</strong></li>
-                        <li><strong>Aplicativo de exercícios</strong></li>
-                    </ul>
-                    <div class="highlight">
-                        <p>Aqui você não estuda sozinho(a). <br>Você tem <strong>acompanhamento real e estratégia clara</strong>.</p>
-                    </div>
-
-                    <div style="margin-top: 30px; background-color: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px;">
-                        <h4 style="margin-bottom: 15px; color: var(--secondary-red);">As aulas são ideais para você que:</h4>
-                        <ul style="list-style-type: none; padding-left: 0; line-height: 1.6;">
-                            <li style="margin-bottom: 8px;">✅ Quer falar inglês com mais segurança</li>
-                            <li style="margin-bottom: 8px;">✅ Já estudou antes, mas não destravou</li>
-                            <li style="margin-bottom: 8px;">✅ Vive ou pretende viver no exterior</li>
-                            <li style="margin-bottom: 8px;">✅ Precisa do inglês para trabalho ou vida prática</li>
-                            <li style="margin-bottom: 8px;">✅ Quer um acompanhamento individual, não um curso genérico</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Planos de Acompanhamento -->
-    <section id="planos" class="plans-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>PLANOS DE ACOMPANHAMENTO</h2>
-                <p>As aulas são organizadas em planos mensais, de acordo com a frequência de acompanhamento desejado.</p>
-            </div>
-            
-            <div class="plans-table">
-                <div class="plan-card">
-                    <div class="plan-name">Start</div>
-                    <div class="plan-frequency">1 aula/semana</div>
-                    <div class="plan-profile">Manutenção e ritmo leve</div>
-                </div>
-                
-                <div class="plan-card featured">
-                    <div class="popular-tag"><i class="fas fa-star"></i> Mais escolhido</div>
-                    <div class="plan-name">Fluency</div>
-                    <div class="plan-frequency">2 aulas/semana</div>
-                    <div class="plan-profile">✅ Melhor custo/benefício</div>
-                </div>
-                
-                <div class="plan-card">
-                    <div class="plan-name">Intensive</div>
-                    <div class="plan-frequency">3 aulas/semana</div>
-                    <div class="plan-profile">Progresso acelerado</div>
-                </div>
-                
-                <div class="plan-card">
-                    <div class="plan-name">Immersion</div>
-                    <div class="plan-frequency">4 aulas/semana</div>
-                    <div class="plan-profile">Foco total e urgência</div>
-                </div>
-            </div>
-            
-            <p style="text-align: center; font-style: italic; margin-top: 2rem;">
-                <strong>Nota:</strong> A definição do plano ocorre após análise de perfil e objetivos.
-            </p>
-        </div>
-    </section>
-
-    <!-- Depoimentos Section -->
-    <section id="depoimentos" class="depoimentos">
-        <div class="container">
-            <div class="section-header">
-                <h2>O QUE OS ALUNOS DIZEM</h2>
-                
-                <div style="max-width: 800px; margin: 0 auto 40px auto; text-align: left; background-color: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 15px; border-left: 5px solid var(--secondary-red);">
-                    <h3 style="margin-bottom: 20px; color: var(--white); font-size: 1.4rem;">Alunos que antes travavam hoje:</h3>
-                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 25px; font-size: 1.1rem;">
-                        <li style="margin-bottom: 10px; display: flex; align-items: center;"><span style="color: var(--secondary-red); margin-right: 10px;">•</span> Resolvem problemas do dia a dia em inglês</li>
-                        <li style="margin-bottom: 10px; display: flex; align-items: center;"><span style="color: var(--secondary-red); margin-right: 10px;">•</span> Conversam com mais naturalidade</li>
-                        <li style="margin-bottom: 10px; display: flex; align-items: center;"><span style="color: var(--secondary-red); margin-right: 10px;">•</span> Sentem segurança para se expressar</li>
-                        <li style="margin-bottom: 10px; display: flex; align-items: center;"><span style="color: var(--secondary-red); margin-right: 10px;">•</span> Perdem o medo de errar</li>
-                    </ul>
-                    <p style="font-weight: bold; font-size: 1.2rem; margin: 0; color: var(--secondary-red);">👉 O progresso acontece porque há direção, não improviso.</p>
-                </div>
-            </div>
-            <div class="depoimentos-grid">
-                <!-- 1 - Gabriel -->
-                <div class="depoimento">
-                    <img src="assets/avatar/gabriel.png" alt="Gabriel Machado" class="depoimento-avatar-img">
-                    <p>"Seu padrão de aula é o mais alto (...) e só você é capaz de fazer o que você faz prestando atenção em cada pequeno detalhe."</p>
-                    <cite>— Gabriel Machado de Boston, EUA</cite>
-                    <a href="https://www.instagram.com/p/DGoHRaIxKCP/" target="_blank" class="depoimento-link">Ver Vídeo</a>
-                </div>
-
-                <!-- 2 - Juciara -->
-                <div class="depoimento">
-                    <img src="assets/avatar/juciara.png" alt="Juciara Alecirm" class="depoimento-avatar-img">
-                    <p>"A teacher Sam me ajudou a perder o medo de falar."</p>
-                    <cite>— Juciara Alecirm de Belo Horizonte - MG</cite>
-                    <a href="https://youtube.com/watch?v=KUaTSRuwH18&feature=youtu.be" target="_blank" class="depoimento-link">Ver Vídeo</a>
-                </div>
-
-                <!-- 3 - João -->
-                <div class="depoimento">
-                    <img src="assets/avatar/joao.png" alt="João Henrique" class="depoimento-avatar-img">
-                    <p>"Ela foi fundamental no meu aprendizado de inglês."</p>
-                    <cite>— João Henrique de Vitória - ES</cite>
-                    <a href="https://youtu.be/hjND-TvLR08" target="_blank" class="depoimento-link">Ver Vídeo</a>
-                </div>
-
-                <!-- 4 - Josi -->
-                <div class="depoimento">
-                    <img src="assets/avatar/josi.png" alt="Josi Kumpel" class="depoimento-avatar-img">
-                    <p>"Antes das suas aulas eu não falava nada, por mais que eu soubesse. Agora eu falo com todo mundo."</p>
-                    <cite>— Josi Kumpel de Boston, EUA</cite>
-                    <a href="https://www.instagram.com/p/ChdaMJZFgYm/" target="_blank" class="depoimento-link">Ver Vídeo</a>
-                </div>
-
-                <!-- 5 - Cecília -->
-                <div class="depoimento">
-                    <img src="assets/avatar/cecilia.png" alt="Cecília Rabelo" class="depoimento-avatar-img">
-                    <p>"Agora é fácil! Estou fluente!"</p>
-                    <cite>— Cecília Rabelo de Washingnton, DC, EUA</cite>
-                    <a href="https://www.instagram.com/p/Cn2uA4UD8eM/" target="_blank" class="depoimento-link">Ver Vídeo</a>
-                </div>
-
-                <!-- 6 - Danielly -->
-                <div class="depoimento">
-                    <img src="assets/avatar/danielly.png" alt="Danielly Moura" class="depoimento-avatar-img">
-                    <p>"Consegui ir aos correios e consertar meu celular sozinha em inglês com 5 meses de aulas."</p>
-                    <cite>— Danielly Moura de Virgina Beach, EUA</cite>
-                    <a href="https://www.instagram.com/p/DTi1EXYkQzW/" target="_blank" class="depoimento-link">Ver Vídeo</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Final Section -->
-    <section id="formulario" class="cta-final">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Se você sente que já passou da fase de "aprender inglês" e precisa finalmente começar a falar, esta é a sua próxima etapa.</h2>
-                <p><strong>Aviso:</strong> As vagas são limitadas devido ao caráter individual do acompanhamento.</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" class="btn-primary btn-large" target="_blank" rel="noopener noreferrer">👉 Quero me inscrever</a>
-                <p class="cta-subtitle">Após o envio, entrarei em contato para avaliar seu perfil e disponibilidade.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/logos/logo-white.png" alt="Teacher Samira Nunes" class="footer-logo-img">
-                </div>
-                
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/samiranunes_teacher/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/TeacherSamiraNunes" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.youtube.com/teachersamiranunes" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://vm.tiktok.com/ZMeak2FRv/" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-
-                <div class="footer-text">
-                    <p>&copy; 2026 Teacher Samira Nunes. Todos os direitos reservados.</p>
-                    <p>Aulas de inglês online personalizadas com foco em conversação e neurociência da aprendizagem.</p>
-                </div>
-            </div>
-        </div>
+        <p class="wrap footer__copy">&copy; 2026 Teacher Samira Nunes. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Botão flutuante (Instagram) -->
+    <a class="wa-float" href="https://www.instagram.com/samiranunes_teacher/" target="_blank" rel="noopener noreferrer" aria-label="Falar com a Samira no Instagram">
+        <svg aria-hidden="true"><use href="#i-insta"/></svg>
+    </a>
+
+    <!-- CTA fixo no celular -->
+    <div class="mobile-cta" id="mobile-cta">
+        <div class="mobile-cta__info"><strong>Aulas individuais</strong>Vagas limitadas</div>
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdjXtaFmyb0NbWZVFo7Jm8wRYstNIxMfv3YBfl4gnNmKUO0Qw/viewform" target="_blank" rel="noopener noreferrer">Quero me inscrever</a>
+    </div>
+
+    <script>
+    // Versão enxuta do ec.js: menu, animação de entrada e barra fixa no celular.
+    (function () {
+        document.documentElement.classList.add('js');
+        var nav = document.getElementById('topbar-nav'), btn = document.querySelector('.topbar__menu');
+        if (nav && btn) {
+            btn.addEventListener('click', function () { var o = nav.classList.toggle('is-open'); btn.setAttribute('aria-expanded', o); });
+            nav.addEventListener('click', function (e) { if (e.target.closest('a')) { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); } });
+        }
+        var tb = document.getElementById('topbar');
+        if (tb) { var s = function () { tb.classList.toggle('is-scrolled', window.scrollY > 8); }; window.addEventListener('scroll', s, { passive: true }); s(); }
+        var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+            reveals.forEach(function (el) { io.observe(el); });
+            var bar = document.getElementById('mobile-cta'), hero = document.getElementById('hero-cta'), fin = document.getElementById('final'), hv = true, fv = false;
+            var upd = function () { bar.classList.toggle('is-visible', !hv && !fv); };
+            new IntersectionObserver(function (es) { hv = es[0].isIntersecting; upd(); }).observe(hero);
+            new IntersectionObserver(function (es) { fv = es[0].isIntersecting; upd(); }, { threshold: .25 }).observe(fin);
+        } else { reveals.forEach(function (el) { el.classList.add('is-in'); }); }
+    })();
+    </script>
 </body>
 </html>
