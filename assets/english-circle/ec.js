@@ -128,7 +128,10 @@
         closed: { long: 'Entrar na lista de espera', short: 'Lista de espera', href: waitlistLink }
     };
     // Variações de verbo por posição (sem mudar a ação)
-    var CTA_VARIANT = { open: { final: 'Quero minha vaga', enroll_steps: 'Garantir minha vaga' } };
+    var CTA_VARIANT = {
+        prelaunch: { enroll_steps: 'Entre no grupo e saiba em primeira mão sobre a abertura de vagas' },
+        open: { final: 'Quero minha vaga', enroll_steps: 'Garantir minha vaga' }
+    };
 
     $$('[data-cta="primary"]').forEach(function (el) {
         var c = CTA[state];

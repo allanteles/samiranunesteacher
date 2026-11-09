@@ -82,7 +82,7 @@ strong { font-weight: 700; }
 }
 .btn:hover { transform: translateY(-1px); }
 .btn-sm { min-height: 44px; padding: .55em 1.1em; font-size: .9rem; }
-.btn-lg { min-height: 56px; padding: 1em 1.8em; font-size: 1.05rem; }
+.btn-lg { min-height: 56px; padding: 1em 1.8em; font-size: 1.05rem; max-width: 100%; }
 .btn-block { display: flex; width: 100%; }
 .btn-primary { background: var(--garnet); color: var(--cream); box-shadow: 0 10px 24px -12px rgba(108, 38, 36, .9); }
 .btn-primary:hover { background: var(--garnet-600); color: var(--white); }
