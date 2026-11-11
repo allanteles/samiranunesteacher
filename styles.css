@@ -605,6 +605,11 @@ section {
     object-position: center 30%; /* Mostra mais a parte inferior da foto */
 }
 
+/* Foto vertical com celular: mostra rosto e tela juntos */
+.card-img.card-img--phone {
+    object-position: 50% 55%;
+}
+
 .card-navegacao:hover .card-img {
     transform: scale(1.05);
 }
@@ -657,6 +662,10 @@ section {
 
     .card-img {
         object-position: 50% 15%; /* Prioriza o rosto no topo da foto */
+    }
+
+    .card-img.card-img--phone {
+        object-position: 50% 55%;
     }
 
     .card-content {
