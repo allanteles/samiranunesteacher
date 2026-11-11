@@ -596,6 +596,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 50% 20%; /* Mantém o rosto visível no enquadramento (topo da foto) */
     transition: transform 0.3s ease;
 }
 
@@ -651,9 +652,13 @@ section {
     }
     
     .card-image {
-        height: 180px;
+        height: 260px; /* Altura maior no celular para o rosto caber */
     }
-    
+
+    .card-img {
+        object-position: 50% 15%; /* Prioriza o rosto no topo da foto */
+    }
+
     .card-content {
         padding: 1rem;
     }
