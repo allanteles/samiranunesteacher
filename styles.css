@@ -656,16 +656,15 @@ section {
         padding: 0 1rem;
     }
     
+    /* No celular a foto aparece inteira, sem nenhum corte */
     .card-image {
-        height: 260px; /* Altura maior no celular para o rosto caber */
+        height: auto;
     }
 
     .card-img {
-        object-position: 50% 15%; /* Prioriza o rosto no topo da foto */
-    }
-
-    .card-img.card-img--phone {
-        object-position: 50% 55%;
+        height: auto;
+        display: block;
+        object-fit: contain;
     }
 
     .card-content {
