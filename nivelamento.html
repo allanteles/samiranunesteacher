@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&family=Cambria:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
+
 <style>
   :root {
     --blue: #00395D;
@@ -113,6 +114,17 @@
   .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; margin: 8px 0 20px; }
   .consent input { width: auto; margin-top: 3px; }
 
+  /* Honeypot anti-spam fora da tela */
+  .hp-wrap {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+  }
+
   /* Teste */
   .progress-top { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; color: #5b6166; }
   .bar { height: 8px; background: var(--platinum); border-radius: 10px; overflow: hidden; margin-bottom: 26px; }
@@ -153,7 +165,7 @@
     border-radius: 8px; margin: 18px 0 22px; text-align: left;
     color: var(--jet);
   }
-  .hidden { display: none; }
+  .hidden { display: none !important; }
 
   @media (max-width: 480px) {
     .card h1 { font-size: 31px; }
@@ -207,6 +219,12 @@
     <h2>Antes de começar</h2>
     <p class="lead">Informe seus dados para receber o resultado e orientações personalizadas.</p>
     <form id="contact-form" novalidate>
+      <!-- Honeypot contra robôs de spam -->
+      <div class="hp-wrap" aria-hidden="true">
+        <label for="website">Não preencha este campo</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
       <div class="field" id="f-nome">
         <label for="nome">Nome completo</label>
         <input id="nome" type="text" autocomplete="name" placeholder="Seu nome">
@@ -254,6 +272,9 @@
     <div class="bar"><span id="q-bar"></span></div>
     <div class="question" id="q-text"></div>
     <div class="options" id="q-options"></div>
+
+    <div id="quiz-error" class="err" role="alert" style="display:none; text-align:center; margin-top:14px; font-weight:600;"></div>
+
     <div class="quiz-nav">
       <button class="btn ghost" id="btn-back" style="margin-top:0">Voltar</button>
       <button class="btn" id="btn-next" disabled>Próxima</button>
@@ -303,55 +324,55 @@
 <script src="script.js"></script>
 <script>
 /* ================= CONFIGURAÇÃO ================= */
-// Cole aqui a URL do App da Web gerada no Google Apps Script
-const SCRIPT_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
 // WhatsApp comercial (código do país + DDD + número, só dígitos)
 const WHATSAPP_NUMBER = '5533998009249';
 /* ================================================ */
 
+/* 25 Questões (Gabarito removido do front-end por segurança; correção no servidor) */
 const QUESTIONS = [
   // A1
-  { q: '___ name is Ana.', o: ['My', 'I', 'Me', 'Mine'], a: 0 },
-  { q: 'They ___ from Brazil.', o: ['is', 'am', 'are', 'be'], a: 2 },
-  { q: '___ you like coffee?', o: ['Are', 'Do', 'Does', 'Is'], a: 1 },
-  { q: 'There ___ two books on the table.', o: ['is', 'be', 'am', 'are'], a: 3 },
-  { q: 'She ___ to school every day.', o: ['go', 'goes', 'going', 'gone'], a: 1 },
+  { q: '___ name is Ana.', o: ['My', 'I', 'Me', 'Mine'] },
+  { q: 'They ___ from Brazil.', o: ['is', 'am', 'are', 'be'] },
+  { q: '___ you like coffee?', o: ['Are', 'Do', 'Does', 'Is'] },
+  { q: 'There ___ two books on the table.', o: ['is', 'be', 'am', 'are'] },
+  { q: 'She ___ to school every day.', o: ['go', 'goes', 'going', 'gone'] },
   // A2
-  { q: 'I ___ to the cinema last weekend.', o: ['go', 'gone', 'went', 'going'], a: 2 },
-  { q: 'This is ___ restaurant in town.', o: ['the best', 'best', 'the better', 'more good'], a: 0 },
-  { q: 'We ___ dinner when the phone rang.', o: ['had', 'were having', 'have', 'are having'], a: 1 },
-  { q: 'How ___ water do you drink a day?', o: ['many', 'lot', 'much', 'few'], a: 2 },
-  { q: 'You ___ wear a seatbelt. It\u2019s the law.', o: ['might', 'can', 'would', 'must'], a: 3 },
+  { q: 'I ___ to the cinema last weekend.', o: ['go', 'gone', 'went', 'going'] },
+  { q: 'This is ___ restaurant in town.', o: ['the best', 'best', 'the better', 'more good'] },
+  { q: 'We ___ dinner when the phone rang.', o: ['had', 'were having', 'have', 'are having'] },
+  { q: 'How ___ water do you drink a day?', o: ['many', 'lot', 'much', 'few'] },
+  { q: 'You ___ wear a seatbelt. It\u2019s the law.', o: ['might', 'can', 'would', 'must'] },
   // B1
-  { q: 'I ___ here since 2020.', o: ['live', 'am living', 'lived', 'have lived'], a: 3 },
-  { q: 'If it rains tomorrow, we ___ at home.', o: ['will stay', 'stay', 'would stay', 'stayed'], a: 0 },
-  { q: 'This book ___ by millions of people.', o: ['has read', 'has been read', 'have read', 'is reading'], a: 1 },
-  { q: 'She asked me where ___.', o: ['did I live', 'do I live', 'I lived', 'I am live'], a: 2 },
-  { q: 'I\u2019m not used to ___ up so early.', o: ['wake', 'woke', 'be waking', 'waking'], a: 3 },
+  { q: 'I ___ here since 2020.', o: ['live', 'am living', 'lived', 'have lived'] },
+  { q: 'If it rains tomorrow, we ___ at home.', o: ['will stay', 'stay', 'would stay', 'stayed'] },
+  { q: 'This book ___ by millions of people.', o: ['has read', 'has been read', 'have read', 'is reading'] },
+  { q: 'She asked me where ___.', o: ['did I live', 'do I live', 'I lived', 'I am live'] },
+  { q: 'I\u2019m not used to ___ up so early.', o: ['wake', 'woke', 'be waking', 'waking'] },
   // B2
-  { q: 'If I ___ more time, I would travel more.', o: ['had', 'have', 'would have', 'will have'], a: 0 },
-  { q: 'By the time we arrived, the movie ___.', o: ['already started', 'has already started', 'had already started', 'was already start'], a: 2 },
-  { q: 'I wish I ___ that. It was a mistake.', o: ['didn\u2019t say', 'hadn\u2019t said', 'wouldn\u2019t say', 'haven\u2019t said'], a: 1 },
-  { q: 'He denied ___ the money.', o: ['to take', 'take', 'taking', 'to taking'], a: 2 },
-  { q: 'The meeting was called ___ because of the storm.', o: ['out', 'up', 'down', 'off'], a: 3 },
+  { q: 'If I ___ more time, I would travel more.', o: ['had', 'have', 'would have', 'will have'] },
+  { q: 'By the time we arrived, the movie ___.', o: ['already started', 'has already started', 'had already started', 'was already start'] },
+  { q: 'I wish I ___ that. It was a mistake.', o: ['didn\u2019t say', 'hadn\u2019t said', 'wouldn\u2019t say', 'haven\u2019t said'] },
+  { q: 'He denied ___ the money.', o: ['to take', 'take', 'taking', 'to taking'] },
+  { q: 'The meeting was called ___ because of the storm.', o: ['out', 'up', 'down', 'off'] },
   // C1
-  { q: 'No sooner ___ the house than it started to rain.', o: ['I had left', 'had I left', 'I left', 'did I left'], a: 1 },
-  { q: 'It\u2019s high time we ___ a decision.', o: ['make', 'will make', 'made', 'have made'], a: 2 },
-  { q: 'She\u2019s excellent at her job, ___ she has little experience.', o: ['although', 'despite', 'in spite', 'however'], a: 0 },
-  { q: 'The proposal was rejected, ___ was hardly surprising.', o: ['that', 'what', 'it', 'which'], a: 3 },
-  { q: 'Had I known about the traffic, I ___ earlier.', o: ['would leave', 'would have left', 'had left', 'will leave'], a: 1 }
+  { q: 'No sooner ___ the house than it started to rain.', o: ['I had left', 'had I left', 'I left', 'did I left'] },
+  { q: 'It\u2019s high time we ___ a decision.', o: ['make', 'will make', 'made', 'have made'] },
+  { q: 'She\u2019s excellent at her job, ___ she has little experience.', o: ['although', 'despite', 'in spite', 'however'] },
+  { q: 'The proposal was rejected, ___ was hardly surprising.', o: ['that', 'what', 'it', 'which'] },
+  { q: 'Had I known about the traffic, I ___ earlier.', o: ['would leave', 'would have left', 'had left', 'will leave'] }
 ];
 
+/* Descrições públicas dos níveis CEFR */
 const LEVELS = [
-  { max: 6,  code: 'A1', title: 'Iniciante',
+  { code: 'A1', title: 'Iniciante',
     desc: 'Você está dando os primeiros passos no inglês. Reconhece palavras e frases simples do dia a dia. Com uma base bem construída agora, sua evolução nas próximas etapas será muito mais rápida e segura.' },
-  { max: 11, code: 'A2', title: 'Básico',
+  { code: 'A2', title: 'Básico',
     desc: 'Você já entende e usa frases sobre temas familiares, como rotina, família e compras. O próximo passo é ganhar confiança para se expressar com mais liberdade e conectar ideias em situações reais.' },
-  { max: 16, code: 'B1', title: 'Intermediário',
+  { code: 'B1', title: 'Intermediário',
     desc: 'Você consegue se comunicar na maioria das situações do cotidiano e de viagens. É muito comum, neste nível, entender bastante e ainda travar na hora de falar. Com prática direcionada, a fluência vem.' },
-  { max: 21, code: 'B2', title: 'Intermediário Superior',
+  { code: 'B2', title: 'Intermediário Superior',
     desc: 'Você se comunica com boa autonomia, entende textos mais complexos e participa de conversas com naturalidade. Agora o foco é refinar precisão, ampliar vocabulário e soar cada vez mais natural.' },
-  { max: 25, code: 'C1', title: 'Avançado',
+  { code: 'C1', title: 'Avançado',
     desc: 'Você domina estruturas complexas e se expressa com fluência e flexibilidade. O trabalho a partir daqui é de sofisticação: nuances, registro formal e informal e uso estratégico da língua em contextos profissionais.' }
 ];
 
@@ -363,21 +384,6 @@ function show(id) {
   document.querySelectorAll('.quiz-screen').forEach(s => s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function send(payload) {
-  if (!SCRIPT_URL || SCRIPT_URL.indexOf('http') !== 0) {
-    console.warn('SCRIPT_URL não configurada. Dados não enviados:', payload);
-    return;
-  }
-  try {
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
-    }).catch(err => console.error('Erro ao enviar:', err));
-  } catch (err) { console.error(err); }
 }
 
 /* ---------- Máscara de WhatsApp ---------- */
@@ -414,17 +420,14 @@ document.getElementById('contact-form').addEventListener('submit', e => {
   if (!consent) ok = false;
   if (!ok) return;
 
-  const params = new URLSearchParams(location.search);
   lead = {
-    id: 'N' + Date.now().toString(36).toUpperCase() + Math.random().toString(36).slice(2, 6).toUpperCase(),
     nome,
     whatsapp: whatsInput.value,
     email,
     interesse,
-    objetivo: document.getElementById('objetivo').value.trim(),
-    origem: params.get('utm_source') || document.referrer || 'Acesso direto'
+    objetivo: document.getElementById('objetivo').value.trim()
   };
-  send(Object.assign({ action: 'start' }, lead));
+
   renderQuestion();
   show('screen-test');
 });
@@ -432,6 +435,8 @@ document.getElementById('contact-form').addEventListener('submit', e => {
 /* ---------- Teste ---------- */
 function renderQuestion() {
   const item = QUESTIONS[current];
+  const isLast = current === QUESTIONS.length - 1;
+
   document.getElementById('q-count').textContent = `Questão ${current + 1} de ${QUESTIONS.length}`;
   document.getElementById('q-bar').style.width = ((current) / QUESTIONS.length * 100) + '%';
   document.getElementById('q-text').innerHTML = item.q.replace('___', '<span class="gap">_____</span>');
@@ -441,6 +446,7 @@ function renderQuestion() {
   const opts = item.o.map((txt, i) => ({ txt, i })).concat([{ txt: 'Não sei', i: -1 }]);
   opts.forEach(({ txt, i }) => {
     const b = document.createElement('button');
+    b.type = 'button';
     b.className = 'opt' + (i === -1 ? ' dontknow' : '') + (answers[current] === i ? ' selected' : '');
     b.textContent = txt;
     b.onclick = () => {
@@ -452,37 +458,103 @@ function renderQuestion() {
     box.appendChild(b);
   });
 
-  document.getElementById('btn-next').disabled = answers[current] === null;
-  document.getElementById('btn-next').textContent = current === QUESTIONS.length - 1 ? 'Ver resultado' : 'Próxima';
+  const btnNext = document.getElementById('btn-next');
+  btnNext.disabled = answers[current] === null;
+  btnNext.textContent = isLast ? 'Ver resultado' : 'Próxima';
   document.getElementById('btn-back').style.visibility = current === 0 ? 'hidden' : 'visible';
 }
 
 document.getElementById('btn-next').onclick = () => {
   if (answers[current] === null) return;
-  if (current < QUESTIONS.length - 1) { current++; renderQuestion(); }
-  else finish();
-};
-document.getElementById('btn-back').onclick = () => {
-  if (current > 0) { current--; renderQuestion(); }
+  if (current < QUESTIONS.length - 1) {
+    current++;
+    renderQuestion();
+  } else {
+    finish();
+  }
 };
 
-/* ---------- Resultado ---------- */
-function finish() {
-  const acertos = answers.reduce((sum, ans, i) => sum + (ans === QUESTIONS[i].a ? 1 : 0), 0);
-  const level = LEVELS.find(l => acertos <= l.max);
+document.getElementById('btn-back').onclick = () => {
+  if (current > 0) {
+    current--;
+    renderQuestion();
+  }
+};
+
+/* ---------- Submissão e Resultado ---------- */
+async function finish() {
+  const errBox = document.getElementById('quiz-error');
+  errBox.style.display = 'none';
+  errBox.textContent = '';
+
+  const btnNext = document.getElementById('btn-next');
+  const btnBack = document.getElementById('btn-back');
+  btnNext.disabled = true;
+  btnBack.disabled = true;
+  btnNext.textContent = 'Calculando resultado...';
+
+  // Preparar os parâmetros URL-encoded
+  const params = new URLSearchParams();
+  params.append('nome', lead.nome);
+  params.append('whatsapp', lead.whatsapp);
+  params.append('email', lead.email);
+  params.append('interesse', lead.interesse);
+  params.append('objetivo', lead.objetivo || '');
+  params.append('consentimento', 'sim');
+  params.append('website', document.getElementById('website').value || '');
+
+  for (let i = 0; i < QUESTIONS.length; i++) {
+    const a = answers[i];
+    params.append('q' + (i + 1), a !== null ? a.toString() : '');
+  }
+
+  try {
+    const res = await fetch('/api/nivelamento.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: params.toString()
+    });
+
+    const data = await res.json().catch(() => null);
+
+    if (!res.ok || !data || !data.ok) {
+      const msg = (data && data.erro) ? data.erro : 'Não foi possível calcular seu resultado agora. Verifique sua conexão e tente novamente.';
+      errBox.textContent = msg;
+      errBox.style.display = 'block';
+      btnNext.disabled = false;
+      btnBack.disabled = false;
+      btnNext.textContent = 'Tentar novamente';
+      return;
+    }
+
+    // Sucesso: renderizar tela de resultado
+    renderResultado(data.nivel, data.pontos);
+  } catch (err) {
+    console.error('Erro ao enviar nivelamento:', err);
+    errBox.textContent = 'Erro de comunicação com o servidor. Por favor, tente novamente.';
+    errBox.style.display = 'block';
+    btnNext.disabled = false;
+    btnBack.disabled = false;
+    btnNext.textContent = 'Tentar novamente';
+  }
+}
+
+function renderResultado(nivelCode, pontos) {
+  const level = LEVELS.find(l => l.code === nivelCode) || LEVELS[0];
   const firstName = lead.nome.split(' ')[0];
 
   document.getElementById('r-name').textContent = firstName;
   document.getElementById('r-code').textContent = level.code;
   document.getElementById('r-title').textContent = level.title;
-  document.getElementById('r-score').textContent = `Você acertou ${acertos} de ${QUESTIONS.length} questões`;
+  document.getElementById('r-score').textContent = `Você acertou ${pontos} de ${QUESTIONS.length} questões`;
   document.getElementById('r-desc').textContent = level.desc;
   document.querySelectorAll('#r-scale div').forEach(d => d.classList.toggle('on', d.textContent === level.code));
 
   const msg = `Olá, Teacher Samira! Sou ${lead.nome} e acabei de fazer o teste de nivelamento. Meu resultado foi ${level.code} (${level.title}). Gostaria de saber mais sobre: ${lead.interesse}.`;
   document.getElementById('r-whats').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
-  send(Object.assign({ action: 'finish', acertos, nivel: `${level.code} ${level.title}` }, lead));
   show('screen-result');
 }
 </script>

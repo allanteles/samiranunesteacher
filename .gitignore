@@ -15,7 +15,12 @@
 tmp/
 temp/
 
-# Variáveis de ambiente (segurança)
+# Variáveis de ambiente e credenciais (segurança)
 .env
 .env.local
 .env.*.local
+config.php
+
+# Diretórios internos e de persistência do backend
+ratelimit/
+storage/
